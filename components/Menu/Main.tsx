@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import mainStyle from '../../styles/menu/main.module.css'
+import mainStyle from '../../styles/home/main.module.css'
 import ActionAreaCard from './ActionAreaCard';
 
 

@@ -1,0 +1,14 @@
+.containerCard {
+    display: flex;
+    margin: 3rem 0;
+}
+
+.listRecipes {
+    text-align: center;
+}
+
+@media (max-width:900px) {
+    .containerCard {
+        flex-direction: column;
+    }
+}

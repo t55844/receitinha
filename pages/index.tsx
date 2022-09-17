@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import React from 'react'
-import ActionAreaCard from '../components/Menu/ActionAreaCard'
+import Footer from '../components/Footer/Footer'
 import Main from '../components/Menu/Main'
 import NavBar from '../components/Menu/NavBar'
-import CardMyReipes from '../components/SectionMyRecipes/CardMyRecipes'
-import style from '../styles/index.module.css'
+import CardMyReipes from '../components/SectionHome/CardMyRecipes'
+import RecipesList from '../components/SectionHome/RecipesList'
 
 export default function Home() {
   return (
@@ -23,7 +23,11 @@ export default function Home() {
       </header>
       <section>
         <CardMyReipes />
+        <RecipesList />
       </section>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

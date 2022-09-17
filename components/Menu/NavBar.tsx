@@ -20,7 +20,7 @@ export default function NavBar() {
     return (
         <div role="presentation" onClick={handleClick}>
             <Breadcrumbs aria-label="breadcrumb"
-                sx={{ background: colors.primary, display: 'flex', justifyContent: 'space-around', padding: '10px 15px' }}>
+                sx={{ background: colors.primaryLigth, display: 'flex', justifyContent: 'space-around', padding: '10px 15px' }}>
                 <Link
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}

@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cardEmphasis {
+    flex-grow: 2;
+    width: 55%;
+}
+
+.card {
+    flex-shrink: 1;
+    width: 45%;
+}
+
+@media (max-width:900px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cardEmphasis {
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .card {
+        flex-grow: 1;
+        width: 100%;
+    }
+}
