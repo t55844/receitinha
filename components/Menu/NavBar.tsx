@@ -9,16 +9,9 @@ import LocalPizzaSharpIcon from '@mui/icons-material/LocalPizzaSharp';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { colors } from '../MaterialUI/theme';
 
-
-
-function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-}
-
 export default function NavBar() {
     return (
-        <div role="presentation" onClick={handleClick}>
+        <div role="presentation">
             <Breadcrumbs aria-label="breadcrumb"
                 sx={{ background: colors.primaryLigth, display: 'flex', justifyContent: 'space-around', padding: '10px 15px' }}>
                 <Link
@@ -35,7 +28,7 @@ export default function NavBar() {
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
                     color="inherit"
-                    href="/"
+                    href="/MyRecipes/Form"
                 >
                     <ReceiptLongSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Minhas Receitas

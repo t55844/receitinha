@@ -19,16 +19,17 @@ export default function CardMyReipes() {
                 <Typography gutterBottom variant="h5" component="div">
                     Envie-nos suas proprias receitas
                 </Typography>
-                <Typography variant="subtitle1" color="">
+                <Typography variant="subtitle1" color=""
+                    sx={{ margin: "1.5rem 0" }}>
                     Caso você tenha alguma receita da vovó, da irma ou ate mesmo gostaria de compartilhar uma versão sua de alguma receita, então no envie e ela aparecera, para que outras pessoas verem e comentarem
                 </Typography>
                 <Link
-                    sx={{ margin: "1rem 0", border: `2px solid`, padding: '5px' }}
-                    component="button"
+                    sx={{ border: `2px solid`, padding: '0.6rem' }}
+                    component="a"
                     variant="button"
                     color="primary"
                     underline='none'
-                    href='/minhasReceitas'
+                    href='/MyRecipes/Form'
                 >
                     Envienos sua Receita
                 </Link>
