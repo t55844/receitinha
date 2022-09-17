@@ -22,7 +22,12 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "components/MaterialUI/theme.js",
+    "pages/_app.jsx",
+    "pages/index.jsx",
+    "pages/_app.jsx",
+    "pages/home/Home.jsx"
   ],
   "exclude": [
     "node_modules"
