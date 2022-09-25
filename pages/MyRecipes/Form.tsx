@@ -1,12 +1,9 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import React from "react";
+import { useEffect } from "react";
+import PageMyRecipes from "../../components/MyRecipes/PageMyRecipes";
 
-
-
-export default function BasicBreadcrumbs() {
+export default (props) => {
     return (
-
+        <PageMyRecipes />
     );
-}
+};
