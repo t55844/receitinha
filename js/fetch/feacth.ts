@@ -1,12 +1,10 @@
 import { IFormInput } from "../interface/form"
 
-export function save(data: IFormInput) {
-    const body = JSON.stringify(data)
-    console.log(body)
-    fetch('http://localhost:3030/api', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: body
+export function requestModel(url: string, method: string, headers: { 'Content-Type': string }, body: any) {
+    fetch(url, {
+        method,
+        headers,
+        body,
     })
         .then(res => res.json())
         .then(console.log)
@@ -14,11 +12,14 @@ export function save(data: IFormInput) {
 
 }
 
-export function getRecipes() {
-    fetch('http://localhost:3030/api')
-        .then(res => res.json())
-        .then(console.log)
-        .catch(erro => console.log(erro))
+export async function getRecipes() {
+    try {
+        const res = await fetch('http://localhost:3030/api')
+        const res_1 = await res.json()
+        return res_1
+    } catch (erro) {
+        return console.log('Erro' + erro)
+    }
 }
 
 

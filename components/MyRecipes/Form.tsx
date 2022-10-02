@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
 import formStyle from '../../styles/MyRecipes/form.module.css'
@@ -6,8 +6,6 @@ import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
 import { myRecipes } from "../../js/form/myRecipes";
-import { save } from "../../js/fetch/feacth";
-import { IFormInput } from "../../js/interface/form"
 
 
 const styleInput = {
@@ -17,15 +15,25 @@ const styleInput = {
 
 const onSubmit = (data) => {
     event.preventDefault()
-    save(data)
+    const recipeImg = data.image
+    myRecipes.submitRecipe({ ...data }, recipeImg)
 }
 
 export default (props) => {
     const { control, handleSubmit, getValues } = useForm();
+    const [image, setImage]: any = useState()
+    useEffect(() => {
+        myRecipes.getImage()
+            .then(srcImg => {
+                setImage(srcImg)
+                console.log(srcImg)
+            })
+    }, [])
 
     const [ingredientFields, setIngredientFields] = useState([<Controller
         key={1}
         name={`ingredient${1}`}
+        defaultValue=""
         control={control}
         render={({ field }) => <TextField{...field}
             sx={styleInput}
@@ -40,7 +48,9 @@ export default (props) => {
     const count = ingredientFields.length + 1
 
     return (
+
         <form onSubmit={handleSubmit(onSubmit)}>
+            <img src={image} alt="" />
             <Typography
                 variant="h5">
                 Escreva sua receita
@@ -70,6 +80,7 @@ export default (props) => {
                             key={- count}
                             name={`ingredient${count}`}
                             control={control}
+                            defaultValue=""
                             render={({ field }) => <TextField{...field}
                                 sx={styleInput}
                                 id="ingredient"
@@ -124,6 +135,29 @@ export default (props) => {
                             endAdornment: <InputAdornment position="end">horas/minutos</InputAdornment>,
                         }} />}
                 />
+                <div style={styleInput}>
+                    <Typography
+                        variant="subtitle1"
+                    >
+                        Escolha uma imagem
+                    </Typography>
+                    <Controller
+                        key={13}
+                        name="image"
+                        control={control}
+                        defaultValue=""
+                        render={({ field }) => <input
+                            id="image_upload_input_recipes"
+                            name='file'
+                            className={formStyle.uploadeImgButton}
+                            style={styleInput} {...field}
+                            type="file"
+                            accept="image/png, image/jpg"
+                        />}
+                    />
+
+                </div>
+
                 <Button
                     title="submit-button"
                     sx={{ width: "40%", margin: "1.5rem auto" }}

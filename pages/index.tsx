@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import React from 'react'
+
+import mainStyle from '../styles/home/main.module.css'
 import Main from '../components/Menu/Main'
 import CardMyReipes from '../components/SectionHome/CardMyRecipes'
 import RecipesList from '../components/SectionHome/RecipesList'
+import SideBar from '../components/SideBar/SideBar'
+import { myRecipes } from '../js/form/myRecipes'
 
 export default function Home() {
   return (
@@ -19,10 +23,13 @@ export default function Home() {
       <header>
         <Main />
       </header>
-      <section>
-        <CardMyReipes />
-        <RecipesList />
-      </section>
-    </div>
+      <main className={mainStyle.main}>
+        <section>
+          <CardMyReipes />
+          <RecipesList />
+        </section>
+        <SideBar />
+      </main>
+    </div >
   )
 }
