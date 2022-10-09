@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
-import formStyle from '../../styles/MyRecipes/form.module.css'
+import formStyle from '../../styles/myRecipes/form.module.css'
 import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
-import { myRecipes } from "../../js/form/myRecipes";
+import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
+import { email } from "../../js/interface/form";
 
 
 const styleInput = {
@@ -16,19 +17,11 @@ const styleInput = {
 const onSubmit = (data) => {
     event.preventDefault()
     const recipeImg = data.image
-    myRecipes.submitRecipe({ ...data }, recipeImg)
+    myRecipesForm.submitRecipe({ ...data, email }, recipeImg)
 }
 
 export default (props) => {
     const { control, handleSubmit, getValues } = useForm();
-    const [image, setImage]: any = useState()
-    useEffect(() => {
-        myRecipes.getImage()
-            .then(srcImg => {
-                setImage(srcImg)
-                console.log(srcImg)
-            })
-    }, [])
 
     const [ingredientFields, setIngredientFields] = useState([<Controller
         key={1}
@@ -50,12 +43,11 @@ export default (props) => {
     return (
 
         <form onSubmit={handleSubmit(onSubmit)}>
-            <img src={image} alt="" />
-            <Typography
-                variant="h5">
-                Escreva sua receita
-            </Typography>
             <div className={formStyle.formContainer}>
+                <Typography
+                    variant="h5">
+                    Escreva sua receita
+                </Typography>
 
                 <Controller
                     key={5}
@@ -76,7 +68,7 @@ export default (props) => {
                         sx={{ width: "2rem", margin: 'auto' }}
                         aria-label="PlusOne"
                         color="primary"
-                        onClick={() => myRecipes.plusOne(setIngredientFields, ingredientFields, <Controller
+                        onClick={() => myRecipesForm.plusOne(setIngredientFields, ingredientFields, <Controller
                             key={- count}
                             name={`ingredient${count}`}
                             control={control}

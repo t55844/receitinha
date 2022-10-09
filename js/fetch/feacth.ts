@@ -1,20 +1,20 @@
 import { IFormInput } from "../interface/form"
 
-export function requestModel(url: string, method: string, headers: { 'Content-Type': string }, body: any) {
-    fetch(url, {
+export function requestModel(url: string, optons: { method: string, headers?: { 'Content-Type': string }, body?: any }): Promise<any> {
+    const { method, headers, body } = optons
+    return fetch(url, {
         method,
         headers,
         body,
     })
-        .then(res => res.json())
-        .then(console.log)
+        .then(res => res)
         .catch(erro => console.log(erro))
 
 }
 
-export async function getRecipes() {
+export async function getRecipes(id) {
     try {
-        const res = await fetch('http://localhost:3030/api')
+        const res = await fetch(`http://localhost:3030/api/?id=${id}`)
         const res_1 = await res.json()
         return res_1
     } catch (erro) {

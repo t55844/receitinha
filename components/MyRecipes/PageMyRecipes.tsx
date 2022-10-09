@@ -3,6 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Form from './Form';
+import MyRecipesList from './MyRecipeList';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -53,7 +54,7 @@ export default function BasicTabs() {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                minhas receitas
+                <MyRecipesList />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Form />

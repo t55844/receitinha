@@ -5,3 +5,5 @@ export interface IFormInput {
     difficulty: string,
     duration: number,
 }
+
+export const email = 'guto22@yahoo.com'

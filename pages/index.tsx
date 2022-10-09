@@ -6,7 +6,7 @@ import Main from '../components/Menu/Main'
 import CardMyReipes from '../components/SectionHome/CardMyRecipes'
 import RecipesList from '../components/SectionHome/RecipesList'
 import SideBar from '../components/SideBar/SideBar'
-import { myRecipes } from '../js/form/myRecipes'
+import { myRecipes } from '../js/MyRecipes/myRecipesForm'
 
 export default function Home() {
   return (

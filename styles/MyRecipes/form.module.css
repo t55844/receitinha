@@ -5,6 +5,7 @@
     width: 70%;
     flex-direction: column;
     margin: 3rem auto;
+    text-align: center;
 }
 
 .ingredient {
