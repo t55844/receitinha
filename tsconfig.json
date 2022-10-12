@@ -28,7 +28,8 @@
     "pages/index.jsx",
     "pages/_app.jsx",
     "pages/home/Home.jsx",
-    "js/fetch/feacth.js"
+    "js/fetch/feacth.js",
+    "components/MyRecipes/Ingredient.jsx"
   ],
   "exclude": [
     "node_modules"

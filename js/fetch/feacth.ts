@@ -1,4 +1,4 @@
-import { IFormInput } from "../interface/form"
+import { IFormInput } from "../interface_and_ultils/form"
 
 export function requestModel(url: string, optons: { method: string, headers?: { 'Content-Type': string }, body?: any }): Promise<any> {
     const { method, headers, body } = optons

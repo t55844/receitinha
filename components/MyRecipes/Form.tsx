@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
-import { email } from "../../js/interface/form";
+import { email } from "../../js/interface_and_ultils/form";
 
 
 const styleInput = {

@@ -1,5 +1,5 @@
 import { getRecipes, requestModel } from "../fetch/feacth"
-import { email, IFormInput } from "../interface/form"
+import { email, IFormInput } from "../interface_and_ultils/form"
 
 function plusOne(setState: any, currentState: JSX.Element[], component: JSX.Element) {
     const newComponent = currentState.concat(component)
