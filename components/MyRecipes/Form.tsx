@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
-import formStyle from '../../styles/myRecipes/form.module.css'
+import formStyle from '../../styles/myRecipes/myRecipes.module.css'
 import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
