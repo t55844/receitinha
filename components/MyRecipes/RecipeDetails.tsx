@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
@@ -15,6 +14,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Ingredients from './Ingredients';
+
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -33,14 +33,17 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function RecipeDetails(props) {
     const recipe = props.recipe
+    const name = props.name
     const [expanded, setExpanded] = React.useState(false);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+    const handleExpandClick = (currentName: string) => {
+        if (name === currentName) {
+            setExpanded(!expanded);
+        }
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ width: "25%", margin: '3%' }}>
             <CardHeader
 
                 action={
@@ -74,7 +77,7 @@ export default function RecipeDetails(props) {
                 </IconButton>
                 <ExpandMore
                     expand={expanded}
-                    onClick={handleExpandClick}
+                    onClick={() => handleExpandClick(name)}
                     aria-expanded={expanded}
                     aria-label="show more"
                 >
@@ -99,41 +102,3 @@ export default function RecipeDetails(props) {
         </Card>
     );
 }
-
-
-/**
- *                            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-                            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-                            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-                            large plate and set aside, leaving chicken and chorizo in the pan. Add
-                            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-                            stirring often until thickened and fragrant, about 10 minutes. Add
-                            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-
-                            difficulty
-: 
-"ijh"
-duration
-: 
-"1"
-email
-: 
-"guto22@yahoo.com"
-image
-: 
-"C:\\fakepath\\bater-papo.png"
-ingredient1
-: 
-"asffsdf"
-ingredient2
-: 
-"dfsfdsfs"
-ingredient3
-: 
-"afsafwere"
-name
-: 
-"fghfghfghf"
-preparation
-
- */

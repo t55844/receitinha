@@ -6,7 +6,7 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 
-export default props => {
+export default function Footer(props) {
     return (
         <div style={{ backgroundColor: colors.primary, display: 'flex', padding: '0 1.5rem', margin: '3rem 0 0' }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
