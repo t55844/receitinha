@@ -16,8 +16,7 @@ const styleInput = {
 
 const onSubmit = (data) => {
     event.preventDefault()
-    const recipeImg = data.image
-    myRecipesForm.submitRecipe({ ...data, email }, recipeImg)
+    myRecipesForm.submitRecipe({ ...data, email })
 }
 
 export default function Form(props) {
@@ -133,20 +132,15 @@ export default function Form(props) {
                     >
                         Escolha uma imagem
                     </Typography>
-                    <Controller
-                        key={13}
-                        name="image"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <input
-                            id="image_upload_input_recipes"
-                            name='file'
-                            className={formStyle.uploadeImgButton}
-                            style={styleInput} {...field}
-                            type="file"
-                            accept="image/png, image/jpg"
-                        />}
+                    <input
+                        id="image_upload_input_recipes"
+                        name='file'
+                        className={formStyle.uploadeImgButton}
+                        style={styleInput}
+                        type="file"
+                        accept="image/png, image/jpg"
                     />
+
 
                 </div>
 
