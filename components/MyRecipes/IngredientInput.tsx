@@ -5,12 +5,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
 
 export default function IngredientInput(props) {
-    const { count, styleInput, deleteInput, inputIngredientContent, content } = props
+    const { count, styleInput, deleteInput } = props
 
     return (
         <div id={`ingredient${count}`} style={styleInput}>
             <TextField
-                onBlur={(e) => inputIngredientContent(e.target.value)}
                 sx={{ width: '90%' }}
                 id="ingredient"
                 label="Descreva o ingrediente"
@@ -18,7 +17,7 @@ export default function IngredientInput(props) {
                 InputProps={{
                     startAdornment: <InputAdornment position="start">{count + ' - '}</InputAdornment>,
                 }}
-            >{content}</TextField>
+            ></TextField>
             <IconButton
                 onClick={() => deleteInput(`ingredient${count}`)}
                 aria-label="delete"

@@ -35,7 +35,7 @@ export default function Form(props) {
     }
 
     const [ingredientFields, setIngredientFields] = useState([<Controller
-        key={1}
+        key={`ingredient${1}`}
         name={`ingredient${1}`}
         defaultValue=""
         control={control}
@@ -49,7 +49,20 @@ export default function Form(props) {
             }} />}
     />])
 
-    const count = ingredientFields.length + 1
+    const [inputToDelete, setInputToDelete] = useState()
+
+    useEffect(() => deleteInput(), [inputToDelete])
+
+    function deleteInput() {
+        const newList = ingredientFields.filter(element => {
+            console.log(element.key, '<------>', inputToDelete)
+            return element.key != inputToDelete
+        })
+        console.log(newList)
+        setIngredientFields(newList)
+    }
+
+    const count = countOutOfScope
     return (
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -78,20 +91,24 @@ export default function Form(props) {
                         sx={{ width: "2rem", margin: 'auto' }}
                         aria-label="PlusOne"
                         color="primary"
-                        onClick={() => myRecipesForm.plusOne(setIngredientFields, ingredientFields, <Controller
-                            key={- count}
-                            name={`ingredient${count}`}
-                            control={control}
-                            defaultValue=""
-                            render={({ field }) => <TextField{...field}
-                                sx={styleInput}
-                                id="ingredient"
-                                label="Descreva o ingrediente"
-                                variant="outlined"
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start">{count + ' - '}</InputAdornment>,
-                                }} />}
-                        />)}>
+                        onClick={() => {
+                            countOutOfScope++
+                            myRecipesForm.plusOne(setIngredientFields, ingredientFields, <Controller
+                                key={`ingredient${count}`}
+                                name={`ingredient${count}`}
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <TextField{...field}
+                                    onClick={() => setInputToDelete(`ingredient${count}`)}
+                                    sx={styleInput}
+                                    id="ingredient"
+                                    label="Descreva o ingrediente"
+                                    variant="outlined"
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position="start">{' - '}</InputAdornment>,
+                                    }} />}
+                            />)
+                        }}>
                         <PlusOneIcon />
                     </IconButton>
                 </div>
