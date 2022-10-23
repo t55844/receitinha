@@ -3,7 +3,7 @@ export interface IFormInput {
     ingredient: string,
     preparation: string,
     difficulty: string,
-    duration: number,
+    duration: string,
 }
 
 export const email = 'guto22@yahoo.com'
