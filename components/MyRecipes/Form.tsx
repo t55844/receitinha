@@ -6,21 +6,33 @@ import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
-import { email } from "../../js/interface_and_ultils/interface";
+import SelectForm from "./SelectForm";
+import IngredientInput from "./IngredientInput";
 
 
 const styleInput = {
     width: "80%",
     margin: '1.5rem auto'
 }
+let countOutOfScope = 2
 
-const onSubmit = (data) => {
-    event.preventDefault()
-    myRecipesForm.submitRecipe({ ...data, email })
-}
 
 export default function Form(props) {
-    const { control, handleSubmit, getValues } = useForm();
+    const { control, handleSubmit, getValues, setValue, reset } = useForm();
+
+
+    const onSubmit = (data) => {
+        event.preventDefault()
+        const check = myRecipesForm.verifyFields(
+            ['name', 'ingredient1', 'preparation', 'difficulty', 'duration'],
+            ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
+            data)
+        if (check) {
+            console.log(data)
+            //myRecipesForm.submitRecipe({ ...data, email })
+            reset()
+        }
+    }
 
     const [ingredientFields, setIngredientFields] = useState([<Controller
         key={1}
@@ -38,7 +50,6 @@ export default function Form(props) {
     />])
 
     const count = ingredientFields.length + 1
-
     return (
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -101,30 +112,34 @@ export default function Form(props) {
 
                 <Controller
                     key={3}
-                    name="difficulty"
+                    name={"difficulty"}
                     control={control}
                     defaultValue=""
-                    render={({ field }) => <TextField{...field}
+                    render={({ field }) => <SelectForm
+                        name={'difficulty'}
+                        selectOption={setValue}
                         sx={styleInput}
-                        id="difficulty"
-                        label="Diga a dificuldade"
-                        variant="outlined" />}
+                        options={[
+                            'Simples', 'Facil', "Dificil", "Muito Dificil"
+                        ]}
+                        label='Dificuldade'
+                    />}
                 />
 
                 <Controller
                     key={2}
                     name="duration"
                     control={control}
-                    defaultValue={0}
-                    render={({ field }) => <TextField{...field}
+                    defaultValue=''
+                    render={({ field }) => <SelectForm
+                        name={'duration'}
+                        selectOption={setValue}
                         sx={styleInput}
-                        id='duration'
-                        type="number"
-                        label="Quanto tempo leva"
-                        variant="outlined"
-                        InputProps={{
-                            endAdornment: <InputAdornment position="end">horas/minutos</InputAdornment>,
-                        }} />}
+                        options={[
+                            '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
+                        ]}
+                        label='Tempo'
+                    />}
                 />
                 <div style={styleInput}>
                     <Typography
