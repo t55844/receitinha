@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import SelectForm from "./SelectForm";
 import IngredientInput from "./IngredientInput";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 
 const styleInput = {
@@ -45,22 +46,15 @@ export default function Form(props) {
             label="Descreva o ingrediente"
             variant="outlined"
             InputProps={{
-                startAdornment: <InputAdornment position="start">1 - </InputAdornment>,
+                startAdornment: <InputAdornment position="start"> - </InputAdornment>,
             }} />}
     />])
 
     const [inputToDelete, setInputToDelete] = useState()
 
-    useEffect(() => deleteInput(), [inputToDelete])
+    useEffect(() => myRecipesForm.deleteInput(setIngredientFields, ingredientFields, inputToDelete), [inputToDelete])
 
-    function deleteInput() {
-        const newList = ingredientFields.filter(element => {
-            console.log(element.key, '<------>', inputToDelete)
-            return element.key != inputToDelete
-        })
-        console.log(newList)
-        setIngredientFields(newList)
-    }
+
 
     const count = countOutOfScope
     return (

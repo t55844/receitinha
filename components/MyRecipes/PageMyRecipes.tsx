@@ -38,7 +38,7 @@ function a11yProps(index: number) {
     };
 }
 
-export default function BasicTabs() {
+export default function PageMyRecipes() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -46,9 +46,9 @@ export default function BasicTabs() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box aria-label='tabs box' sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-around' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <Tabs value={value} onChange={handleChange} >
                     <Tab label="Minhas receitas" {...a11yProps(0)} />
                     <Tab label="Enviar uma receita" {...a11yProps(1)} />
                 </Tabs>

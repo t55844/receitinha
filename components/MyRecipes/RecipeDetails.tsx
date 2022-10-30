@@ -57,6 +57,7 @@ export default function RecipeDetails(props) {
                 />
                 <CardMedia
                     component="img"
+                    role='img'
                     height="194"
                     image={recipe.img}
                 />
@@ -78,6 +79,7 @@ export default function RecipeDetails(props) {
                         <ShareIcon />
                     </IconButton>
                     <ExpandMore
+
                         expand={expanded}
                         onClick={() => handleExpandClick(name)}
                         aria-expanded={expanded}

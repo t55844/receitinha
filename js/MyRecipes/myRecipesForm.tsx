@@ -1,3 +1,4 @@
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace"
 import { async } from "rxjs"
 import { getRecipes, requestModel } from "../fetch/fecth"
 import { eventEmitter } from "../interface_and_ultils/EventEmiter"
@@ -73,15 +74,16 @@ function plusOne(setState: any, currentState: JSX.Element[], component: JSX.Elem
     setState(newComponent)
 }
 
-function deleteOne(setState: any, currentState: JSX.Element[], elementKey: string) {
-    const newIngredients = currentState.filter(element => element.key !== elementKey)
-
-    setState(newIngredients)
+function deleteInput(setIngredientFields, ingredientFields: ReactJSXElement[], inputToDelete: string) {
+    const newList = ingredientFields.filter(element => {
+        return element.key != inputToDelete
+    })
+    setIngredientFields(newList)
 }
 
 export const myRecipesForm = {
     plusOne,
     submitRecipe,
     verifyFields,
-    deleteOne
+    deleteInput
 }
