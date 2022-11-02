@@ -5,7 +5,7 @@ import formStyle from '../../styles/myRecipes/myRecipes.module.css'
 import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
-import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
+import { joinInredients, myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import SelectForm from "./SelectForm";
 import IngredientInput from "./IngredientInput";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
@@ -29,7 +29,6 @@ export default function Form(props) {
             ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
             data)
         if (check) {
-            console.log(data)
             //myRecipesForm.submitRecipe({ ...data, email })
             reset()
         }
@@ -59,7 +58,7 @@ export default function Form(props) {
     const count = countOutOfScope
     return (
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
             <div className={formStyle.formContainer}>
                 <Typography
                     variant="h5">

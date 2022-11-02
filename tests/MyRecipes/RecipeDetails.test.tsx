@@ -11,7 +11,8 @@ describe('<RecipeDetails />', () => {
         difficulty: 'Facil',
         duration: '30 minutos',
         preparation: 'compra massa pre-pronta, pois e mais facil',
-        img: '../../public/imagem_para_testes.jpg'
+        img: '../../public/imagem_para_testes.jpg',
+        ingredient: ['agua', 'leite', 'trigo', 'aveia', 'banana']
     }
 
     const name = 'pao'

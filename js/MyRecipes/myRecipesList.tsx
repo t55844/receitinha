@@ -31,23 +31,6 @@ async function recipeFromDB() {
 
 }
 
-function ingredientsList(recipe: object): string[] {
-    let last = false
-    let count = 1
-    const ingredients = []
-    while (last = true) {
-        if (recipe[`ingredient${count}`]) {
-            ingredients.push(recipe[`ingredient${count}`])
-            count++
-        } else {
-            last = true
-            break
-        }
-    }
-    return ingredients
-}
-
 export const myRecipesList = {
     recipeFromDB,
-    ingredientsList
 }

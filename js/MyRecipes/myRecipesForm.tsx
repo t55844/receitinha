@@ -17,6 +17,54 @@ function getImageFromInput(): any {
     }
 }
 
+/**
+ * 
+ * difficulty
+: 
+"Simples"
+duration
+: 
+"30 minutos"
+ingredient1
+: 
+"dsf"
+ingredient2
+: 
+"dsf"
+ingredient3
+: 
+"sdf"
+ingredient4
+: 
+"dsf"
+name
+: 
+"dsf"
+preparation
+: 
+"dsf"
+ */
+
+export function joinInredients(data: IFormInput): IFormInput {
+    const body = {
+        name: data.name,
+        preparation: data.preparation,
+        duration: data.duration,
+        difficulty: data.difficulty
+    }
+
+    delete data.name,
+        delete data.preparation,
+        delete data.duration,
+        delete data.difficulty
+
+    const Ingredient = Object.values(data)
+    body['ingredient'] = Ingredient
+
+    return body
+
+}
+
 function sendRequisition(data: IFormInput): void | Promise<any> {
     const formData = new FormData();
 
@@ -58,7 +106,9 @@ function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput
 }
 
 async function submitRecipe(data: IFormInput) {
-    const res = await sendRequisition(data)
+
+    const body = joinInredients(data)
+    const res = await sendRequisition(body)
 
     if (res && res.error === false) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'success', menssage: res.menssage })
