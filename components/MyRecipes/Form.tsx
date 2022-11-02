@@ -50,7 +50,7 @@ export default function Form(props) {
             }} />}
     />])
 
-    const [inputToDelete, setInputToDelete] = useState()
+    const [inputToDelete, setInputToDelete] = useState<string>()
 
     useEffect(() => myRecipesForm.deleteInput(setIngredientFields, ingredientFields, inputToDelete), [inputToDelete])
 
@@ -92,15 +92,13 @@ export default function Form(props) {
                                 name={`ingredient${count}`}
                                 control={control}
                                 defaultValue=""
-                                render={({ field }) => <TextField{...field}
-                                    onClick={() => setInputToDelete(`ingredient${count}`)}
-                                    sx={styleInput}
-                                    id="ingredient"
-                                    label="Descreva o ingrediente"
-                                    variant="outlined"
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">{' - '}</InputAdornment>,
-                                    }} />}
+                                render={({ field }) => <IngredientInput
+                                    count={count}
+                                    deleteInput={() =>
+                                        setInputToDelete(`ingredient${count}`)}
+                                    field={field}
+                                    styleInput={styleInput}
+                                />}
                             />)
                         }}>
                         <PlusOneIcon />

@@ -10,7 +10,6 @@ describe('<PageMyRecipes />', () => {
 
         render(<PageMyRecipes />)
 
-        waitFor(() => )
 
 
         expect(screen.queryByLabelText('tabs box')).not.toBeNull
