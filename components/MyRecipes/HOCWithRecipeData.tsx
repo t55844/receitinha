@@ -6,11 +6,16 @@ export function HOCWithRecipeData(WrappedComponent) {
         state = {
             data: [],
             loading: true,
+            failed: false
         }
 
         async componentDidMount() {
             const data = await myRecipesList.recipeFromDB()
-            this.setState({ data, loading: false });
+                .catch(error => console.log('HOC Recipes' + error))
+
+            if (data.length != 0) { this.setState({ data, loading: false, failed: false }) }
+            else { this.setState({ data, loading: false, failed: true }) }
+
         }
 
         render() {

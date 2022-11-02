@@ -1,4 +1,4 @@
-function testArrayLength(array: []): { error: boolean, menssage: string } {
+function testArrayLength(array: any): { error: boolean, menssage: string } {
     if (!Array.isArray(array)) {
         return {
             error: true,

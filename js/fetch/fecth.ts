@@ -13,7 +13,7 @@ export function requestModel(url: string, optons: { method: string, body?: any, 
 
 }
 
-export function getRecipes(id): Promise<void | Response> {
+export function getRecipes(id): Promise<[] | void | Response> {
 
     return fetch(`http://localhost:3030/api/?id=${id}`)
         .then(res => res.json())
