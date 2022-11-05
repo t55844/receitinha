@@ -37,9 +37,11 @@ export default function Form(props) {
     const [ingredientFields, setIngredientFields] = useState([<Controller
         key={`ingredient${1}`}
         name={`ingredient${1}`}
+        aria-label='ingredient input'
         defaultValue=""
         control={control}
         render={({ field }) => <TextField{...field}
+            placeholder='Ingrediente'
             sx={styleInput}
             id="ingredient"
             label="Descreva o ingrediente"
@@ -71,6 +73,7 @@ export default function Form(props) {
                     control={control}
                     defaultValue=""
                     render={({ field }) => <TextField{...field}
+                        placeholder='bolo de milho'
                         sx={styleInput}
                         id="name"
                         label="O nome da receita"
@@ -82,7 +85,7 @@ export default function Form(props) {
 
                     <IconButton
                         sx={{ width: "2rem", margin: 'auto' }}
-                        aria-label="PlusOne"
+                        aria-label="plusOne"
                         color="primary"
                         onClick={() => {
                             countOutOfScope++
@@ -110,6 +113,7 @@ export default function Form(props) {
                     control={control}
                     defaultValue=""
                     render={({ field }) => <TextField{...field}
+                        placeholder='coloque a massa na batedeira, misture com leite e a manteiga ate que fique homogenea'
                         sx={styleInput}
                         id="preparation"
                         label="Explique o modo de preparo"
@@ -156,6 +160,7 @@ export default function Form(props) {
                         Escolha uma imagem
                     </Typography>
                     <input
+                        aria-label="entrada de imagem"
                         id="image_upload_input_recipes"
                         name='file'
                         className={formStyle.uploadeImgButton}

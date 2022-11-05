@@ -9,6 +9,7 @@ export default function IngredientInput(props) {
     return (
         <div id={`ingredient${count}`} style={styleInput}>
             <TextField
+                placeholder='Ingrediente'
                 {...field}
                 sx={{ width: '90%' }}
                 id="ingredient"

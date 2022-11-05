@@ -35,7 +35,6 @@ describe('<MyRecipeList />', () => {
     test('Conteudo', async () => {
 
         await act(async () => { render(<PageMyRecipes />) })
-
         expect(screen.getByText('Não existe receita ainda, tente mandar uma clicando na aba')).toBeInTheDocument()
 
     })

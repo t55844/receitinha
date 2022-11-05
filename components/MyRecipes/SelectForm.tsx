@@ -19,7 +19,7 @@ const SelectForm = (props) => {
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">{label}</InputLabel>
                 <Select
-
+                    placeholder={options[0]}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={option}
