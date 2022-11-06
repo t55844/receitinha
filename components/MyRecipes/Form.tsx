@@ -29,6 +29,7 @@ export default function Form(props) {
             ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
             data)
         if (check) {
+            console.log(data)
             //myRecipesForm.submitRecipe({ ...data, email })
             reset()
         }

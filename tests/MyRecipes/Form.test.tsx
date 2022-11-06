@@ -16,44 +16,42 @@ describe('<From />', () => {
         expect(screen.queryByLabelText('entrada de imagem')).not.toBeNull()
     })
 
-    test('digitando  todos os campos do formulario', async () => {
+    test('digitando  todos os campos do formulario e enviando', async () => {
         const user = userEvent.setup()
         render(<Form />)
-
-        const file = new File(['hello'], 'hello.png', { type: 'image/png' })
 
         const titleField = screen.getByPlaceholderText('bolo de milho')
         const ingredientField = screen.getByPlaceholderText('Ingrediente')
         const preparationField = screen.getByPlaceholderText('coloque a massa na batedeira, misture com leite e a manteiga ate que fique homogenea')
-        const dificultField = screen.getByPlaceholderText('Simples')
-        const timeField = screen.getByPlaceholderText('20 minutos')
-        const imageField = screen.getByLabelText('entrada de imagem')
 
         expect(screen.queryByDisplayValue('titulo da receita')).toBeNull()
         expect(screen.queryByDisplayValue('ingrediente da receita')).toBeNull()
         expect(screen.queryByDisplayValue('preparo da receita')).toBeNull()
-        expect(screen.queryByDisplayValue('dificuldade da receita')).toBeNull()
-        expect(screen.queryByDisplayValue('tempo da receita')).toBeNull()
 
         await user.type(titleField, 'titulo da receita')
         await user.type(ingredientField, 'ingrediente da receita')
         await user.type(preparationField, 'preparo da receita')
 
-        //await user.selectOptions(dificultField, 'Simples')
-        //await user.selectOptions(timeField, '30 minutos')
-
-        await user.upload(imageField, file)
-
         expect(screen.queryByDisplayValue('titulo da receita')).not.toBeNull()
         expect(screen.queryByDisplayValue('ingrediente da receita')).not.toBeNull()
         expect(screen.queryByDisplayValue('preparo da receita')).not.toBeNull()
-        //expect(screen.queryByDisplayValue('Simples')).not.toBeNull()
-        //expect(screen.queryByDisplayValue('30 minutos')).not.toBeNull()
+
+    })
+
+    test('campo de entrada de arquivo', async () => {
+        const user = userEvent.setup()
+        render(<Form />)
+
+        const imageField = screen.getByLabelText('entrada de imagem')
+        const file = new File(['hello'], 'hello.png', { type: 'image/png' })
+
+        await user.upload(imageField, file)
 
         expect(imageField.files[0]).toStrictEqual(file)
         expect(imageField.files.item(0)).toStrictEqual(file)
         expect(imageField.files).toHaveLength(1)
     })
+
 })
 
 describe('<IngredientInput />', () => {
