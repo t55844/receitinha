@@ -1,8 +1,50 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { getAllByLabelText, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import Form from '../../components/MyRecipes/Form'
 
+
+describe('Envio de formulario', () => {
+    test('Todas informações digitadas corretamente', async () => {
+        const user = userEvent.setup({ pointerEventsCheck: 0 })
+        render(<Form />)
+
+        const titleField = screen.getByPlaceholderText('bolo de milho')
+        const ingredientField = screen.getByPlaceholderText('Ingrediente')
+        const preparationField = screen.getByPlaceholderText('coloque a massa na batedeira, misture com leite e a manteiga ate que fique homogenea')
+
+        await user.type(titleField, 'titulo da receita')
+        await user.type(ingredientField, 'ingrediente da receita')
+        await user.type(preparationField, 'preparo da receita')
+
+
+        const selectDificulty = screen.getByRole('select-Dificuldade')
+        const selectDuration = screen.getByRole('select-Duração')
+
+        await user.selectOptions(selectDificulty, 'Simples')
+        await user.selectOptions(selectDuration, '20 minutos')
+
+        const imageField = screen.getByLabelText('entrada de imagem')
+        const file = new File(['hello'], 'hello.png', { type: 'image/png' })
+
+        await user.upload(imageField, file)
+
+        expect(screen.queryByDisplayValue('titulo da receita')).not.toBeNull()
+        expect(screen.queryByDisplayValue('ingrediente da receita')).not.toBeNull()
+        expect(screen.queryByDisplayValue('preparo da receita')).not.toBeNull()
+        expect(screen.getByRole('option', { name: 'Simples' }).selected).toBe(true)
+        expect(screen.getByRole('option', { name: '20 minutos' }).selected).toBe(true)
+        expect(imageField.files.item(0)).toStrictEqual(file)
+
+        const buttonSend = screen.getByText('Enviar')
+        await user.click(buttonSend)
+
+        expect(screen.queryByDisplayValue('titulo da receita')).toBeNull()
+        expect(screen.queryByDisplayValue('ingrediente da receita')).toBeNull()
+        expect(screen.queryByDisplayValue('preparo da receita')).toBeNull()
+
+    })
+})
 
 describe('<From />', () => {
     test('verificando todos os campos do formulario', () => {
@@ -11,8 +53,8 @@ describe('<From />', () => {
         expect(screen.queryByPlaceholderText('bolo de milho')).not.toBeNull()
         expect(screen.queryByPlaceholderText('Ingrediente')).not.toBeNull()
         expect(screen.queryByPlaceholderText('coloque a massa na batedeira, misture com leite e a manteiga ate que fique homogenea')).not.toBeNull()
-        expect(screen.queryByPlaceholderText('Simples')).not.toBeNull()
-        expect(screen.queryByPlaceholderText('20 minutos')).not.toBeNull()
+        expect(screen.queryAllByText('Dificuldade')[0]).not.toBeNull()
+        expect(screen.queryAllByText('Duração')[0]).not.toBeNull()
         expect(screen.queryByLabelText('entrada de imagem')).not.toBeNull()
     })
 
@@ -35,6 +77,30 @@ describe('<From />', () => {
         expect(screen.queryByDisplayValue('titulo da receita')).not.toBeNull()
         expect(screen.queryByDisplayValue('ingrediente da receita')).not.toBeNull()
         expect(screen.queryByDisplayValue('preparo da receita')).not.toBeNull()
+
+    })
+
+    test('testando select', async () => {
+        const user = userEvent.setup()
+        render(<Form />)
+
+        const selectDificulty = screen.getByRole('select-Dificuldade')
+        const selectDuration = screen.getByRole('select-Duração')
+        expect(selectDificulty).not.toEqual(selectDuration)
+
+        await user.selectOptions(selectDificulty, 'Simples')
+        await user.selectOptions(selectDuration, '20 minutos')
+
+        expect(screen.getByRole('option', { name: 'Simples' }).selected).toBe(true)
+        expect(screen.getByRole('option', { name: '20 minutos' }).selected).toBe(true)
+
+        expect(screen.getByRole('option', { name: '30 minutos' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: '60 minutos' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Mais de 1:30 hora' }).selected).toBe(false)
+
+        expect(screen.getByRole('option', { name: 'Dificil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Facil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Muito Dificil' }).selected).toBe(false)
 
     })
 

@@ -14,21 +14,21 @@ describe('<SelectFrom />', () => {
     })
     test('Seleciona opções', async () => {
         const user = userEvent.setup()
-        render(<SelectForm label='select' options={['Simples', 'Facil', 'Dificil', 'Muito dificil']} />)
+        render(<SelectForm selectOption={console.log} label='select' options={['Simples', 'Facil', 'Dificil', 'Muito Dificil']} />)
 
         const select = screen.getByLabelText('select')
 
-        expect(screen.queryByText('Simples')).not.toBeInTheDocument()
-        expect(screen.queryByText('Muito dificil')).not.toBeInTheDocument()
-        expect(screen.queryByText('Dificil')).not.toBeInTheDocument()
-        expect(screen.queryByText('Facil')).not.toBeInTheDocument()
+        await user.selectOptions(select, ['Simples'])
+        expect(screen.getByRole('option', { name: 'Simples' }).selected).toBe(true)
+        expect(screen.getByRole('option', { name: 'Dificil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Facil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Muito Dificil' }).selected).toBe(false)
 
-        await user.click(select)
-
-        expect(screen.queryByText('Simples')).toBeInTheDocument()
-        expect(screen.queryByText('Muito dificil')).toBeInTheDocument()
-        expect(screen.queryByText('Dificil')).toBeInTheDocument()
-        expect(screen.queryByText('Facil')).toBeInTheDocument()
+        await user.selectOptions(select, ['Muito Dificil'])
+        expect(screen.getByRole('option', { name: 'Simples' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Dificil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Facil' }).selected).toBe(false)
+        expect(screen.getByRole('option', { name: 'Muito Dificil' }).selected).toBe(true)
 
     })
 })

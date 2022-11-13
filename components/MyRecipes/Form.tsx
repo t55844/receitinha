@@ -141,9 +141,9 @@ export default function Form(props) {
 
                 <Controller
                     key={2}
-                    name="duration"
+                    name={"duration"}
                     control={control}
-                    defaultValue=''
+                    defaultValue=""
                     render={({ field }) => <SelectForm
                         name={'duration'}
                         selectOption={setValue}
@@ -151,9 +151,10 @@ export default function Form(props) {
                         options={[
                             '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
                         ]}
-                        label='Tempo'
+                        label='Duração'
                     />}
                 />
+
                 <div style={styleInput}>
                     <Typography
                         variant="subtitle1"
