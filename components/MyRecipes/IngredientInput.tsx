@@ -14,7 +14,7 @@ export default function IngredientInput(props) {
                 sx={{ width: '90%' }}
                 id="ingredient"
                 label="Descreva o ingrediente"
-                variant="outlined"
+                variant="standard"
                 InputProps={{
                     startAdornment: <InputAdornment position="start">{' - '}</InputAdornment>,
                 }}

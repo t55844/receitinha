@@ -46,7 +46,7 @@ export default function Form(props) {
             sx={styleInput}
             id="ingredient"
             label="Descreva o ingrediente"
-            variant="outlined"
+            variant="standard"
             InputProps={{
                 startAdornment: <InputAdornment position="start"> - </InputAdornment>,
             }} />}
@@ -78,7 +78,7 @@ export default function Form(props) {
                         sx={styleInput}
                         id="name"
                         label="O nome da receita"
-                        variant="outlined" />}
+                        variant="standard" />}
                 />
 
                 <div className={formStyle.ingredient}>
@@ -118,7 +118,7 @@ export default function Form(props) {
                         sx={styleInput}
                         id="preparation"
                         label="Explique o modo de preparo"
-                        variant="outlined"
+                        variant="standard"
                         multiline
                         rows={10} />}
                 />
