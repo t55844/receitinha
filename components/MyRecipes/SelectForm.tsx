@@ -1,18 +1,16 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import formStyle from '../../styles/myRecipes/myRecipes.module.css'
 import NativeSelect from '@mui/material/NativeSelect';
 
 
 const SelectForm = (props) => {
     const { options, label, sx, selectOption, name } = props
-    const [option, setOption] = React.useState('');
+    const [option, setOption] = React.useState(options[0]);
 
-    const handleChange = (event: SelectChangeEvent) => {
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setOption(event.target.value as string);
         selectOption(name, event.target.value)
     };
@@ -25,7 +23,6 @@ const SelectForm = (props) => {
                     {label}
                 </InputLabel>
                 <NativeSelect
-                    defaultValue=''
                     onChange={(e) => handleChange(e)}
                     value={option}
                     inputProps={{

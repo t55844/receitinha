@@ -14,6 +14,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Ingredients from './Ingredients';
 import formStyle from '../../styles/myRecipes/myRecipes.module.css'
+import { colors } from '../MaterialUI/theme';
+import { useRouter } from 'next/router';
+import Button from '@mui/material/Button';
 
 
 
@@ -34,11 +37,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function RecipeDetails(props) {
     const recipe = props.recipe
-    const name = props.name
     const [expanded, setExpanded] = React.useState(false);
+    const router = useRouter()
 
     const handleExpandClick = (currentName: string) => {
-        if (name === currentName) {
+        if (recipe.name === currentName) {
             setExpanded(!expanded);
         }
     };
@@ -47,11 +50,14 @@ export default function RecipeDetails(props) {
         <div className={formStyle.recipeCard}>
             <Card sx={{ width: '100%' }}>
                 <CardHeader
-
                     action={
-                        <IconButton aria-label="settings">
-                            <MoreVertIcon />
-                        </IconButton>
+                        <Typography variant='body1' >
+                            <Button
+                                onClick={() => router.push(`/recipePages/${JSON.stringify(recipe)}`)}
+                                variant="text" >
+                                Mais Detalhes
+                            </Button>
+                        </Typography>
                     }
                     title={recipe.name}
                 />
@@ -81,7 +87,7 @@ export default function RecipeDetails(props) {
                     <ExpandMore
 
                         expand={expanded}
-                        onClick={() => handleExpandClick(name)}
+                        onClick={() => handleExpandClick(recipe.name)}
                         aria-expanded={expanded}
                         aria-label="show more"
                     >

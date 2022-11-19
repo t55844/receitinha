@@ -28,7 +28,7 @@ export default function NavBar() {
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
                     color="inherit"
-                    href="/MyRecipes/Form"
+                    href="/generalPages/Form"
                 >
                     <ReceiptLongSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Minhas Receitas
