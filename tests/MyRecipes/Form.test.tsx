@@ -3,6 +3,14 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import Form from '../../components/MyRecipes/Form'
 
+const myPromise = new Promise((resolve, reject,) => {
+    const successObject = {
+        msg: 'Success',
+    }
+    resolve(successObject);
+
+})
+global.fetch = jest.fn().mockImplementation(() => myPromise);
 
 describe('Envio de formulario', () => {
     test('Todas informações digitadas corretamente', async () => {
