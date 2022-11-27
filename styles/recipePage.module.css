@@ -1,0 +1,21 @@
+.recipePage {
+    width: 50%;
+}
+
+@media (max-width: 480px) {
+    .recipePage {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .recipePage {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .recipePage {
+        width: 50%;
+    }
+}

@@ -11,12 +11,14 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Ingredients from './Ingredients';
-import formStyle from '../../styles/myRecipes/myRecipes.module.css'
-import { colors } from '../MaterialUI/theme';
+import formStyle from '../../styles/myRecipes.module.css'
 import { useRouter } from 'next/router';
 import Button from '@mui/material/Button';
+import recipePresentation from '../../js/recipePage/recipePresentation';
+import { IRecipeFromDB } from '../../js/interface_and_ultils/interface';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 
 
@@ -36,9 +38,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function RecipeDetails(props) {
-    const recipe = props.recipe
+    const recipe: IRecipeFromDB = props.recipe
     const [expanded, setExpanded] = React.useState(false);
+
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const handleExpandClick = (currentName: string) => {
         if (recipe.name === currentName) {
@@ -53,7 +57,7 @@ export default function RecipeDetails(props) {
                     action={
                         <Typography variant='body1' >
                             <Button
-                                onClick={() => router.push(`/recipePages/${JSON.stringify(recipe)}`)}
+                                onClick={() => recipePresentation.buttonLinkToRecipePage(recipe, router, dispatch)}
                                 variant="text" >
                                 Mais Detalhes
                             </Button>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, InputAdornment, TextField, Typography } from "@mui/material";
-import formStyle from '../../styles/myRecipes/myRecipes.module.css'
+import formStyle from '../../styles/myRecipes.module.css'
 import SendIcon from '@mui/icons-material/Send';
 import PlusOneIcon from '@mui/icons-material/PlusOne';
 import IconButton from '@mui/material/IconButton';
@@ -9,6 +9,7 @@ import { joinInredients, myRecipesForm } from "../../js/MyRecipes/myRecipesForm"
 import SelectForm from "./SelectForm";
 import IngredientInput from "./IngredientInput";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import { email } from "../../js/interface_and_ultils/interface";
 
 
 const styleInput = {
@@ -30,7 +31,7 @@ export default function Form(props) {
             data)
         if (check) {
             console.log(data)
-            //myRecipesForm.submitRecipe({ ...data, email })
+            myRecipesForm.submitRecipe({ ...data, email })
             reset()
         }
     }
@@ -127,13 +128,13 @@ export default function Form(props) {
                     key={3}
                     name={"difficulty"}
                     control={control}
-                    defaultValue=""
+                    defaultValue={''}
                     render={({ field }) => <SelectForm
                         name={'difficulty'}
                         selectOption={setValue}
                         sx={styleInput}
                         options={[
-                            'Simples', 'Facil', "Dificil", "Muito Dificil"
+                            'Selecione', 'Simples', 'Facil', "Dificil", "Muito Dificil"
                         ]}
                         label='Dificuldade'
                     />}
@@ -143,13 +144,13 @@ export default function Form(props) {
                     key={2}
                     name={"duration"}
                     control={control}
-                    defaultValue=""
+                    defaultValue={''}
                     render={({ field }) => <SelectForm
                         name={'duration'}
                         selectOption={setValue}
                         sx={styleInput}
                         options={[
-                            '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
+                            'Selecione', '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
                         ]}
                         label='Duração'
                     />}

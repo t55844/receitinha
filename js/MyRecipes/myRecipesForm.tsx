@@ -50,13 +50,15 @@ export function joinInredients(data: IFormInput): IFormInput {
         name: data.name,
         preparation: data.preparation,
         duration: data.duration,
-        difficulty: data.difficulty
+        difficulty: data.difficulty,
+        email: data.email
     }
 
     delete data.name,
         delete data.preparation,
         delete data.duration,
         delete data.difficulty
+    delete data.email
 
     const Ingredient = Object.values(data)
     body['ingredient'] = Ingredient

@@ -8,7 +8,7 @@ import NativeSelect from '@mui/material/NativeSelect';
 
 const SelectForm = (props) => {
     const { options, label, sx, selectOption, name } = props
-    const [option, setOption] = React.useState(options[0]);
+    const [option, setOption] = React.useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setOption(event.target.value as string);

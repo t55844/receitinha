@@ -1,11 +1,12 @@
 import React from 'react'
 import RecipeComments from './RecipeComments'
 import RecipePresentation from './RecipePresentation'
+import css from '../../styles/recipePage.module.css'
 
 function MoreDetailsRecipes(props) {
     const { recipe } = props
     return (
-        <div style={{ margin: '0 2%' }}>
+        <div className={css.recipePage} style={{ margin: '0 auto' }}>
             <RecipePresentation recipe={recipe} />
             <RecipeComments />
         </div>
