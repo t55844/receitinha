@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipeComments from './RecipeComments'
+import RecipeComments from './RecipeSugest'
 import RecipePresentation from './RecipePresentation'
 import css from '../../styles/recipePage.module.css'
 

@@ -8,7 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import { joinInredients, myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import SelectForm from "./SelectForm";
 import IngredientInput from "./IngredientInput";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { email } from "../../js/interface_and_ultils/interface";
 
 
@@ -30,7 +29,6 @@ export default function Form(props) {
             ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
             data)
         if (check) {
-            console.log(data)
             myRecipesForm.submitRecipe({ ...data, email })
             reset()
         }
