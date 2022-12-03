@@ -64,11 +64,6 @@ export default function Form(props) {
 
         <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
             <div className={formStyle.formContainer}>
-                <Typography
-                    variant="h5">
-                    Escreva sua receita
-                </Typography>
-
                 <Controller
                     key={5}
                     name="name"

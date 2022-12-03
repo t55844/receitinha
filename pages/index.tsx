@@ -7,6 +7,7 @@ import CardMyReipes from '../components/SectionHome/CardMyRecipes'
 import RecipesList from '../components/SectionHome/RecipesList'
 import SideBar from '../components/SideBar/SideBar'
 import Snackbars from '../components/feedback/Snackbar'
+import TitleOfSection from '../components/Menu/TitleOfSection'
 
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       <header>
         <Main />
       </header>
+      <TitleOfSection text=' Nós temos uma enorme variedade de receitas' />
       <main className={mainStyle.main}>
         <section>
           <CardMyReipes />

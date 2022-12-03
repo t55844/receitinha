@@ -9,12 +9,12 @@ import { colors } from '../MaterialUI/theme';
 
 export default function SideBar(props) {
     return (
-        <div className={mainStyle.sidebar} style={{ borderColor: `${colors.primary}` }}>
+        <div data-aos="fade-left" className={mainStyle.sidebar} style={{ borderColor: `${colors.primary}` }}>
             <Typography
                 variant='h6'
             >
                 Receitas mais Vistas
-            </Typography>
+            </Typography >
             <ImageList sx={{ display: "flex", flexDirection: 'column', height: '80rem' }}>
                 {itemData.map((item) => (
                     <ImageListItem
@@ -34,7 +34,7 @@ export default function SideBar(props) {
                     </ImageListItem>
                 ))}
             </ImageList>
-        </div>
+        </div >
     );
 }
 

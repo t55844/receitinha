@@ -8,7 +8,7 @@ import myRecipes from '../../styles/home/sectionsHome.module.css'
 
 export default function CardMyReipes() {
     return (
-        <div className={myRecipes.containerCard} style={{ backgroundColor: colors.primaryLigth }}>
+        <div data-aos='fade-up' className={myRecipes.containerCard} style={{ backgroundColor: colors.primaryLigth }}>
             <CardMedia
                 sx={{ height: '100%', width: "70%", margin: '0  auto' }}
                 component="img"

@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 import { colors } from '../MaterialUI/theme';
 export default function RecipesList() {
     return (
-        <div className={sectionHome.listRecipes} style={{ backgroundColor: colors.primaryLigth }}>
+        <div data-aos='fade' className={sectionHome.listRecipes} style={{ backgroundColor: colors.primaryLigth }}>
             <Typography variant='h5'
                 sx={{ margin: "2rem" }} >
                 Algumas receitas que podem te interessar

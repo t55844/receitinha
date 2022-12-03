@@ -10,7 +10,7 @@ export default function IngredientInput(props) {
         <div id={`ingredient${count}`} style={styleInput}>
             <TextField
                 placeholder='Ingrediente'
-                {...field}
+                focused={true}
                 sx={{ width: '90%' }}
                 id="ingredient"
                 label="Descreva o ingrediente"

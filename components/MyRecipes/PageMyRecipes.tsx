@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Form from './Form';
 import MyRecipesList from './MyRecipeList';
+import TitleOfSection from '../Menu/TitleOfSection';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -54,9 +55,11 @@ export default function PageMyRecipes() {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
+                <TitleOfSection text='Suas receitas' />
                 <MyRecipesList />
             </TabPanel>
             <TabPanel value={value} index={1}>
+                <TitleOfSection text='Escreva sua receita' />
                 <Form />
             </TabPanel>
         </Box>

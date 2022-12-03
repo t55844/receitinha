@@ -7,8 +7,15 @@ import Footer from '../components/Footer/Footer'
 import { SnackbarProvider } from 'notistack'
 import { Provider } from 'react-redux'
 import store from '../js/redux/store'
+import { useEffect } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
   return (
     <Provider store={store}>
       <ThemeProvider
