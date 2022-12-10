@@ -8,8 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import { joinInredients, myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import SelectForm from "./SelectForm";
 import IngredientInput from "./IngredientInput";
-import { email } from "../../js/interface_and_ultils/interface";
-
+import { useSelector } from "react-redux";
 
 const styleInput = {
     width: "80%",
@@ -20,7 +19,7 @@ let countOutOfScope = 2
 
 export default function Form(props) {
     const { control, handleSubmit, getValues, setValue, reset } = useForm();
-
+    const user = useSelector((state) => state.user.value)
 
     const onSubmit = (data) => {
         event.preventDefault()
@@ -29,7 +28,7 @@ export default function Form(props) {
             ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
             data)
         if (check) {
-            myRecipesForm.submitRecipe({ ...data, email })
+            myRecipesForm.submitRecipe({ ...data }, user.email)
             reset()
         }
     }

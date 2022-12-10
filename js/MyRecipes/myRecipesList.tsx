@@ -1,6 +1,5 @@
 import RecipeDetails from "../../components/MyRecipes/RecipeDetails"
 import { requestModel } from "../fetch/fecth"
-import { email } from "../interface_and_ultils/interface"
 import { getRecipes } from '../fetch/fecth'
 import { tests } from "../interface_and_ultils/tests"
 import { menssages } from "../interface_and_ultils/menssages"
@@ -18,7 +17,7 @@ export async function getImage(email: string): Promise<string> {
 
 }
 
-async function recipeFromDB() {
+async function recipeFromDB(email: string) {
     const images = await getImage(email)
     const recipes = await getRecipes(email)
     const recipesCheck = tests.testArrayLength(recipes)
