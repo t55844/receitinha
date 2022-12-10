@@ -1,10 +1,8 @@
-import { Typography } from '@mui/material'
-import Image from 'next/image'
+import { Button } from '@mui/material'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import MoreDetailsRecipes from '../../components/RecipePage/MoreDetailsRecipes'
-import { IRecipeFromDB } from '../../js/interface_and_ultils/interface'
 
 
 export default (props) => {
@@ -24,9 +22,8 @@ export default (props) => {
     }
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', margin: '0 auto' }}>
-            <Image src='/erro-404.jpg' width='300px' height='300px' />
-            <Typography variant='h6'> Ouve um erro ao tentar encontrar uma informação, sentimos muito volte mais tarde</Typography>
+        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', margin: '0 auto' }}>
+            <Button sx={{ margin: '2%' }} variant='outlined' onClick={() => router.push('/generalPages/Form')}>retorne as receitas</Button>
         </div>
     )
 

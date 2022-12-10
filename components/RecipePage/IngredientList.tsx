@@ -10,7 +10,6 @@ import { Typography } from '@mui/material';
 
 export default function IngredientList(props) {
     const ingredient: string[] = props.ingredient
-    console.log(ingredient)
     return (
         <Box sx={{ width: '80%', bgcolor: 'background.paper', backgroundColor: 'none' }}>
             <Typography variant='h6' >Ingredients</Typography>
