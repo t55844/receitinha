@@ -1,6 +1,5 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace"
-import { async } from "rxjs"
-import { getRecipes, requestModel } from "../fetch/fecth"
+import { requestModel } from "../fetch/fecth"
 import { eventEmitter } from "../interface_and_ultils/EventEmiter"
 import { IFormInput } from "../interface_and_ultils/interface"
 import { menssages } from "../interface_and_ultils/menssages"

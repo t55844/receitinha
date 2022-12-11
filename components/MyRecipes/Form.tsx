@@ -19,7 +19,7 @@ let countOutOfScope = 2
 
 export default function Form(props) {
     const { control, handleSubmit, getValues, setValue, reset } = useForm();
-    const user = useSelector((state) => state.user.value)
+    const user = useSelector((state) => state.user)
 
     const onSubmit = (data) => {
         event.preventDefault()

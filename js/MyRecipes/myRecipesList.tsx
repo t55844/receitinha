@@ -1,4 +1,3 @@
-import RecipeDetails from "../../components/MyRecipes/RecipeDetails"
 import { requestModel } from "../fetch/fecth"
 import { getRecipes } from '../fetch/fecth'
 import { tests } from "../interface_and_ultils/tests"
