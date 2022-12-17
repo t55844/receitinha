@@ -21,19 +21,7 @@ export default function Form(props) {
     const { control, handleSubmit, getValues, setValue, reset } = useForm();
     const user = useSelector((state) => state.user)
 
-    const onSubmit = (data) => {
-        event.preventDefault()
-        const check = myRecipesForm.verifyFields(
-            ['name', 'ingredient1', 'preparation', 'difficulty', 'duration'],
-            ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
-            data)
-        if (check) {
-            myRecipesForm.submitRecipe({ ...data }, user.email)
-            reset()
-        }
-    }
-
-    const [ingredientFields, setIngredientFields] = useState([<Controller
+    const firstFieldIngredient = [, <Controller
         key={`ingredient${1}`}
         name={`ingredient${1}`}
         aria-label='ingredient input'
@@ -46,9 +34,28 @@ export default function Form(props) {
             label="Descreva o ingrediente"
             variant="standard"
             InputProps={{
-                startAdornment: <InputAdornment position="start"> - </InputAdornment>,
+                startAdornment: <InputAdornment position="start"> - </InputAdornment>
             }} />}
-    />])
+    />]
+
+    const onSubmit = async (data) => {
+        event.preventDefault()
+        const check = myRecipesForm.verifyFields(
+            ['name', 'ingredient1', 'preparation', 'difficulty', 'duration'],
+            ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
+            data)
+        if (check) {
+
+            const res = await myRecipesForm.submitRecipe({ ...data }, user.email)
+
+            if (res && res.error === false) {
+                reset()
+                setIngredientFields(firstFieldIngredient)
+            }
+        }
+    }
+
+    const [ingredientFields, setIngredientFields] = useState(firstFieldIngredient)
 
     const [inputToDelete, setInputToDelete] = useState<string>()
 
@@ -123,6 +130,7 @@ export default function Form(props) {
                     defaultValue={''}
                     render={({ field }) => <SelectForm
                         name={'difficulty'}
+                        option={getValues('difficulty')}
                         selectOption={setValue}
                         sx={styleInput}
                         options={[
@@ -139,6 +147,7 @@ export default function Form(props) {
                     defaultValue={''}
                     render={({ field }) => <SelectForm
                         name={'duration'}
+                        option={getValues('duration')}
                         selectOption={setValue}
                         sx={styleInput}
                         options={[

@@ -2,6 +2,8 @@ import { getAllByLabelText, render, screen, waitFor } from '@testing-library/rea
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import Form from '../../components/MyRecipes/Form'
+import { Provider } from 'react-redux'
+import store from '../../js/redux/store'
 
 const myPromise = new Promise((resolve, reject,) => {
     const successObject = {
@@ -15,7 +17,7 @@ global.fetch = jest.fn().mockImplementation(() => myPromise);
 describe('Envio de formulario', () => {
     test('Todas informações digitadas corretamente', async () => {
         const user = userEvent.setup({ pointerEventsCheck: 0 })
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const titleField = screen.getByPlaceholderText('bolo de milho')
         const ingredientField = screen.getByPlaceholderText('Ingrediente')
@@ -56,7 +58,7 @@ describe('Envio de formulario', () => {
 
 describe('<From />', () => {
     test('verificando todos os campos do formulario', () => {
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         expect(screen.queryByPlaceholderText('bolo de milho')).not.toBeNull()
         expect(screen.queryByPlaceholderText('Ingrediente')).not.toBeNull()
@@ -68,7 +70,7 @@ describe('<From />', () => {
 
     test('digitando  todos os campos do formulario e enviando', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const titleField = screen.getByPlaceholderText('bolo de milho')
         const ingredientField = screen.getByPlaceholderText('Ingrediente')
@@ -90,7 +92,7 @@ describe('<From />', () => {
 
     test('testando select', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const selectDificulty = screen.getByRole('select-Dificuldade')
         const selectDuration = screen.getByRole('select-Duração')
@@ -114,7 +116,7 @@ describe('<From />', () => {
 
     test('campo de entrada de arquivo', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const imageField = screen.getByLabelText('entrada de imagem')
         const file = new File(['hello'], 'hello.png', { type: 'image/png' })
@@ -131,7 +133,7 @@ describe('<From />', () => {
 describe('<IngredientInput />', () => {
     test('Input/entrada da informação lista de ingredientes', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const field = screen.getAllByLabelText('Descreva o ingrediente')
         expect(field[0]).toBeInTheDocument()
@@ -143,7 +145,7 @@ describe('<IngredientInput />', () => {
 
     test('<IngredientInput /> funcionalidade de adicionar um campo(plusOne) e digitar nele', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const field = screen.getAllByPlaceholderText('Ingrediente')
         expect(field.length).not.toBeGreaterThan(1)
@@ -169,7 +171,7 @@ describe('<IngredientInput />', () => {
 
     test('<IngredientInput /> funcionalidade de excluir um campo(botao lixeirinha)', async () => {
         const user = userEvent.setup()
-        render(<Form />)
+        render(<Provider store={store}><Form /></Provider>)
 
         const plusOneButton = screen.getByLabelText('plusOne')
         expect(plusOneButton).toBeInTheDocument()

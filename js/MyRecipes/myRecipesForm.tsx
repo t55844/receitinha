@@ -68,7 +68,7 @@ function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput
 
     if (have.length != 0) {
         fields.forEach((field, index) => {
-            if (data[field] === '') {
+            if (data[field] === '' || data[field] === 'Selecione') {
                 menssages.emiteMensageFields(`O campo ${nameOfInputs[index]} esta vazio falta preencher ele`)
             }
         })
@@ -85,10 +85,11 @@ async function submitRecipe(data: IFormInput, email: string) {
 
     if (res && res.error === false) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'success', menssage: res.menssage })
+        return res
     }
     else if (res && res.error === true) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'error', menssage: res.menssage })
-
+        return res
     }
 }
 
