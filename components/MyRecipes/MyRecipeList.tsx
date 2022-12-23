@@ -11,7 +11,7 @@ import { recipesReq } from '../../js/redux/reduxSlice/fetchSlice';
 import { myRecipesList } from '../../js/MyRecipes/myRecipesList';
 
 const MyRecipeList = (prop) => {
-    const email = useSelector((state) => state.user.email)
+    const email = useSelector((state) => state.user.value.email)
     const dispatch = useDispatch()
 
 

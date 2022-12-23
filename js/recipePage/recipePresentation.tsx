@@ -14,8 +14,8 @@ async function sendComment(data: IComment) {
     return comments
 }
 
-async function getComments() {
-    const resp = await requestModel('http://localhost:3030/api/comments', { method: 'GET' })
+async function getComments(id) {
+    const resp = await requestModel(`http://localhost:3030/api/comments/?id=${id}`, { method: 'GET' })
     const contents = await resp.json()
     return contents
 
