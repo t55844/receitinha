@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Component } from 'react'
 import { useSelector } from 'react-redux'
-import { IComment } from '../../js/interface_and_ultils/interface'
 import recipePresentation from '../../js/recipePage/recipePresentation'
 import TitleOfSection from '../Menu/TitleOfSection'
 import CommentsBox from './CommentBox'

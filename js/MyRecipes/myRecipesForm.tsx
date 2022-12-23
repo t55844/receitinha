@@ -63,12 +63,16 @@ function sendRequisition(data: IFormInput, email: string): void | Promise<any> {
 // ---------EXPORTS---------- //
 
 function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput) {
-
-    const have = fields.filter(field => data[field] === '')
-
+    const regexHaveLetters = new RegExp('\w')
+    const have = fields.filter(field => {
+        console.log(data[field])
+        console.log(regexHaveLetters.test(data[field]))
+        return data[field] === '' || !regexHaveLetters.test(data[field])
+    })
+    console.log(have)
     if (have.length != 0) {
         fields.forEach((field, index) => {
-            if (data[field] === '' || data[field] === 'Selecione') {
+            if (data[field] === '' || data[field] === 'Selecione' || !regexHaveLetters.test(data[field])) {
                 menssages.emiteMensageFields(`O campo ${nameOfInputs[index]} esta vazio falta preencher ele`)
             }
         })

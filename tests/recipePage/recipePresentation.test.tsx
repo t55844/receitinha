@@ -1,9 +1,6 @@
 import { render, screen, waitFor, } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Provider } from 'react-redux'
 import RecipePresentation from '../../components/RecipePage/RecipePresentation'
-import store from '../../js/redux/store'
-import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice'
 
 const recipe = {
     id: 3,
