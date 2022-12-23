@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
-import { myRecipesList } from '../../js/MyRecipes/myRecipesList';
+import React, { Component, useContext } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { recipeFromDB } from '../../js/redux/reduxSlice/fetchSlice';
 
 export function HOCWithRecipeData(WrappedComponent) {
+    const dispatch = useDispatch()
+
     return class extends Component {
         state = {
             data: [],
@@ -10,8 +14,8 @@ export function HOCWithRecipeData(WrappedComponent) {
         }
 
         async componentDidMount() {
-            const data = await myRecipesList.recipeFromDB()
-                .catch(error => console.log('HOC Recipes' + error))
+            const data = dispatch(recipeFromDB())
+
 
             if (data && data.length > 0) { this.setState({ data, loading: false, failed: false }) }
             else { this.setState({ data: [], loading: false, failed: true }) }

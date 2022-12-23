@@ -1,8 +1,7 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace"
-import { async } from "rxjs"
-import { getRecipes, requestModel } from "../fetch/fecth"
+import { requestModel } from "../fetch/fecth"
 import { eventEmitter } from "../interface_and_ultils/EventEmiter"
-import { email, IFormInput } from "../interface_and_ultils/interface"
+import { IFormInput } from "../interface_and_ultils/interface"
 import { menssages } from "../interface_and_ultils/menssages"
 
 
@@ -17,57 +16,29 @@ function getImageFromInput(): any {
     }
 }
 
-/**
- * 
- * difficulty
-: 
-"Simples"
-duration
-: 
-"30 minutos"
-ingredient1
-: 
-"dsf"
-ingredient2
-: 
-"dsf"
-ingredient3
-: 
-"sdf"
-ingredient4
-: 
-"dsf"
-name
-: 
-"dsf"
-preparation
-: 
-"dsf"
- */
-
-export function joinInredients(data: IFormInput): IFormInput {
+export function joinInredients(data: IFormInput, email: string): IFormInput {
     const body = {
         name: data.name,
         preparation: data.preparation,
         duration: data.duration,
         difficulty: data.difficulty,
-        email: data.email
     }
 
     delete data.name,
         delete data.preparation,
         delete data.duration,
         delete data.difficulty
-    delete data.email
+
 
     const Ingredient = Object.values(data)
     body['ingredient'] = Ingredient
+    body['email'] = email
 
     return body
 
 }
 
-function sendRequisition(data: IFormInput): void | Promise<any> {
+function sendRequisition(data: IFormInput, email: string): void | Promise<any> {
     const formData = new FormData();
 
     const image = getImageFromInput()
@@ -97,7 +68,7 @@ function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput
 
     if (have.length != 0) {
         fields.forEach((field, index) => {
-            if (data[field] === '') {
+            if (data[field] === '' || data[field] === 'Selecione') {
                 menssages.emiteMensageFields(`O campo ${nameOfInputs[index]} esta vazio falta preencher ele`)
             }
         })
@@ -107,17 +78,18 @@ function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput
 
 }
 
-async function submitRecipe(data: IFormInput) {
+async function submitRecipe(data: IFormInput, email: string) {
 
-    const body = joinInredients(data)
-    const res = await sendRequisition(body)
+    const body = joinInredients(data, email)
+    const res = await sendRequisition(body, email)
 
     if (res && res.error === false) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'success', menssage: res.menssage })
+        return res
     }
     else if (res && res.error === true) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'error', menssage: res.menssage })
-
+        return res
     }
 }
 

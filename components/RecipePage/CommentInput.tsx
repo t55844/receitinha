@@ -11,6 +11,7 @@ import recipePresentation from '../../js/recipePage/recipePresentation';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
+import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
 
 export default function CommentInput(props) {
     const { setNewComment } = props
@@ -22,17 +23,26 @@ export default function CommentInput(props) {
     const router = useRouter()
 
     function onSubmit(data) {
-        const text = data.comment
-        const comment = {
-            name: user.name,
-            email: user.email,
-            text
-        }
-        recipePresentation.sendComment(comment)
-            .then(resp => setNewComment(resp.payload))
+        event.preventDefault()
+        const check = myRecipesForm.verifyFields(
+            ['comment'],
+            ['comentario'],
+            data)
+        if (check) {
 
-        dispatch(recipeToCurrentPage(recipe))
-        reset()
+            const text = data.comment
+            const comment = {
+                recipeId: recipe.id,
+                name: user.name,
+                email: user.email,
+                text
+            }
+            recipePresentation.sendComment(comment)
+                .then(resp => setNewComment(resp.payload))
+
+            dispatch(recipeToCurrentPage(recipe))
+            reset()
+        }
     }
 
     return (
@@ -46,6 +56,7 @@ export default function CommentInput(props) {
                     name="comment"
                     control={control}
                     defaultValue=''
+                    rules={{ required: true }}
                     render={({ field }) => <Input
                         {...field}
                         sx={{ height: '60%' }}

@@ -15,4 +15,9 @@ export interface IRecipeFromDB {
     duration: string,
 }
 
-export const email = 'guto22@yahoo.com'
+export interface IComment {
+    text: string,
+    email: string,
+    name: string
+}
+
