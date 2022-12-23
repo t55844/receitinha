@@ -12,7 +12,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Ingredients from './Ingredients';
-import formStyle from '../../styles/myRecipes.module.css'
 import { useRouter } from 'next/router';
 import Button from '@mui/material/Button';
 import recipePresentation from '../../js/recipePage/recipePresentation';
@@ -51,7 +50,7 @@ export default function RecipeDetails(props) {
     };
 
     return (
-        <div className={formStyle.recipeCard}>
+        <div >
             <Card sx={{ width: '100%' }}>
                 <CardHeader
                     action={
