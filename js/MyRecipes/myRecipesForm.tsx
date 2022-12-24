@@ -62,19 +62,18 @@ function sendRequisition(data: IFormInput, email: string): void | Promise<any> {
 
 // ---------EXPORTS---------- //
 
-function verifyFields(fields: string[], nameOfInputs: string[], data: IFormInput) {
-    const regexHaveLetters = new RegExp('\w')
+function verifyFields(fields: Array<[string, string]>, data: IFormInput) {
+    const regexHaveLetters = new RegExp('^[a-zA-Z0-9]*', 'g')
     const have = fields.filter(field => {
-        console.log(data[field])
-        console.log(regexHaveLetters.test(data[field]))
-        return data[field] === '' || !regexHaveLetters.test(data[field])
+        const testField = data[field[0]]
+        console.log(testField)
+        console.log(!regexHaveLetters.test(testField))
+        return regexHaveLetters.test(testField)
     })
     console.log(have)
     if (have.length != 0) {
-        fields.forEach((field, index) => {
-            if (data[field] === '' || data[field] === 'Selecione' || !regexHaveLetters.test(data[field])) {
-                menssages.emiteMensageFields(`O campo ${nameOfInputs[index]} esta vazio falta preencher ele`)
-            }
+        have.forEach((field, index) => {
+            menssages.emiteMensageFields(`O campo ${field[1]} esta vazio ou com muito espaço no começo e final`)
         })
     } else {
         return { erro: false }

@@ -19,7 +19,7 @@ let countOutOfScope = 2
 
 export default function Form(props) {
     const { control, handleSubmit, getValues, setValue, reset } = useForm();
-    const user = useSelector((state) => state.user)
+    const user = useSelector((state) => state.user.value)
 
     const firstFieldIngredient = [, <Controller
         key={`ingredient${1}`}
@@ -41,8 +41,7 @@ export default function Form(props) {
     const onSubmit = async (data) => {
         event.preventDefault()
         const check = myRecipesForm.verifyFields(
-            ['name', 'ingredient1', 'preparation', 'difficulty', 'duration'],
-            ['nome', 'ingrediente 1', 'preparacao', 'dificuldade', 'duracao'],
+            [['name', 'nome'], ['ingredient1', 'ingrediente 1'], ['preparation', 'preparacao'], ['difficulty', 'dificuldade'], ['duration', 'duracao']],
             data)
         if (check) {
 

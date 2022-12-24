@@ -75,7 +75,7 @@ describe('recipeComments', () => {
         await user.click(sendButton)
 
         expect(input.innerHTML.length).toEqual(0)
-        expect(screen.queryByDisplayValue('muito bom')).not.toBeNull()
+        expect(screen.queryByText('muito bom')).not.toBeNull()
 
 
     })
