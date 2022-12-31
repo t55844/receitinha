@@ -16,27 +16,6 @@ function getImageFromInput(): any {
     }
 }
 
-export function joinInredients(data: IFormInput, email: string): IFormInput {
-    const body = {
-        name: data.name,
-        preparation: data.preparation,
-        duration: data.duration,
-        difficulty: data.difficulty,
-    }
-
-    delete data.name,
-        delete data.preparation,
-        delete data.duration,
-        delete data.difficulty
-
-
-    const Ingredient = Object.values(data)
-    body['ingredient'] = Ingredient
-    body['email'] = email
-
-    return body
-
-}
 
 function sendRequisition(data: IFormInput, email: string): void | Promise<any> {
     const formData = new FormData();
@@ -46,7 +25,7 @@ function sendRequisition(data: IFormInput, email: string): void | Promise<any> {
     if (image) {
 
         formData.append('file', image, email + '_' + image.name)
-        formData.append('data', JSON.stringify(data))
+        formData.append('data', JSON.stringify({ ...data, email }))
 
         const res = requestModel('http://localhost:3030/api', { method: 'POST', body: formData })
             .then(res => res.json())
@@ -83,8 +62,8 @@ function verifyFields(fields: Array<[string, string]>, data: IFormInput) {
 
 async function submitRecipe(data: IFormInput, email: string) {
 
-    const body = joinInredients(data, email)
-    const res = await sendRequisition(body, email)
+
+    const res = await sendRequisition(data, email)
 
     if (res && res.error === false) {
         eventEmitter.dispatch('snackbar_menssage', { type: 'success', menssage: res.menssage })
@@ -96,11 +75,6 @@ async function submitRecipe(data: IFormInput, email: string) {
     }
 }
 
-function plusOne(setState: any, currentState: JSX.Element[], component: JSX.Element) {
-    const newComponent = currentState.concat(component)
-    setState(newComponent)
-}
-
 function deleteInput(setIngredientFields, ingredientFields: ReactJSXElement[], inputToDelete: string) {
     const newList = ingredientFields.filter(element => {
         return element.key != inputToDelete
@@ -109,7 +83,6 @@ function deleteInput(setIngredientFields, ingredientFields: ReactJSXElement[], i
 }
 
 export const myRecipesForm = {
-    plusOne,
     submitRecipe,
     verifyFields,
     deleteInput

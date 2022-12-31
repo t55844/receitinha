@@ -3,9 +3,9 @@ import { recipeToCurrentPage } from "../redux/reduxSlice/recipePageSlice"
 import { requestModel } from '../fetch/fecth'
 
 
-function buttonLinkToRecipePage(recipe: IRecipeFromDB, router, dispatch): void {
+function buttonLinkToPage(url: string, recipe: IRecipeFromDB, router, dispatch): void {
     dispatch(recipeToCurrentPage(recipe))
-    router.push(`/recipePages/${recipe.id}`)
+    router.push(`${url}${recipe.id}`)
 }
 
 async function sendComment(data: IComment) {
@@ -22,7 +22,7 @@ async function getComments(id) {
 }
 
 export default {
-    buttonLinkToRecipePage,
+    buttonLinkToPage,
     sendComment,
     getComments
 }

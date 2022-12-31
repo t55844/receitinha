@@ -4,15 +4,15 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function IngredientInput(props) {
-    const { count, styleInput, deleteInput, field } = props
-
+    const { id, styleInput, deleteInput, defaultValue, refItem } = props
     return (
-        <div id={`ingredient${count}`} style={styleInput}>
+        <div id={id} style={styleInput}>
             <TextField
+                {...refItem}
+                defaultValue={defaultValue}
                 placeholder='Ingrediente'
-                focused={true}
                 sx={{ width: '90%' }}
-                id="ingredient"
+                id={id}
                 label="Descreva o ingrediente"
                 variant="standard"
                 InputProps={{
@@ -20,11 +20,11 @@ export default function IngredientInput(props) {
                 }}
             ></TextField>
             <IconButton
-                onClick={() => deleteInput(`ingredient${count}`)}
+                onClick={() => deleteInput()}
                 aria-label="delete"
             >
                 <DeleteIcon />
             </IconButton>
-        </div>
+        </div >
     )
 }

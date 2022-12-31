@@ -56,7 +56,7 @@ export default function RecipeDetails(props) {
                     action={
                         <Typography variant='body1' >
                             <Button
-                                onClick={() => recipePresentation.buttonLinkToRecipePage(recipe, router, dispatch)}
+                                onClick={() => recipePresentation.buttonLinkToPage('/recipePages/', recipe, router, dispatch)}
                                 variant="text" >
                                 Mais Detalhes
                             </Button>

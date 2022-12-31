@@ -46,12 +46,12 @@ const MyRecipeList = (prop) => {
                     <RecipeDetails recipe={recipe} />
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginBottom: '20px' }}>
                         <Button variant="outlined" startIcon={<DeleteIcon fontSize='small' />}
-                            onClick={() => recipePresentation.buttonLinkToRecipePage(recipe, router, dispatch)}
+                            onClick={() => myRecipesList.deleteRecipe(recipe.id)}
                         >
                             Deletar
                         </Button>
                         <Button variant="outlined" startIcon={<BuildSharpIcon fontSize='small' />}
-                            onClick={() => recipePresentation.buttonLinkToRecipePage(recipe, router, dispatch)}
+                            onClick={() => recipePresentation.buttonLinkToPage('/editRecipe/', recipe, router, dispatch)}
                         >
                             Alterar
                         </Button>

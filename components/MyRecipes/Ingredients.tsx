@@ -5,9 +5,9 @@ export default function Ingredients(props) {
     const recipe = props.recipe
     return (
         <div>
-            {recipe.ingredient.map(ingredient => (
+            {recipe.ingredients.map(item => (
                 <Typography key={Math.random()} paragraph>
-                    {ingredient}
+                    {item.ingredient}
                 </Typography>
             ))}
 
