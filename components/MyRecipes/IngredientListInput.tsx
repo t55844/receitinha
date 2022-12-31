@@ -5,8 +5,8 @@ import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import formStyle from '../../styles/myRecipes.module.css'
 import IngredientInput from "./IngredientInput";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import Typography from '@mui/material/Typography';
+
 
 
 
@@ -23,6 +23,7 @@ const IngredientListInput = (props) => {
     return (
 
         <div className={formStyle.ingredient}>
+            <Typography sx={{ margin: '0 auto' }} variant='h6'>Adicione um ingredient</Typography>
             {fields.map((field, index) => (
 
                 <IngredientInput
