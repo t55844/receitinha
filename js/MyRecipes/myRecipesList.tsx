@@ -30,22 +30,8 @@ async function recipeFromDB(email: string) {
 
 }
 
-async function deleteRecipe(id: number, email: string) {
-    const res = await requestModel(`http://localhost:3030/api/download/?id=${email}`, { method: 'DELETE' })
-    if (res) {
-        menssages.emiteMensageSuccess('Receita deletada com succeso')
-    }
-}
-
-async function updateRecipe(recipe: IRecipeFromDB, email: string) {
-    const res = await requestModel(`http://localhost:3030/api/download/?id=${email}`, { method: 'PATCH', headers: { 'Content-Type': ' application/json' }, body: JSON.stringify(recipe) })
-    if (res) {
-        menssages.emiteMensageSuccess('Receita deletada com succeso')
-    }
-}
 
 export const myRecipesList = {
     recipeFromDB,
-    deleteRecipe,
-    updateRecipe
+
 }
