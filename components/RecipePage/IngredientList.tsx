@@ -9,16 +9,17 @@ import { Typography } from '@mui/material';
 
 
 export default function IngredientList(props) {
-    const ingredient: string[] = props.ingredient
+    const ingredients: string[] = props.ingredient
+
     return (
         <Box sx={{ width: '80%', bgcolor: 'background.paper', backgroundColor: 'none' }}>
             <Typography variant='h6' >Ingredients</Typography>
             <List>
-                {ingredient.map(text => (<ListItem key={Math.random()} disablePadding>
+                {ingredients.map(item => (<ListItem key={Math.random()} disablePadding>
                     <ListItemIcon>
                         <NumbersSharpIcon color='primary' />
                     </ListItemIcon>
-                    <ListItemText primary={text} />
+                    <ListItemText primary={item.ingredient} />
                 </ListItem>))}
             </List>
         </Box>

@@ -11,11 +11,19 @@ import recipePresentation from '../../js/recipePage/recipePresentation';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
-import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import Typography from '@mui/material/Typography';
 
+const schema = yup.object({
+    comment: yup.string().trim().required('Você deve escrever seu comentario')
+})
 export default function CommentInput(props) {
     const { setNewComment } = props
-    const { control, handleSubmit, getValues, reset } = useForm()
+    const { control, handleSubmit, getValues, reset, formState: { errors }
+    } = useForm({
+        resolver: yupResolver(schema)
+    })
 
     const recipe = useSelector((state) => state.recipePage.value)
     const user = useSelector((state) => state.user.value)
@@ -23,32 +31,31 @@ export default function CommentInput(props) {
     const router = useRouter()
 
     function onSubmit(data) {
-        event.preventDefault()
-        const check = myRecipesForm.verifyFields(
-            ['comment'],
-            ['comentario'],
-            data)
-        if (check) {
 
-            const text = data.comment
-            const comment = {
-                recipeId: recipe.id,
-                name: user.name,
-                email: user.email,
-                text
-            }
-            recipePresentation.sendComment(comment)
-                .then(resp => setNewComment(resp.payload))
-
-            dispatch(recipeToCurrentPage(recipe))
-            reset()
+        const text = data.comment
+        const comment = {
+            recipeId: recipe.id,
+            name: user.name,
+            email: user.email,
+            text
         }
+        recipePresentation.sendComment(comment)
+            .then(resp => {
+                setNewComment(resp.payload)
+                dispatch(recipeToCurrentPage(recipe))
+                reset()
+            })
+
     }
 
+
     return (
-        <form >
+        <form onSubmit={handleSubmit(onSubmit)}>
 
             <FormControl sx={{ width: '100%', height: '150px' }} variant="standard">
+
+                <Typography sx={{ color: 'red', fontSize: '16px', margin: ' 0 auto' }} variant="body1">{errors.comment?.message}</Typography>
+
                 <InputLabel sx={{ height: '40%', fontSize: '130%' }} color='info' htmlFor="input-with-icon-adornment">
                     Escreva seu comentario aqui
                 </InputLabel>
@@ -69,8 +76,8 @@ export default function CommentInput(props) {
                         endAdornment={
                             <InputAdornment position='end'>
                                 <Button
-                                    onClick={() => onSubmit(getValues())}
                                     variant="contained"
+                                    type='submit'
                                     size='small'
                                     endIcon={<SendIcon />}>
                                     Enviar

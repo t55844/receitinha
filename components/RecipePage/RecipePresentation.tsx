@@ -21,7 +21,7 @@ function RecipePresentation(props) {
                 <Typography variant='h6' component='p'><TimerSharpIcon color='primary' /> {recipe.duration}</Typography>
             </div>
 
-            <IngredientList ingredient={recipe.ingredient} />
+            <IngredientList ingredient={recipe.ingredients} />
 
             <div style={{ width: '80%', margin: '4% 0', borderBottom: `3px solid ${colors.primary}` }}>
                 <Typography variant='h6'>Preparo</Typography>

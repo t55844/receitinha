@@ -28,7 +28,8 @@ const schema = yup.object({
         .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
         .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
         .test('tipo', 'So suportamos PNG ou JPG', value => value && value.length > 0 && (value[0].type === 'image/png' || value[0].type === 'image/jpg'))
-}).required('precisa de uma foto')
+}).required('precisa de uma foto ou imagem')
+
 export default function Form(props) {
 
     const recipe: IRecipeFromDB = props.recipe
@@ -43,17 +44,17 @@ export default function Form(props) {
     const { control, register, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
     const onSubmit = async data => {
-        console.log(data)
         const res = await myRecipesForm.submitRecipe({ ...data }, user.email)
 
         if (res && res.error === false) {
             reset()
+
         }
     };
 
     return (
         < FormProvider {...methods} >
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
                 <div className={formStyle.formContainer}>
 
                     <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.name?.message}</Typography>

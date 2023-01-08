@@ -17,11 +17,13 @@ const recipe = {
     duration: '20 minutos',
     preparation: 'compra massa pre-pronta, pois e mais facil',
     email: 'guto22@yahoo.com',
-    ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'cenoura' }, { ingredient: 'ovos' }]
+    ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'cenoura' }, { ingredient: 'ovos' }],
+    img: "blob:http://localhost:3000/cfe3e0f2-d8f6-405b-b11d-400e99ffb92e"
 }
 
 const fakeFetch = jest.fn().mockImplementation(() => new Promise((resolve, reject,) => {
     resolve({
+        error: false,
         payload: [
             {
                 recipeId: 3,
@@ -33,6 +35,7 @@ const fakeFetch = jest.fn().mockImplementation(() => new Promise((resolve, rejec
         blob: () => fakeBlob,
         json: () => {
             return {
+                error: false,
                 payload: [
                     {
                         recipe

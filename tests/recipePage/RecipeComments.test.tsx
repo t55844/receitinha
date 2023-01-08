@@ -31,16 +31,18 @@ let store;
 
 global.fetch = jest.fn().mockImplementation(() => new Promise((resolve, reject,) => {
     resolve({
+        error: false,
         payload: [
             {
                 recipeId: 3,
                 name: 'Joao',
                 email: 'j22@ot.com',
-                text: 'muito bom'
+                text: 'muito bom',
             }
         ],
         json: () => {
             return {
+                error: false,
                 payload: [
                     {
                         recipeId: 3,
@@ -87,10 +89,6 @@ describe('recipeComments', () => {
 
         const input = screen.queryByLabelText('Escreva seu comentario aqui')
         expect(input).toBeInTheDocument()
-
-        await user.type(input, ' ')
-
-        expect(input.innerHTML.length).toEqual(0)
 
         const sendButton = screen.queryByText('Enviar')
         await user.click(sendButton)
