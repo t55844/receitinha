@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch --maxWorkers=3",
-    "test-shoot": "jest  --verbose --maxWorkers=3 "
+    "test-shoot": "jest  --verbose --maxWorkers=3 ",
+    "server-tests": "node ./tests/selenium_tests/server_for_tests/src/index.js",
+    "selenium-tests": "python tests\\selenium_tests\\tests_seleium_full_navigation.py",
+    "full-navigation-tests": "start npm run server-tests & start npm run selenium-tests "
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",

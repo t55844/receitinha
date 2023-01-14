@@ -27,7 +27,6 @@ const schema = yup.object({
         .required('precisa colocar uma foto aqui')
         .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
         .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
-        .test('tipo', 'So suportamos PNG ou JPG', value => value && value.length > 0 && (value[0].type === 'image/png' || value[0].type === 'image/jpg'))
 }).required('precisa de uma foto ou imagem')
 
 export default function Form(props) {
