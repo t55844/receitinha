@@ -13,6 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import BuildSharpIcon from '@mui/icons-material/BuildSharp';
 import recipePresentation from '../../js/recipePage/recipePresentation';
 import { useRouter } from 'next/router';
+import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
 
 
 const MyRecipeList = (prop) => {
@@ -46,7 +47,7 @@ const MyRecipeList = (prop) => {
                     <RecipeDetails recipe={recipe} />
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginBottom: '20px' }}>
                         <Button variant="outlined" startIcon={<DeleteIcon fontSize='small' />}
-                            onClick={() => myRecipesList.deleteRecipe(recipe.id)}
+                            onClick={() => myRecipesForm.deleteRecipe(recipe.id, email)}
                         >
                             Deletar
                         </Button>
