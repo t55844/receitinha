@@ -1,14 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+let recipeFromSession
+
+if (typeof window !== 'undefined') {
+    const recipe = JSON.parse(sessionStorage.getItem('recipePage'))
+    recipeFromSession = recipe
+} else {
+    recipeFromSession = ''
+}
+
+
 export const recipePageSlice = createSlice({
     name: 'counter',
     initialState: {
-        value: '',
+        value: recipeFromSession,
     },
     reducers: {
         recipeToCurrentPage: (state, action) => {
-
-            state.value = action.payload
+            if (typeof window !== 'undefined') {
+                sessionStorage.setItem('recipePage', JSON.stringify(action.payload))
+                recipeFromSession = sessionStorage.getItem('recipePage')
+                state.value = recipeFromSession
+            }
         },
 
     },
