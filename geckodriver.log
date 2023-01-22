@@ -2013,3 +2013,179 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://l
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
 1673726341585	Marionette	INFO	Stopped listening on port 60192
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1674324160708	geckodriver	INFO	Listening on 127.0.0.1:53700
+1674324163781	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "53701" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileB27rIM"
+1674324164462	Marionette	INFO	Marionette enabled
+1674324164467	Marionette	INFO	Listening on port 53710
+Read port: 53710
+WebDriver BiDi listening on ws://127.0.0.1:53701
+1674324164631	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileB27rIM\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53701/devtools/browser/36e8eab1-553b-4f5d-a9ca-70c1e89e532d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674324207937 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/541686a2-2453-4127-adcd-fe2d3a8f9223\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674324207937 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/541686a2-2453-4127-adcd-fe2d3a8f9223\"}": not an object
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1674324730659	Marionette	INFO	Stopped listening on port 53710
+1674324875256	geckodriver	INFO	Listening on 127.0.0.1:53970
+1674324878349	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "53971" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileL5sfkk"
+1674324878980	Marionette	INFO	Marionette enabled
+1674324878986	Marionette	INFO	Listening on port 53980
+Read port: 53980
+WebDriver BiDi listening on ws://127.0.0.1:53971
+1674324879153	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileL5sfkk\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53971/devtools/browser/fa16e2f1-9dc0-4dc9-a6e7-459b5d3c034c
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+getMutations@resource://devtools/client/fronts/walker.js:313:10
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1674324990342	geckodriver	INFO	Listening on 127.0.0.1:54079
+1674324993418	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "54080" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile8eIrKI"
+1674324993993	Marionette	INFO	Marionette enabled
+1674324993998	Marionette	INFO	Listening on port 54089
+Read port: 54089
+WebDriver BiDi listening on ws://127.0.0.1:54080
+1674324994199	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile8eIrKI\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54080/devtools/browser/a12d695b-c28c-4675-ac56-b1b33f037355
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325031945 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/e9f3d941-1627-4d83-b887-c6012a81a408\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325031945 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/e9f3d941-1627-4d83-b887-c6012a81a408\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325073251 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/a6769bca-a6c8-4cee-ac8e-c71d234445c0\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325073251 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/a6769bca-a6c8-4cee-ac8e-c71d234445c0\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325160986 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325174905 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/4aedfe12-18c2-4283-a144-a6b6a0be3006\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325174905 line 2214 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/4aedfe12-18c2-4283-a144-a6b6a0be3006\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325352720 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325371853 line 2225 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/e293dcdb-b027-482f-b41a-b357f91dc9da\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1674325371853 line 2225 > eval, line 531: TypeError: can't assign to property "img" on "{\"id\":3,\"name\":\"bolo de cenoura\",\"difficulty\":\"Simples\",\"duration\":\"20 minutos\",\"preparation\":\"compra massa pre-pronta, pois e mais facil\",\"email\":\"guto22@yahoo.com\",\"ingredients\":[{\"ingredient\":\"agua\"},{\"ingredient\":\"leite\"},{\"ingredient\":\"trigo\"},{\"ingredient\":\"cenoura\"},{\"ingredient\":\"ovos\"}],\"img\":\"blob:http://localhost:3000/e293dcdb-b027-482f-b41a-b357f91dc9da\"}": not an object
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1674325423747 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1674325450475	Marionette	INFO	Stopped listening on port 54089
+1674325556237	geckodriver	INFO	Listening on 127.0.0.1:54393
+1674325559310	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "54394" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile9Vy3u8"
+1674325559889	Marionette	INFO	Marionette enabled
+1674325559894	Marionette	INFO	Listening on port 54403
+Read port: 54403
+WebDriver BiDi listening on ws://127.0.0.1:54394
+1674325560037	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile9Vy3u8\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54394/devtools/browser/faf1c92d-84df-4c6f-be81-f08c92ec3385
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1674325698140	Marionette	INFO	Stopped listening on port 54403
+1674325879335	geckodriver	INFO	Listening on 127.0.0.1:54556
+1674325882393	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "54557" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile0rZOQU"
+1674325882666	Marionette	INFO	Marionette enabled
+1674325882669	Marionette	INFO	Listening on port 54566
+Read port: 54566
+WebDriver BiDi listening on ws://127.0.0.1:54557
+1674325882798	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile0rZOQU\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54557/devtools/browser/e3a7050c-b85f-43d5-996d-108ce8ec93ce
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1674325958584	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+1674325970284	Marionette	INFO	Stopped listening on port 54566
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1674326170941	geckodriver	INFO	Listening on 127.0.0.1:54728
+1674326174005	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "54729" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile5R2TQT"
+1674326174544	Marionette	INFO	Marionette enabled
+1674326174549	Marionette	INFO	Listening on port 54738
+Read port: 54738
+WebDriver BiDi listening on ws://127.0.0.1:54729
+1674326174684	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile5R2TQT\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54729/devtools/browser/9c7f41f7-3a07-419e-8f44-feba5394f3fb
+1674326233600	geckodriver	INFO	Listening on 127.0.0.1:54817
+1674326236667	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "54818" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileI9jtzn"
+1674326237076	Marionette	INFO	Marionette enabled
+1674326237082	Marionette	INFO	Listening on port 54827
+Read port: 54827
+WebDriver BiDi listening on ws://127.0.0.1:54818
+1674326237215	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileI9jtzn\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54818/devtools/browser/305391cd-5a23-4eeb-b0db-8a8e7f0a95b4
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1674326328030	Marionette	INFO	Stopped listening on port 54827
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1674420130634	geckodriver	INFO	Listening on 127.0.0.1:53249
+1674420133714	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-port" "53250" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile5GZswR"
+1674420134387	Marionette	INFO	Marionette enabled
+1674420134393	Marionette	INFO	Listening on port 53259
+Read port: 53259
+WebDriver BiDi listening on ws://127.0.0.1:53250
+1674420134540	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile5GZswR\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53250/devtools/browser/5ff78bf4-e2b7-4299-b40b-64981cf83818
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1674420231962	Marionette	INFO	Stopped listening on port 53259
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.

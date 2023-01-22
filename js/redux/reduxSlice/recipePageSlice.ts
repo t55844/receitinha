@@ -20,7 +20,7 @@ export const recipePageSlice = createSlice({
         recipeToCurrentPage: (state, action) => {
             if (typeof window !== 'undefined') {
                 sessionStorage.setItem('recipePage', JSON.stringify(action.payload))
-                recipeFromSession = sessionStorage.getItem('recipePage')
+                recipeFromSession = JSON.parse(sessionStorage.getItem('recipePage'))
                 state.value = recipeFromSession
             }
         },

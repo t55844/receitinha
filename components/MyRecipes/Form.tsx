@@ -32,6 +32,7 @@ const schema = yup.object({
 export default function Form(props) {
 
     const recipe: IRecipeFromDB = props.recipe
+    console.log(typeof recipe)
 
     const user = useSelector((state) => state.user.value)
 

@@ -11,13 +11,7 @@ export default (props) => {
 
     const [recipe, setRecipe] = React.useState(null)
 
-    useEffect(() => {
-        if (recipeData.length) {
-            setRecipe(JSON.parse(recipeData))
-        } else {
-            setRecipe(recipeData)
-        }
-    }, [])
+    useEffect(() => setRecipe(recipeData), [])
 
 
     if (recipe !== null) {

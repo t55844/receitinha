@@ -33,4 +33,7 @@ sleep(2)
 send_recipe(driver, By)
 sleep(2)
 
-os.remove('/tests/selenium/server_for_test/public')
+path = 'C:\\Users\\Usuário\\OneDrive\\Área de Trabalho\\miniProjetos\\minha_receita\\tests\\selenium_tests\\server_for_tests\\public'
+
+for file in os.listdir(path):
+    os.remove(os.path.join(path, file))
