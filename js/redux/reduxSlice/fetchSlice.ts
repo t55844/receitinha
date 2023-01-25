@@ -19,6 +19,7 @@ export const fetchSlice = createSlice({
                     loading: false,
                     failed: false,
                     data: actions.payload.data
+                    ,
                 }
             } else {
                 state.recipesReq = {

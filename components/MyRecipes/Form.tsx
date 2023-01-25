@@ -10,6 +10,7 @@ import * as yup from "yup";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import { useSelector } from "react-redux";
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
+import { requestModel } from "../../js/fetch/fecth";
 
 
 const styleInput = {
@@ -22,7 +23,7 @@ const schema = yup.object({
     ingredients: yup.array().of(yup.object().shape({ ingredient: yup.string().trim().required('Voce precisda digitar no campo do ingredient'), id: yup.number() })).min(1, 'Voce precisda adicionar um ingredient'),
     preparation: yup.string().trim().required('Você precisa descrever a receita'),
     duration: yup.string().trim().required('Você precisa selecionar uma duração'),
-    difficulty: yup.string().trim().required('Você precisa selecionar uma dificuldade'),
+    diffculty: yup.string().trim().required('Você precisa selecionar uma dificuldade'),
     img: yup.mixed()
         .required('precisa colocar uma foto aqui')
         .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
@@ -32,7 +33,6 @@ const schema = yup.object({
 export default function Form(props) {
 
     const recipe: IRecipeFromDB = props.recipe
-    console.log(typeof recipe)
 
     const user = useSelector((state) => state.user.value)
 
@@ -44,7 +44,10 @@ export default function Form(props) {
     const { control, register, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
     const onSubmit = async data => {
-        const res = await myRecipesForm.submitRecipe({ ...data }, user.email)
+        delete data.img
+        console.log(data)
+
+        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
 
         if (res && res.error === false) {
             reset()
@@ -91,15 +94,15 @@ export default function Form(props) {
                             rows={10} />}
                     />
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.difficulty?.message}</Typography>
+                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.diffculty?.message}</Typography>
                     <Controller
                         key={3}
-                        name={"difficulty"}
+                        name={"diffculty"}
                         control={control}
                         defaultValue={''}
                         render={({ field }) => <SelectForm
-                            name={'difficulty'}
-                            option={getValues('difficulty')}
+                            name={'diffculty'}
+                            option={getValues('diffculty')}
                             selectOption={setValue}
                             sx={styleInput}
                             options={[
@@ -157,113 +160,3 @@ export default function Form(props) {
         </FormProvider >
     )
 }
-
-/* < FormProvider {...methods} >
-<input type="submit" />
- 
-     <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
-         <div className={formStyle.formContainer}>
-             <Controller
-                 key={5}
-                 name="name"
-                 control={control}
-                 rules={
-                     {
-                         required: {
-                             value: true,
-                             message: 'erro'
-s                                 }
-                     }
-                 }
-                 defaultValue=""
-                 render={({ field }) => <TextField{...field}
-                     placeholder='bolo de milho'
-                     sx={styleInput}
-                     id="name"
-                     label="O nome da receita"
-                     variant="standard" />}
-             />
- 
-             <IngredientListInput
-                 styleInput={styleInput} />
- 
-             <Controller
-                 key={4}
-                 name="preparation"
-                 control={control}
-                 defaultValue=""
-                 render={({ field }) => <TextField{...field}
-                     placeholder='coloque a massa na batedeira, misture com leite e a manteiga ate que fique homogenea'
-                     sx={styleInput}
-                     id="preparation"
-                     label="Explique o modo de preparo"
-                     variant="standard"
-                     multiline
-                     rows={10} />}
-             />
- 
-             <Controller
-                 key={3}
-                 name={"difficulty"}
-                 control={control}
-                 defaultValue={''}
-                 render={({ field }) => <SelectForm
-                     name={'difficulty'}
-                     option={getValues('difficulty')}
-                     selectOption={setValue}
-                     sx={styleInput}
-                     options={[
-                         'Selecione', 'Simples', 'Facil', "Dificil", "Muito Dificil"
-                     ]}
-                     label='Dificuldade'
-                 />}
-             />
- 
-             <Controller
-                 key={2}
-                 name={"duration"}
-                 control={control}
-                 defaultValue={''}
-                 render={({ field }) => <SelectForm
-                     name={'duration'}
-                     option={getValues('duration')}
-                     selectOption={setValue}
-                     sx={styleInput}
-                     options={[
-                         'Selecione', '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
-                     ]}
-                     label='Duração'
-                 />}
-             />
- 
-             <div style={styleInput}>
-                 <Typography
-                     variant="subtitle1"
-                 >
-                     Escolha uma imagem
-                 </Typography>
-                 <input
-                     aria-label="entrada de imagem"
-                     id="image_upload_input_recipes"
-                     name='file'
-                     className={formStyle.uploadeImgButton}
-                     style={styleInput}
-                     type="file"
-                     accept="image/png, image/jpg"
-                 />
- 
- 
-             </div>
- 
-             <Button
-                 title="submit-button"
-                 sx={{ width: "40%", margin: "1.5rem auto" }}
-                 variant="contained"
-                 endIcon={<SendIcon />}
-                 type='submit'
-                 onClick={() => { onSubmit(getValues()) }}
-             >Enviar</Button>
-         </div>
- 
-     </form>
- </FormProvider>*/
