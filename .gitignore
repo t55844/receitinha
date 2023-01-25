@@ -27,6 +27,13 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+env
+
+geckodriver.log*
+geckodriver
+geckodriver.log
+
 
 # vercel
 .vercel
