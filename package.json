@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
     "test": "jest --watch --maxWorkers=3",
     "test-shoot": "jest  --verbose --maxWorkers=3 ",

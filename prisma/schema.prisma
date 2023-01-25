@@ -12,18 +12,11 @@ datasource db {
 }
 
 model Recipes {
-  id          Int           @id @unique @default(autoincrement())
-  email       String        @unique
+  id          Int    @id @unique @default(autoincrement())
+  email       String
   name        String
-  ingredients Ingredients[]
+  ingredients Json
   preparation String
   diffculty   String
   duration    String
-}
-
-model Ingredients {
-  Ingredient String
-  id         Int      @id @unique
-  Recipes    Recipes? @relation(fields: [recipesId], references: [id])
-  recipesId  Int?
 }

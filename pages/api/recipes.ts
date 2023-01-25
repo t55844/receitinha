@@ -1,3 +1,4 @@
+import { createRecipe } from "./prisma/prismaDb"
 
 
 const data = [
@@ -30,10 +31,18 @@ const data = [
     },
 ]
 
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
+
         return res.status(200).json({ error: false, msg: 'success', data })
-    } else {
+    }
+    else if (req.method === "POST") {
+        const recipe = JSON.parse(req.body)
+        const response = await createRecipe(recipe)
+        return res.status(200).json({ error: false, msg: 'success', response })
+    }
+    else {
         return res.status(400).json({ error: true, msg: 'Bad Request' })
     }
 

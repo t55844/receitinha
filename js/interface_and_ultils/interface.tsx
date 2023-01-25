@@ -11,7 +11,7 @@ export interface IRecipeFromDB {
     name: string,
     ingredient?: string[],
     preparation: string,
-    difficulty: string,
+    diffculty: string,
     duration: string,
 }
 
