@@ -16,16 +16,10 @@ import { useRouter } from 'next/router';
 import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
 
 
-const MyRecipeList = (prop) => {
+const MyRecipeList = (props) => {
     const email = useSelector((state) => state.user.value.email)
     const dispatch = useDispatch()
     const router = useRouter()
-
-
-    useEffect(() => {
-        myRecipesList.recipeFromDB(email)
-            .then(res => dispatch(recipesReq(res)))
-    }, [])
 
     const recipeReq = useSelector((state) => state.fetch.recipesReq)
 

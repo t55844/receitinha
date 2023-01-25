@@ -12,11 +12,13 @@ export const fetchSlice = createSlice({
     },
     reducers: {
         recipesReq: (state, actions) => {
-            if (actions.payload.length > 0) {
+            console.log(actions.payload)
+
+            if (actions.payload.data.length > 0) {
                 state.recipesReq = {
                     loading: false,
                     failed: false,
-                    data: actions.payload
+                    data: actions.payload.data
                 }
             } else {
                 state.recipesReq = {
