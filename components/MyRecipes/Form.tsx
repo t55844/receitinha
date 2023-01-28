@@ -11,6 +11,7 @@ import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import { useSelector } from "react-redux";
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import { requestModel } from "../../js/fetch/fecth";
+import { useRouter } from "next/router";
 
 
 const styleInput = {
@@ -35,6 +36,8 @@ export default function Form(props) {
     const recipe: IRecipeFromDB = props.recipe
 
     const user = useSelector((state) => state.user.value)
+    const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
+    const router = useRouter()
 
     const methods = useForm({
         defaultValues: recipe,
@@ -45,13 +48,19 @@ export default function Form(props) {
 
     const onSubmit = async data => {
         delete data.img
-        console.log(data)
 
-        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
+        let res
+
+        if (submitMethod === 'create') res = await requestModel('http://localhost:3000/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
+            .then(res => res.json())
+
+        if (submitMethod === 'update') res = await requestModel('http://localhost:3000/api/recipes', { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
+            .then(res => res.json())
+        console.log(res)
 
         if (res && res.error === false) {
             reset()
-
+            router.push('/generalPages/Form')
         }
     };
 

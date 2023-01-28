@@ -1,46 +1,29 @@
-import { createRecipe } from "./prisma/prismaDb"
-
-
-const data = [
-    {
-        id: 3,
-        name: 'bolo de cenoura',
-        difficulty: 'Simples',
-        duration: '20 minutos',
-        preparation: 'compra massa pre-pronta, pois e mais facil',
-        email: 'guto22@yahoo.com',
-        ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'cenoura' }, { ingredient: 'ovos' }]
-    },
-    {
-        id: 1,
-        name: 'bolo bana aveia',
-        difficulty: 'Dificil',
-        duration: '60 minutos',
-        preparation: 'compra massa pre-pronta, pois e mais facil',
-        email: 'guto22@yahoo.com',
-        ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'aveia' }, { ingredient: 'banana' }, { ingredient: 'trigo' }, { ingredient: 'manteiga' }]
-    },
-    {
-        id: 2,
-        name: 'bolo',
-        difficulty: 'Facil',
-        duration: '30 minutos',
-        preparation: 'compra massa pre-pronta, pois e mais facil',
-        email: 'guto22@yahoo.com',
-        ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'aveia' }, { ingredient: 'banana' }]
-    },
-]
-
+import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe } from "./prisma/prismaDb"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
 
-        return res.status(200).json({ error: false, msg: 'success', data })
+        const result = await getAllRecipes()
+
+        return res.status(200).json({ error: false, msg: 'success', data: result })
     }
     else if (req.method === "POST") {
+
         const recipe = JSON.parse(req.body)
         const response = await createRecipe(recipe)
         return res.status(200).json({ error: false, msg: 'success', response })
+    }
+    else if (req.method === "PUT") {
+        const recipe = JSON.parse(req.body)
+        const result = updateRecipe(recipe.id, recipe)
+        return res.status(200).json({ error: true, msg: 'success', data: result })
+
+    }
+    else if (req.method === "DELETE") {
+        const id = JSON.parse(req.body)
+        const result = deleteRecipe(id)
+        return res.status(200).json({ error: false, msg: 'success', data: result })
+
     }
     else {
         return res.status(400).json({ error: true, msg: 'Bad Request' })
