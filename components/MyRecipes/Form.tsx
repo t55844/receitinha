@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import { requestModel } from "../../js/fetch/fecth";
 import { useRouter } from "next/router";
+import { menssages } from "../../js/interface_and_ultils/menssages";
 
 
 const styleInput = {
@@ -56,11 +57,13 @@ export default function Form(props) {
 
         if (submitMethod === 'update') res = await requestModel('http://localhost:3000/api/recipes', { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())
-        console.log(res)
 
         if (res && res.error === false) {
             reset()
-            router.push('/generalPages/Form')
+            menssages.emiteMensageSuccess('Receita envida e Salva com successo')
+            router.reload()
+        } else {
+            menssages.emiteMensageError('Ouve um erro e não foi possivel salvar a receita')
         }
     };
 

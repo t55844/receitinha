@@ -24,7 +24,7 @@ export async function updateRecipe(id: number, data: IFormInput) {
 
         const response = prisma ? await prisma.Recipes.update({
             where: {
-                id: 5656,
+                id,
             },
             data,
         }) : ''
