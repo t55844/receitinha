@@ -15,15 +15,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     else if (req.method === "PUT") {
         const recipe = JSON.parse(req.body)
-        const result = updateRecipe(recipe.id, recipe)
-        return res.status(200).json({ error: true, msg: 'success', data: result })
-
+        const result = await updateRecipe(recipe.id, recipe)
+        if (result) {
+            return res.status(200).json({ error: false, msg: 'success', data: result })
+        } else {
+            return res.status(400).json({ error: true, msg: 'error' })
+        }
     }
     else if (req.method === "DELETE") {
         const id = JSON.parse(req.body)
-        const result = deleteRecipe(id)
-        return res.status(200).json({ error: false, msg: 'success', data: result })
-
+        const result = await deleteRecipe(id)
+        if (result) {
+            return res.status(200).json({ error: false, msg: 'success', data: result })
+        } else {
+            return res.status(400).json({ error: true, msg: 'error' })
+        }
     }
     else {
         return res.status(400).json({ error: true, msg: 'Bad Request' })

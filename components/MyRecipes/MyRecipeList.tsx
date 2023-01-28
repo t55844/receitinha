@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
 import QuestionModal from './QuestionModal';
 import { requestModel } from '../../js/fetch/fecth';
+import { menssages } from '../../js/interface_and_ultils/menssages';
 
 
 const MyRecipeList = (props) => {
@@ -23,8 +24,17 @@ const MyRecipeList = (props) => {
     const recipeReq = useSelector((state) => state.fetch.recipesReq)
 
     const deleteRecipe = (id) => async () => {
-        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'DELETE', body: JSON.stringify({ id }) })
 
+        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'DELETE', body: JSON.stringify(id) })
+            .then(res => res.json())
+
+        if (res.error == false) {
+            menssages.emiteMensageSuccess('Receita deletada com sucesso!')
+            router.reload()
+
+        } else {
+            menssages.emiteMensageError('Não foi possivel deletar a receita.')
+        }
     }
 
 
