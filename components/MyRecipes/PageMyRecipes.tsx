@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import Form from './Form';
 import MyRecipesList from './MyRecipeList';
 import TitleOfSection from '../Menu/TitleOfSection';
+import { useDispatch } from 'react-redux';
+import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -41,8 +43,13 @@ function a11yProps(index: number) {
 
 export default function PageMyRecipes() {
     const [value, setValue] = React.useState(0);
+    const dispatch = useDispatch()
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        if (newValue === 1) {
+            dispatch(setSubmitMethod('create'));
+
+        }
         setValue(newValue);
     };
 

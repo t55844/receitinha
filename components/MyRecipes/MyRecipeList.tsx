@@ -6,14 +6,13 @@ import RecipeDetails from './RecipeDetails'
 import { Typography } from '@mui/material';
 import { colors } from '../MaterialUI/theme';
 import { useDispatch, useSelector } from 'react-redux';
-import { recipesReq } from '../../js/redux/reduxSlice/fetchSlice';
-import { myRecipesList } from '../../js/MyRecipes/myRecipesList';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import BuildSharpIcon from '@mui/icons-material/BuildSharp';
 import recipePresentation from '../../js/recipePage/recipePresentation';
 import { useRouter } from 'next/router';
-import { myRecipesForm } from '../../js/MyRecipes/myRecipesForm';
+import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
+import QuestionModal from './QuestionModal';
+import { requestModel } from '../../js/fetch/fecth';
 
 
 const MyRecipeList = (props) => {
@@ -22,6 +21,11 @@ const MyRecipeList = (props) => {
     const router = useRouter()
 
     const recipeReq = useSelector((state) => state.fetch.recipesReq)
+
+    const deleteRecipe = (id) => async () => {
+        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'DELETE', body: JSON.stringify({ id }) })
+
+    }
 
 
     if (recipeReq.loading) return (<div aria-label='carregando' style={{ textAlign: 'center' }}><CircularProgress sx={{ width: '30%', margin: '0 auto' }} /></div>)
@@ -40,13 +44,19 @@ const MyRecipeList = (props) => {
                 <div key={Math.random()} className={formStyle.recipeCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'centers', width: '25%', flexWrap: 'wrap' }}>
                     <RecipeDetails recipe={recipe} />
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginBottom: '20px' }}>
-                        <Button variant="outlined" startIcon={<DeleteIcon fontSize='small' />}
-                            onClick={() => myRecipesForm.deleteRecipe(recipe.id, email)}
-                        >
-                            Deletar
-                        </Button>
+                        <QuestionModal
+                            buttonName='Deletar'
+                            question='Voçê realmente deseja deletar essa receita ? depos não avera volta.'
+                            agree='Sim'
+                            denied='Não'
+                            title='Deletar a receita'
+                            agreeAction={deleteRecipe(recipe.id)}
+                        />
                         <Button variant="outlined" startIcon={<BuildSharpIcon fontSize='small' />}
-                            onClick={() => recipePresentation.buttonLinkToPage('/editRecipe/', recipe, router, dispatch)}
+                            onClick={() => {
+                                dispatch(setSubmitMethod('update'));
+                                recipePresentation.buttonLinkToPage('/editRecipe/', recipe, router, dispatch)
+                            }}
                         >
                             Alterar
                         </Button>
