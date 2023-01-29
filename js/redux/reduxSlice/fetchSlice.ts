@@ -12,7 +12,6 @@ export const fetchSlice = createSlice({
     },
     reducers: {
         recipesReq: (state, actions) => {
-            console.log(actions.payload)
 
             if (actions.payload.data.length > 0) {
                 state.recipesReq = {

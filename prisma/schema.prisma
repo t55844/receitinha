@@ -19,4 +19,5 @@ model Recipes {
   preparation String
   diffculty   String
   duration    String
+  img         String
 }

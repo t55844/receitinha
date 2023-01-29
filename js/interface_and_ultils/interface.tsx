@@ -4,6 +4,8 @@ export interface IFormInput {
     preparation: string,
     difficulty: string,
     duration: string,
+    img: File | string
+
 }
 export interface IRecipeFromDB {
     id: number,
@@ -13,6 +15,7 @@ export interface IRecipeFromDB {
     preparation: string,
     diffculty: string,
     duration: string,
+    img: File | string
 }
 
 export interface IComment {
