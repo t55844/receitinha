@@ -9,10 +9,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import { useSelector } from "react-redux";
-import { myRecipesForm } from "../../js/MyRecipes/myRecipesForm";
 import { requestModel } from "../../js/fetch/fecth";
 import { useRouter } from "next/router";
 import { menssages } from "../../js/interface_and_ultils/menssages";
+import { toBase64 } from "../../js/interface_and_ultils/converters";
 
 
 const styleInput = {
@@ -32,6 +32,7 @@ const schema = yup.object({
         .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
 }).required('precisa de uma foto ou imagem')
 
+
 export default function Form(props) {
 
     const recipe: IRecipeFromDB = props.recipe
@@ -39,7 +40,6 @@ export default function Form(props) {
     const user = useSelector((state) => state.user.value)
     const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
     const router = useRouter()
-
     const methods = useForm({
         defaultValues: recipe,
         resolver: yupResolver(schema)
@@ -48,7 +48,8 @@ export default function Form(props) {
     const { control, register, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
     const onSubmit = async data => {
-        delete data.img
+        const base64 = await toBase64(data.img[0])
+        data.img = base64
 
         let res
 

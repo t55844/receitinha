@@ -11,6 +11,8 @@ export async function getServerSideProps() {
     const data = await res.json()
 
     return { props: { data } }
+
+
 }
 
 export default (props) => {
