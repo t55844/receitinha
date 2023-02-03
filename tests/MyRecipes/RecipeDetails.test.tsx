@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import fakeMock from '../testHandler/fakeMock'
 
-global.URL = fakeMock.fakeURL
+//global.URL = fakeMock.fakeURL
 const store = fakeMock.fakeStore
 const recipe = fakeMock.recipe
 

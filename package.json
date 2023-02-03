@@ -8,7 +8,7 @@
     "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
     "test": "jest --watch --maxWorkers=3",
-    "test-shoot": "jest  --verbose --maxWorkers=3 ",
+    "test-jest": "jest  --verbose --maxWorkers=3 ",
     "server-tests": "node ./tests/selenium_tests/server_for_tests/src/index.js",
     "selenium-tests": "python tests\\selenium_tests\\tests_seleium_full_navigation.py",
     "full-navigation-tests": "start npm run server-tests & start npm run selenium-tests "
@@ -26,6 +26,7 @@
     "aos": "^2.3.4",
     "cloudinary": "1.25.0",
     "next": "12.3.0",
+    "next-cloudinary": "^1.12.2",
     "notistack": "^2.0.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",

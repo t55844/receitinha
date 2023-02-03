@@ -18,7 +18,7 @@ const recipe = {
     preparation: 'compra massa pre-pronta, pois e mais facil',
     email: 'guto22@yahoo.com',
     ingredients: [{ ingredient: 'agua' }, { ingredient: 'leite' }, { ingredient: 'trigo' }, { ingredient: 'cenoura' }, { ingredient: 'ovos' }],
-    img: "blob:http://localhost:3000/cfe3e0f2-d8f6-405b-b11d-400e99ffb92e"
+    img: "i0kolhndjjchhdafjheq"
 }
 
 const fakeFetch = jest.fn().mockImplementation(() => new Promise((resolve, reject,) => {

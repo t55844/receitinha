@@ -1,9 +1,9 @@
 import React from 'react'
 import { Typography } from '@mui/material';
-import Image from 'next/image';
 import TimerSharpIcon from '@mui/icons-material/TimerSharp';
 import IngredientList from './IngredientList';
 import { colors } from '../MaterialUI/theme';
+import { CldImage } from 'next-cloudinary';
 
 function RecipePresentation(props) {
     const { recipe } = props
@@ -14,7 +14,7 @@ function RecipePresentation(props) {
                 {recipe.name}
             </Typography>
 
-            <Image src={recipe.img} width={'600px'} height={'400px'}></Image>
+            <CldImage src={recipe.img} width='600px' height='400px' />
 
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', margin: '4%', borderBottom: `3px solid ${colors.primary}` }}>
                 <Typography variant='h6' component='p'>{recipe.difficulty}</Typography>

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
+import { useRouter } from 'next/router';
+import { IRecipeFromDB } from '../../js/interface_and_ultils/interface';
+import { useDispatch } from 'react-redux';
+
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
@@ -12,12 +15,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Ingredients from './Ingredients';
-import { useRouter } from 'next/router';
 import Button from '@mui/material/Button';
 import recipePresentation from '../../js/recipePage/recipePresentation';
-import { IRecipeFromDB } from '../../js/interface_and_ultils/interface';
-import { useSelector, useDispatch } from 'react-redux';
-
+import { CldImage } from 'next-cloudinary';
 
 
 
@@ -64,12 +64,8 @@ export default function RecipeDetails(props) {
                     }
                     title={recipe.name}
                 />
-                <CardMedia
-                    component="img"
-                    role='img'
-                    height="194"
-                    image={recipe.img}
-                />
+                <CldImage src={recipe.img} width='500%' height='400%' />
+
                 <CardContent>
                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '75%', margin: '0 auto' }}>
                         <Typography paragraph>

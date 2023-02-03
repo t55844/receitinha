@@ -8,7 +8,7 @@ import MyRecipeList from '../../components/MyRecipes/MyRecipeList'
 
 
 global.fetch = fakeMock.fakeFetch
-global.URL = fakeMock.fakeURL
+//global.URL = fakeMock.fakeURL
 const store = fakeMock.fakeStore
 const recipe = fakeMock.recipe
 
