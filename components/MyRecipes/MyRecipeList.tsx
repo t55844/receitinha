@@ -51,7 +51,7 @@ const MyRecipeList = (props) => {
         <div className={formStyle.myRecipeList}>
 
             {recipeReq.data.map(recipe =>
-                <div key={Math.random()} className={formStyle.recipeCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'centers', width: '25%', flexWrap: 'wrap' }}>
+                <div key={Math.random()} className={formStyle.recipeCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'centers', width: '25%', flexWrap: 'wrap', maxWidth: '300px' }}>
                     <RecipeDetails recipe={recipe} />
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginBottom: '20px' }}>
                         <QuestionModal

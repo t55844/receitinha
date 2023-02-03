@@ -1,19 +1,12 @@
 import { IFormInput } from "../../js/interface_and_ultils/interface"
-import { getImage, uploadImage } from "./cloudinary"
+import { uploadImage } from "./cloudinary"
 import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe } from "./prisma/prismaDb"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
 
         const result: [] = await getAllRecipes()
-        const recipes = result.map(async (recipe: IFormInput) => {
-            const img = await getImage(recipe.img)
-            recipe.img = img
-            console.log(recipe)
-
-            return recipe
-        })
-        return res.status(200).json({ error: false, msg: 'success', data: recipes })
+        return res.status(200).json({ error: false, msg: 'success', data: result })
     }
     else if (req.method === "POST") {
         const recipe = JSON.parse(req.body)

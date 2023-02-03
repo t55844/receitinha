@@ -25,17 +25,6 @@ export async function uploadImage(base64: string) {
 
 }
 
-export const getImage = async (publicId) => {
-
-    const result = await cloudinary.search
-        .public_id(publicId)
-        .execute()
-        .then(result => {
-
-            console.log(result);
-            return result;
-        })
-};
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
