@@ -59,7 +59,7 @@ def fill_form(driver, By):
     sleep(1.5)
 
     difficulty_input = Select(driver.find_element(
-        By.NAME, 'difficulty'
+        By.NAME, 'diffculty'
     ))
     difficulty_input.select_by_index(4)
     sleep(1)

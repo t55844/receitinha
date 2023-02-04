@@ -13,7 +13,7 @@ const fakeBlob = blob;
 const recipe = {
     id: 2,
     name: 'bolo',
-    difficulty: 'Simples',
+    diffculty: 'Simples',
     duration: '20 minutos',
     preparation: 'compra massa pre-pronta, pois e mais facil',
     email: 'guto22@yahoo.com',

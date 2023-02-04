@@ -17,7 +17,7 @@ function RecipePresentation(props) {
             <CldImage src={recipe.img} width='600px' height='400px' />
 
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', margin: '4%', borderBottom: `3px solid ${colors.primary}` }}>
-                <Typography variant='h6' component='p'>{recipe.difficulty}</Typography>
+                <Typography data-testid='diffculty' variant='h6' component='p'>{recipe.diffculty}</Typography>
                 <Typography variant='h6' component='p'><TimerSharpIcon color='primary' /> {recipe.duration}</Typography>
             </div>
 

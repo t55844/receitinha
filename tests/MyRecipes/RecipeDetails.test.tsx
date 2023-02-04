@@ -18,7 +18,7 @@ describe('<RecipeDetails />', () => {
         render(<Provider store={store}><RecipeDetails name={name} recipe={recipe} /></Provider>)
 
         expect(screen.getByText(recipe.name)).toBeInTheDocument()
-        expect(screen.getByText(recipe.difficulty)).toBeInTheDocument()
+        expect(screen.getByText(recipe.diffculty)).toBeInTheDocument()
         expect(screen.getByText(recipe.duration)).toBeInTheDocument()
         expect(screen.getByRole('img')).toBeInTheDocument()
 

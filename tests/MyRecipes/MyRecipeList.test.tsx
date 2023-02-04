@@ -18,8 +18,8 @@ describe('<MyRecipeList />', () => {
         render(<Provider store={store}><MyRecipeList /></Provider>)
 
         expect(screen.getByText('bolo')).toBeInTheDocument()
-        expect(screen.getByText('Simples')).toBeInTheDocument()
-        expect(screen.getByText('20 minutos')).toBeInTheDocument()
+        expect(screen.getByTestId('diffculty')).toHaveTextContent('Simples')
+        expect(screen.getByTestId('duration')).toHaveTextContent('20 minutos')
 
         expect(screen.queryByText('Ingredientes')).toBeNull()
         expect(screen.queryByText('agua')).toBeNull()
