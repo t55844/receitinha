@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import DeleteSweepSharpIcon from '@mui/icons-material/DeleteSweepSharp';
 
 export default function QuestionModal(props) {
     const [open, setOpen] = React.useState(false);
@@ -24,7 +25,7 @@ export default function QuestionModal(props) {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <Button startIcon={<DeleteSweepSharpIcon />} variant="outlined" onClick={handleClickOpen}>
                 {buttonName}
             </Button>
             <Dialog

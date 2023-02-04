@@ -19,7 +19,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             recipe.img = upload
 
             const response = await createRecipe(recipe)
-            return res.status(200).json({ error: false, msg: 'success', response })
+            const result: [] = await getAllRecipes()
+            return res.status(200).json({
+                error: false, msg: 'success', response, data: result
+            })
         }
 
     }
@@ -33,8 +36,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             recipe.img = upload
 
             const response = await updateRecipe(recipe.id, recipe)
+            const result: [] = await getAllRecipes()
 
-            return res.status(200).json({ error: false, msg: 'success', response })
+            return res.status(200).json({ error: false, msg: 'success', response, data: result })
+
         }
     }
     else if (req.method === "DELETE") {
