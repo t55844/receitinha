@@ -68,10 +68,10 @@ export default function RecipeDetails(props) {
 
                 <CardContent>
                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '75%', margin: '0 auto' }}>
-                        <Typography paragraph>
+                        <Typography data-testid="diffculty" paragraph>
                             {recipe.diffculty}
                         </Typography>
-                        <Typography paragraph>
+                        <Typography data-testid="duration" paragraph>
                             {recipe.duration}
                         </Typography>
                     </div>

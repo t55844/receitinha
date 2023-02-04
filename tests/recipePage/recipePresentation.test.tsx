@@ -11,7 +11,7 @@ describe('<recipePresentation />', () => {
         render(<RecipePresentation recipe={recipe} />)
 
         expect(screen.getByText(recipe.name)).toBeInTheDocument()
-        expect(screen.getByText(recipe.difficulty)).toBeInTheDocument()
+        expect(screen.getByTestId('diffculty')).toHaveTextContent('Simples')
         expect(screen.getByText(recipe.duration)).toBeInTheDocument()
         expect(screen.getByText('compra massa pre-pronta, pois e mais facil')).toBeInTheDocument()
         expect(screen.getByText('ovos')).toBeInTheDocument()
