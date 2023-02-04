@@ -2467,3 +2467,367 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://l
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
 JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1675475958463 line 1599 > eval, line 123: TypeError: res is undefined
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675524934198	geckodriver	INFO	Listening on 127.0.0.1:54587
+1675524937257	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofilewV3Pw9"
+1675524937929	Marionette	INFO	Marionette enabled
+1675524937934	Marionette	INFO	Listening on port 54598
+Read port: 54598
+WebDriver BiDi listening on ws://127.0.0.1:54588
+1675524938088	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofilewV3Pw9\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54588/devtools/browser/4e123ab4-23a4-4a3e-b210-2d333fb188fd
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675525320744	geckodriver	INFO	Listening on 127.0.0.1:54953
+1675525323800	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileRJekVj"
+1675525324063	Marionette	INFO	Marionette enabled
+1675525324067	Marionette	INFO	Listening on port 54964
+Read port: 54964
+WebDriver BiDi listening on ws://127.0.0.1:54954
+1675525324184	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileRJekVj\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54954/devtools/browser/eb488ec9-348d-4ad5-895c-13f8c15b9dd2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675525579086 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 560: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1675525762062	Marionette	INFO	Stopped listening on port 54964
+[Parent 16556, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:746
+1675525818403	geckodriver	INFO	Listening on 127.0.0.1:55334
+1675525821468	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile6ApnPK"
+1675525821726	Marionette	INFO	Marionette enabled
+1675525821729	Marionette	INFO	Listening on port 55346
+Read port: 55346
+WebDriver BiDi listening on ws://127.0.0.1:55335
+1675525821842	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile6ApnPK\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55335/devtools/browser/bb092932-bce2-4990-8c72-bca8c12a1351
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675526272964	geckodriver	INFO	Listening on 127.0.0.1:49247
+1675526275999	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileqcn9lU"
+1675526276537	Marionette	INFO	Marionette enabled
+1675526276540	Marionette	INFO	Listening on port 49259
+Read port: 49259
+WebDriver BiDi listening on ws://127.0.0.1:49248
+1675526276663	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileqcn9lU\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49248/devtools/browser/d713e08b-59b6-4270-8a01-789bf657b114
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675527671170	geckodriver	INFO	Listening on 127.0.0.1:50177
+1675527674232	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile7sLAzs"
+1675527674496	Marionette	INFO	Marionette enabled
+1675527674499	Marionette	INFO	Listening on port 50188
+Read port: 50188
+WebDriver BiDi listening on ws://127.0.0.1:50178
+1675527674621	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile7sLAzs\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50178/devtools/browser/c55136b4-6c42-44dc-8dcd-3009982c4a88
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675527877165	geckodriver	INFO	Listening on 127.0.0.1:50396
+1675527880229	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileE5XAeG"
+1675527880494	Marionette	INFO	Marionette enabled
+1675527880497	Marionette	INFO	Listening on port 50408
+Read port: 50408
+WebDriver BiDi listening on ws://127.0.0.1:50397
+1675527880614	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileE5XAeG\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50397/devtools/browser/7594c63e-5810-44c3-a352-1e52007e2b8b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675528194694	geckodriver	INFO	Listening on 127.0.0.1:50695
+1675528197776	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileIeuXnI"
+1675528198314	Marionette	INFO	Marionette enabled
+1675528198318	Marionette	INFO	Listening on port 50707
+Read port: 50707
+WebDriver BiDi listening on ws://127.0.0.1:50696
+1675528198433	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileIeuXnI\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50696/devtools/browser/bc54a330-045f-40f7-a60f-34dbb76600c9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675528724187	geckodriver	INFO	Listening on 127.0.0.1:51143
+1675528727263	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofiletQRk0d"
+1675528727542	Marionette	INFO	Marionette enabled
+1675528727545	Marionette	INFO	Listening on port 51154
+Read port: 51154
+WebDriver BiDi listening on ws://127.0.0.1:51144
+1675528727663	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofiletQRk0d\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51144/devtools/browser/25f9a380-f751-4e2a-9106-df4a320f1ab1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675528841316	geckodriver	INFO	Listening on 127.0.0.1:51310
+1675528844384	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileVW8wYx"
+1675528844656	Marionette	INFO	Marionette enabled
+1675528844659	Marionette	INFO	Listening on port 51324
+Read port: 51324
+WebDriver BiDi listening on ws://127.0.0.1:51311
+1675528844783	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileVW8wYx\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51311/devtools/browser/12e12e20-d43b-4008-9dd4-e44cecd74235
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675529022125	geckodriver	INFO	Listening on 127.0.0.1:51531
+1675529025208	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileLjgJnE"
+1675529025486	Marionette	INFO	Marionette enabled
+1675529025490	Marionette	INFO	Listening on port 51542
+Read port: 51542
+WebDriver BiDi listening on ws://127.0.0.1:51532
+1675529025709	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileLjgJnE\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51532/devtools/browser/f9aa87d5-8beb-4dc5-81d0-abd53a6d96f3
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+getMutations@resource://devtools/client/fronts/walker.js:313:10
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675529157313	geckodriver	INFO	Listening on 127.0.0.1:51697
+1675529160399	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileN6BA5X"
+1675529160657	Marionette	INFO	Marionette enabled
+1675529160661	Marionette	INFO	Listening on port 51708
+Read port: 51708
+WebDriver BiDi listening on ws://127.0.0.1:51698
+1675529160776	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileN6BA5X\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51698/devtools/browser/c5736d19-4704-437a-a75c-466b28e275c2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675529590908	geckodriver	INFO	Listening on 127.0.0.1:52018
+1675529593991	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileScp0y4"
+1675529594253	Marionette	INFO	Marionette enabled
+1675529594257	Marionette	INFO	Listening on port 52029
+Read port: 52029
+WebDriver BiDi listening on ws://127.0.0.1:52019
+1675529594382	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileScp0y4\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52019/devtools/browser/926c6639-13a0-4204-8f5d-ba18fc197281
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+getMutations@resource://devtools/client/fronts/walker.js:313:10
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529811775 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450955/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:566:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/targets/window-global.js :: watch :: line 1664"  data: no]
+Stack: watch@resource://devtools/server/actors/targets/window-global.js:1664:28
+_watchDocshells@resource://devtools/server/actors/targets/window-global.js:779:28
+initialize/<@resource://devtools/server/actors/targets/window-global.js:348:42
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1664, column: 0
+console.error: ({})
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/targets/window-global.js :: watch :: line 1664"  data: no]
+Stack: watch@resource://devtools/server/actors/targets/window-global.js:1664:28
+_watchDocshells@resource://devtools/server/actors/targets/window-global.js:779:28
+initialize/<@resource://devtools/server/actors/targets/window-global.js:348:42
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1664, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/server/actors/targets/window-global.js, line 1712: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]
+console.error: "Error while calling actor 'thread's method 'isAttached'" "JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment"
+console.error: (new InvalidStateError("JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment", (void 0), 376))
+JavaScript error: resource://devtools/server/actors/targets/window-global.js, line 1712: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]
+JavaScript error: resource://devtools/server/actors/targets/window-global.js, line 422: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]
+JavaScript error: resource://devtools/server/actors/targets/window-global.js, line 422: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIDocShell.domWindow]
+JavaScript error: resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.sys.mjs, line 376: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529882659 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529897622 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: , line 0: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+JavaScript error: , line 0: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+JavaScript error: , line 0: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529932439 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 12507: Error: Hydration failed because the initial UI does not match what was rendered on the server.
+JavaScript error: http://localhost:3000/_next/static/chunks/main.js?ts=1675529956982 line 1136 > eval, line 19844: Error: There was an error while hydrating. Because the error happened outside of a Suspense boundary, the entire root will switch to client rendering.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1675530940494	geckodriver	INFO	Listening on 127.0.0.1:52957
+1675530943568	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileAntEX3"
+1675530944143	Marionette	INFO	Marionette enabled
+1675530944147	Marionette	INFO	Listening on port 52969
+Read port: 52969
+WebDriver BiDi listening on ws://127.0.0.1:52958
+1675530944272	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileAntEX3\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52958/devtools/browser/ed6c4ac1-d232-474f-837b-6361c04d1ad9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675531194388	geckodriver	INFO	Listening on 127.0.0.1:53192
+1675531197456	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileNb86m2"
+1675531198002	Marionette	INFO	Marionette enabled
+1675531198005	Marionette	INFO	Listening on port 53205
+Read port: 53205
+WebDriver BiDi listening on ws://127.0.0.1:53193
+1675531198128	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileNb86m2\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53193/devtools/browser/de6f1ddb-53fb-488e-acb7-bd6d24ac6bf1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675531379166	geckodriver	INFO	Listening on 127.0.0.1:53397
+1675531382241	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileBltZ4q"
+1675531382507	Marionette	INFO	Marionette enabled
+1675531382511	Marionette	INFO	Listening on port 53409
+Read port: 53409
+WebDriver BiDi listening on ws://127.0.0.1:53398
+1675531382636	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileBltZ4q\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53398/devtools/browser/d8dd8850-ea23-48be-9e6e-6f9e3b67a707
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1675531418614 line 1610 > eval, line 125: TypeError: res is undefined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675531546291	geckodriver	INFO	Listening on 127.0.0.1:53602
+1675531549350	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileyz7hhp"
+1675531549620	Marionette	INFO	Marionette enabled
+1675531549624	Marionette	INFO	Listening on port 53613
+Read port: 53613
+WebDriver BiDi listening on ws://127.0.0.1:53603
+1675531549745	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofileyz7hhp\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53603/devtools/browser/58dda290-ff82-47e5-89f3-411d35b1daf1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1675531584595 line 1610 > eval, line 125: TypeError: res is undefined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+getMutations@resource://devtools/client/fronts/walker.js:313:10
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+getMutations@resource://devtools/client/fronts/walker.js:313:10
+
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/_app.js?ts=1675532208300 line 9726 > eval, line 19: TypeError: actions.payload.data is undefined
+1675532964037	geckodriver	INFO	Listening on 127.0.0.1:54687
+1675532967115	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "window-size=400,800" "--remote-debugging-p ... "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile0CHC8k"
+1675532967703	Marionette	INFO	Marionette enabled
+1675532967709	Marionette	INFO	Listening on port 54699
+Read port: 54699
+WebDriver BiDi listening on ws://127.0.0.1:54688
+1675532967873	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\USURIO~2\\AppData\\Local\\Temp\\rust_mozprofile0CHC8k\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54688/devtools/browser/24e53614-83cf-4692-8a00-ef77f1192152
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+JavaScript error: http://localhost:3000/_next/static/chunks/pages/generalPages/Form.js?ts=1675533007100 line 1610 > eval, line 128: TypeError: res is undefined
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:3000."
+1675533065803	Marionette	INFO	Stopped listening on port 54699

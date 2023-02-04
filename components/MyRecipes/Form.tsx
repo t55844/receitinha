@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useForm, Controller, FormProvider } from "react-hook-form";
-import { Button, Input, TextField, Typography } from "@mui/material";
+import { toBase64 } from "../../js/interface_and_ultils/converters";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import { useRouter } from "next/router";
+import { menssages } from "../../js/interface_and_ultils/menssages";
+
 import formStyle from '../../styles/myRecipes.module.css'
+import { Button, Input, TextField, Typography } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import SelectForm from "./SelectForm";
 import IngredientListInput from "./IngredientListInput";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { requestModel } from "../../js/fetch/fecth";
-import { useRouter } from "next/router";
-import { menssages } from "../../js/interface_and_ultils/menssages";
-import { toBase64 } from "../../js/interface_and_ultils/converters";
+import ImageInput from "./ImageInput";
+import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 
 
 const styleInput = {
@@ -37,6 +40,7 @@ export default function Form(props) {
 
     const recipe: IRecipeFromDB = props.recipe
 
+    const dispatch = useDispatch()
     const user = useSelector((state) => state.user.value)
     const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
     const router = useRouter()
@@ -45,7 +49,7 @@ export default function Form(props) {
         resolver: yupResolver(schema)
     });
 
-    const { control, register, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
+    const { control, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
     const onSubmit = async data => {
         const base64 = await toBase64(data.img[0])
@@ -62,7 +66,7 @@ export default function Form(props) {
         if (res && res.error === false) {
             reset()
             menssages.emiteMensageSuccess('Receita envida e Salva com successo')
-            router.reload()
+            dispatch(recipesReq(res));
         } else {
             menssages.emiteMensageError('Ouve um erro e não foi possivel salvar a receita')
         }
@@ -144,22 +148,7 @@ export default function Form(props) {
                     />
 
                     <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.img?.message}</Typography>
-                    <div style={styleInput}>
-                        <Typography
-                            variant="subtitle1"
-                        >
-                            Escolha uma imagem
-                        </Typography>
-                        <input
-                            {...register('img')}
-                            aria-label="entrada de imagem"
-                            id="image_upload_input_recipes"
-                            className={formStyle.uploadeImgButton}
-                            style={styleInput}
-                            type="file"
-                            accept="image/png, image/jpg"
-                        />
-                    </div>
+                    <ImageInput styleInput={styleInput} />
 
                     <Button
                         title="submit-button"

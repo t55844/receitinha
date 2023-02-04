@@ -64,12 +64,13 @@ def fill_form(driver, By):
     difficulty_input.select_by_index(4)
     sleep(1)
 
+    image_input = driver.find_element(By.NAME, 'img')
+    image_input.send_keys(
+        'C:\\Users\\Usuário\\OneDrive\\Área de Trabalho\\miniProjetos\\minha_receita\\public\\imagem_para_testes.jpg')
+    sleep(3)
+
     durtation_input = Select(driver.find_element(
         By.NAME, 'duration'
     ))
     durtation_input.select_by_index(4)
-    sleep(1)
-
-    image_input = driver.find_element(By.NAME, 'img')
-    image_input.send_keys(
-        'C:\\Users\\Usuário\\OneDrive\\Área de Trabalho\\miniProjetos\\minha_receita\\public\\imagem_para_testes.jpg')
+    sleep(3)
