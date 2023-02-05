@@ -4,14 +4,26 @@ import { IFormInput } from "../../../js/interface_and_ultils/interface";
 const prisma = typeof window != "undefined" ? false : new PrismaClient()
 
 
-export async function getAllRecipes() {
-    const data = prisma ? await prisma.Recipes.findMany() : ''
+const getAllPrisma = (model: string) => async () => {
+    const data = prisma ? await prisma[model].findMany() : ''
     return data
 
 }
 
-export async function createRecipe(recipe: IFormInput) {
-    const response = prisma ? await prisma.Recipes.create({
+export const getAllRecipes = getAllPrisma('Recipe')
+
+export const getAllComment = async (id) => {
+    const data = await prisma.Comment.findMany({
+        where: {
+            recipesId: id
+        }
+    })
+    return data
+}
+
+
+const createPrisma = (model: string) => async (recipe: IFormInput) => {
+    const response = prisma ? await prisma[model].create({
         data: {
             ...recipe
         }
@@ -19,10 +31,14 @@ export async function createRecipe(recipe: IFormInput) {
     return response
 }
 
-export async function updateRecipe(id: number, data: IFormInput) {
+export const createRecipe = createPrisma('Recipe')
+export const createComment = createPrisma('Comment')
+
+
+const updatePrisma = (model: string) => async (id: number, data: IFormInput) => {
     try {
 
-        const response = prisma ? await prisma.Recipes.update({
+        const response = prisma ? await prisma[model].update({
             where: {
                 id,
             },
@@ -37,10 +53,18 @@ export async function updateRecipe(id: number, data: IFormInput) {
 
 }
 
-export async function deleteRecipe(id: number) {
-    const response = prisma ? await prisma.Recipes.delete({
+export const updateRecipe = updatePrisma('Recipe')
+export const updateComment = updatePrisma('Comment')
+
+
+const deletePrisma = (model: string) => async (id: number) => {
+    const response = prisma ? await prisma[model].delete({
         where: { id },
     }) : ''
     return response
 
 }
+
+export const deleteRecipe = deletePrisma('Recipes')
+export const deleteComment = deletePrisma('Comment')
+

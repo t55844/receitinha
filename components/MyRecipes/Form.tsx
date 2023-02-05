@@ -57,10 +57,10 @@ export default function Form(props) {
 
         let res
 
-        if (submitMethod === 'create') res = await requestModel('http://localhost:3000/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
+        if (submitMethod === 'create') res = await requestModel('/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())
 
-        if (submitMethod === 'update') res = await requestModel('http://localhost:3000/api/recipes', { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
+        if (submitMethod === 'update') res = await requestModel('/api/recipes', { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())
 
         if (res && res.error === false) {

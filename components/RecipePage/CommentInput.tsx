@@ -14,6 +14,7 @@ import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Typography from '@mui/material/Typography';
+import { requestModel } from '../../js/fetch/fecth';
 
 const schema = yup.object({
     comment: yup.string().trim().required('Você deve escrever seu comentario')
@@ -30,21 +31,20 @@ export default function CommentInput(props) {
     const dispatch = useDispatch()
     const router = useRouter()
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
 
         const text = data.comment
         const comment = {
-            recipeId: recipe.id,
             name: user.name,
-            email: user.email,
-            text
+            text,
+            recipesId: recipe.id
         }
-        recipePresentation.sendComment(comment)
-            .then(resp => {
-                setNewComment(resp.payload)
-                dispatch(recipeToCurrentPage(recipe))
-                reset()
-            })
+        const resp = await requestModel('/api/comments', { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })
+            .then(resp => resp.json())
+
+        setNewComment(resp.data)
+        dispatch(recipeToCurrentPage(recipe))
+        reset()
 
     }
 

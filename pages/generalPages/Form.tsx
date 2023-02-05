@@ -7,7 +7,7 @@ import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 import { useDispatch } from "react-redux";
 
 export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:3000/api/recipes`)
+    const res = await fetch(`/api/recipes`)
     const data = await res.json()
 
     return { props: { data } }

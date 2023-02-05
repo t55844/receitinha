@@ -1,4 +1,3 @@
-import { IFormInput } from "../../js/interface_and_ultils/interface"
 import { uploadImage } from "./cloudinary"
 import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe } from "./prisma/prismaDb"
 

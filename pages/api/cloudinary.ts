@@ -7,8 +7,7 @@ cloudinary.config({
 })
 
 export async function uploadImage(base64: string) {
-    console.log(base64)
-    console.log(typeof base64)
+
 
     const options = {
         use_filename: true,
@@ -20,7 +19,6 @@ export async function uploadImage(base64: string) {
     };
 
     const result = await cloudinary.uploader.upload(base64, options);
-    console.log(result);
     return result.public_id;
 
 }

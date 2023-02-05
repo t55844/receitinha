@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Recipes {
-  id          Int    @id @unique @default(autoincrement())
+  id          Int       @id @unique @default(autoincrement())
   email       String
   name        String
   ingredients Json
@@ -20,4 +20,13 @@ model Recipes {
   diffculty   String
   duration    String
   img         String
+  comments    Comment[]
+}
+
+model Comment {
+  id        Int     @id @unique @default(autoincrement())
+  name      String
+  text      String
+  Recipes   Recipes @relation(fields: [recipesId], references: [id])
+  recipesId Int
 }

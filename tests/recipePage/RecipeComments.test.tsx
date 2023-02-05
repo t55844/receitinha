@@ -32,7 +32,7 @@ let store;
 global.fetch = jest.fn().mockImplementation(() => new Promise((resolve, reject,) => {
     resolve({
         error: false,
-        payload: [
+        data: [
             {
                 recipeId: 3,
                 name: 'Joao',

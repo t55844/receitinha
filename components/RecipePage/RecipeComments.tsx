@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Component } from 'react'
 import { useSelector } from 'react-redux'
-import recipePresentation from '../../js/recipePage/recipePresentation'
+import { requestModel } from '../../js/fetch/fecth'
+
 import TitleOfSection from '../Menu/TitleOfSection'
 import CommentsBox from './CommentBox'
 import CommentInput from './CommentInput'
@@ -12,10 +13,11 @@ function RecipeComments(props) {
     const recipe = useSelector((state) => state.recipePage.value)
 
 
-    useEffect(() => {
-        recipePresentation.getComments(recipe.id)
-            .then(resp => setComments(resp.payload))
-            .catch(error => console.log('Comments' + error))
+    useEffect(() => async () => {
+        const resp = await requestModel(`/api/comments/?id=${recipe.id}`, { method: 'GET' })
+            .then(res => res.json())
+
+        setComments(resp)
     }, [])
 
 

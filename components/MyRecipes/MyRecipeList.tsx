@@ -25,7 +25,7 @@ const MyRecipeList = (props) => {
 
     const deleteRecipe = (id) => async () => {
 
-        const res = await requestModel('http://localhost:3000/api/recipes', { method: 'DELETE', body: JSON.stringify(id) })
+        const res = await requestModel('/api/recipes', { method: 'DELETE', body: JSON.stringify(id) })
             .then(res => res.json())
 
         if (res.error == false) {
