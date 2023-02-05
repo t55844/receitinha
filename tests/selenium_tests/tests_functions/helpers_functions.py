@@ -61,7 +61,7 @@ def fill_form(driver, By):
     difficulty_input = Select(driver.find_element(
         By.NAME, 'diffculty'
     ))
-    difficulty_input.select_by_index(4)
+    difficulty_input.select_by_index(3)
     sleep(1)
 
     image_input = driver.find_element(By.NAME, 'img')
@@ -72,5 +72,5 @@ def fill_form(driver, By):
     durtation_input = Select(driver.find_element(
         By.NAME, 'duration'
     ))
-    durtation_input.select_by_index(4)
+    durtation_input.select_by_index(3)
     sleep(3)

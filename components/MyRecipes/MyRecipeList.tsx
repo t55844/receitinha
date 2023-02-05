@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { requestModel } from '../../js/fetch/fecth';
+import { requestModel, urlRecipes } from '../../js/fetch/fecth';
 import { menssages } from '../../js/interface_and_ultils/menssages';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,9 +12,9 @@ import { Typography } from '@mui/material';
 import { colors } from '../MaterialUI/theme';
 import Button from '@mui/material/Button';
 import BuildSharpIcon from '@mui/icons-material/BuildSharp';
-import recipePresentation from '../../js/recipePage/recipePresentation';
 import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
 import QuestionModal from './QuestionModal';
+import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
 
 const MyRecipeList = (props) => {
     const email = useSelector((state) => state.user.value.email)
@@ -25,7 +25,7 @@ const MyRecipeList = (props) => {
 
     const deleteRecipe = (id) => async () => {
 
-        const res = await requestModel('/api/recipes', { method: 'DELETE', body: JSON.stringify(id) })
+        const res = await requestModel(urlRecipes, { method: 'DELETE', body: JSON.stringify(id) })
             .then(res => res.json())
 
         if (res.error == false) {
@@ -65,7 +65,8 @@ const MyRecipeList = (props) => {
                         <Button variant="outlined" startIcon={<BuildSharpIcon fontSize='small' />}
                             onClick={() => {
                                 dispatch(setSubmitMethod('update'));
-                                recipePresentation.buttonLinkToPage('/editRecipe/', recipe, router, dispatch)
+                                dispatch(recipeToCurrentPage(recipe));
+                                router.push(`/editRecipe/${recipe.id}`)
                             }}
                         >
                             Alterar

@@ -1,10 +1,12 @@
 import formStyle from '../../styles/myRecipes.module.css'
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import { useEffect, useState } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 import Image from 'next/future/image';
 import { colors } from '../MaterialUI/theme';
+import { CldImage } from 'next-cloudinary';
+import { useSelector } from 'react-redux';
 
 interface ICurrentImage {
     alt: string,
@@ -13,8 +15,9 @@ interface ICurrentImage {
 
 export default props => {
     const { styleInput } = props
-    const { register } = useFormContext()
+    const { register, getValues } = useFormContext()
     const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: '' })
+    const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
 
     return (
         <div style={{ ...styleInput, background: `${colors.primaryLigth}`, borderRadius: '8px', padding: '18px' }}>
@@ -44,7 +47,14 @@ export default props => {
                 accept="image/png, image/jpg"
             />
 
-            <Image style={{ background: 'white', padding: '18px' }} alt={currentImage.alt} src={currentImage.url} width={300} height={300} />
+            {
+                submitMethod === 'update' && currentImage.url === '' && getValues('img') !== '' ?
+                    <CldImage src={getValues('img')} width={300} height={300} /> :
+                    < Image style={{ background: 'white', padding: '18px' }} alt={currentImage.alt} src={currentImage.url} width={300} height={300} />
+
+            }
+
+
 
         </div>
 

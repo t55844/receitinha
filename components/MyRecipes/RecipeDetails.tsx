@@ -16,8 +16,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Ingredients from './Ingredients';
 import Button from '@mui/material/Button';
-import recipePresentation from '../../js/recipePage/recipePresentation';
 import { CldImage } from 'next-cloudinary';
+import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
 
 
 
@@ -56,7 +56,10 @@ export default function RecipeDetails(props) {
                     action={
                         <Typography variant='body1' >
                             <Button
-                                onClick={() => recipePresentation.buttonLinkToPage('/recipePages/', recipe, router, dispatch)}
+                                onClick={() => {
+                                    dispatch(recipeToCurrentPage(recipe));
+                                    router.push(`/recipePages/${recipe.id}`)
+                                }}
                                 variant="text" >
                                 Mais Detalhes
                             </Button>

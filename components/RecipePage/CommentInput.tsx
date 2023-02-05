@@ -1,20 +1,20 @@
 import * as React from 'react';
+import { requestModel, urlComments } from '../../js/fetch/fecth';
+import * as yup from "yup";
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { Controller, useForm } from 'react-hook-form';
+import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { Controller, useForm } from 'react-hook-form';
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import recipePresentation from '../../js/recipePage/recipePresentation';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
 import Typography from '@mui/material/Typography';
-import { requestModel } from '../../js/fetch/fecth';
 
 const schema = yup.object({
     comment: yup.string().trim().required('Você deve escrever seu comentario')
@@ -39,7 +39,7 @@ export default function CommentInput(props) {
             text,
             recipesId: recipe.id
         }
-        const resp = await requestModel('/api/comments', { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })
+        const resp = await requestModel(urlComments, { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })
             .then(resp => resp.json())
 
         setNewComment(resp.data)

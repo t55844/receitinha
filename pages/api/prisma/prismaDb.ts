@@ -10,7 +10,7 @@ const getAllPrisma = (model: string) => async () => {
 
 }
 
-export const getAllRecipes = getAllPrisma('Recipe')
+export const getAllRecipes = getAllPrisma('Recipes')
 
 export const getAllComment = async (id) => {
     const data = await prisma.Comment.findMany({
@@ -31,7 +31,7 @@ const createPrisma = (model: string) => async (recipe: IFormInput) => {
     return response
 }
 
-export const createRecipe = createPrisma('Recipe')
+export const createRecipe = createPrisma('Recipes')
 export const createComment = createPrisma('Comment')
 
 
@@ -53,7 +53,7 @@ const updatePrisma = (model: string) => async (id: number, data: IFormInput) => 
 
 }
 
-export const updateRecipe = updatePrisma('Recipe')
+export const updateRecipe = updatePrisma('Recipes')
 export const updateComment = updatePrisma('Comment')
 
 

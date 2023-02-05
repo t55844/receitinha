@@ -5,9 +5,11 @@ import Snackbars from "../../components/feedback/Snackbar";
 import PageMyRecipes from "../../components/MyRecipes/PageMyRecipes";
 import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 import { useDispatch } from "react-redux";
+import { urlRecipes } from "../../js/fetch/fecth";
 
 export async function getServerSideProps() {
-    const res = await fetch(`/api/recipes`)
+    const res = await fetch(urlRecipes)
+
     const data = await res.json()
 
     return { props: { data } }

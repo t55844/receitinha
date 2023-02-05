@@ -5,6 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { menssages } from "../../js/interface_and_ultils/menssages";
+import { useDispatch, useSelector } from "react-redux";
+import { requestModel, urlRecipes } from "../../js/fetch/fecth";
+import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 
 import formStyle from '../../styles/myRecipes.module.css'
 import { Button, Input, TextField, Typography } from "@mui/material";
@@ -12,10 +15,7 @@ import SendIcon from '@mui/icons-material/Send';
 import SelectForm from "./SelectForm";
 import IngredientListInput from "./IngredientListInput";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
-import { useDispatch, useSelector } from "react-redux";
-import { requestModel } from "../../js/fetch/fecth";
 import ImageInput from "./ImageInput";
-import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 
 
 const styleInput = {
@@ -57,10 +57,10 @@ export default function Form(props) {
 
         let res
 
-        if (submitMethod === 'create') res = await requestModel('/api/recipes', { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
+        if (submitMethod === 'create') res = await requestModel(urlRecipes, { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())
 
-        if (submitMethod === 'update') res = await requestModel('/api/recipes', { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
+        if (submitMethod === 'update') res = await requestModel(urlRecipes, { method: 'PUT', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())
 
         if (res && res.error === false) {
@@ -123,7 +123,7 @@ export default function Form(props) {
                             selectOption={setValue}
                             sx={styleInput}
                             options={[
-                                'Selecione', 'Simples', 'Facil', "Dificil", "Muito Dificil"
+                                'Simples', 'Facil', "Dificil", "Muito Dificil"
                             ]}
                             label='Dificuldade'
                         />}
@@ -141,7 +141,7 @@ export default function Form(props) {
                             selectOption={setValue}
                             sx={styleInput}
                             options={[
-                                'Selecione', '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
+                                '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
                             ]}
                             label='Duração'
                         />}
