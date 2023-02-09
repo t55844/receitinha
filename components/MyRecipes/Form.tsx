@@ -13,9 +13,9 @@ import formStyle from '../../styles/myRecipes.module.css'
 import { Button, Input, TextField, Typography } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import SelectForm from "./SelectForm";
-import IngredientListInput from "./IngredientListInput";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import ImageInput from "./ImageInput";
+import IngredientListInput from "./IngredientListInput";
 
 
 const styleInput = {
