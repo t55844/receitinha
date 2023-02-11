@@ -23,3 +23,9 @@ export interface IComment {
     email: string,
     name: string
 }
+
+export interface IUserRegister {
+    name: string,
+    password: string
+    email: string
+}
