@@ -16,6 +16,7 @@ import SelectForm from "./SelectForm";
 import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import ImageInput from "./ImageInput";
 import IngredientListInput from "./IngredientListInput";
+import WarningBoxText from "../feedback/WarningBoxText";
 
 
 const styleInput = {
@@ -43,7 +44,6 @@ export default function Form(props) {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.user.value)
     const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
-    const router = useRouter()
     const methods = useForm({
         defaultValues: recipe,
         resolver: yupResolver(schema)
@@ -77,7 +77,7 @@ export default function Form(props) {
             <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
                 <div className={formStyle.formContainer}>
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.name?.message}</Typography>
+                    {errors.name ? <WarningBoxText text={errors.name.message} /> : null}
                     <Controller
                         key={5}
                         name="name"
@@ -90,12 +90,11 @@ export default function Form(props) {
                             label="O nome da receita"
                             variant="standard" />}
                     />
-
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.ingredients?.message}</Typography>
+                    {errors.ingredients ? <WarningBoxText text={errors.ingredients.message} /> : null}
                     <IngredientListInput
                         styleInput={styleInput} />
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.preparation?.message}</Typography>
+                    {errors.preparation ? <WarningBoxText text={errors.preparation.message} /> : null}
                     <Controller
                         key={4}
                         name="preparation"
@@ -111,7 +110,7 @@ export default function Form(props) {
                             rows={10} />}
                     />
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.diffculty?.message}</Typography>
+                    {errors.diffculty ? <WarningBoxText text={errors.diffculty.message} /> : null}
                     <Controller
                         key={3}
                         name={"diffculty"}
@@ -129,7 +128,7 @@ export default function Form(props) {
                         />}
                     />
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.duration?.message}</Typography>
+                    {errors.duration ? <WarningBoxText text={errors.duration.message} /> : null}
                     <Controller
                         key={2}
                         name={"duration"}
@@ -147,7 +146,7 @@ export default function Form(props) {
                         />}
                     />
 
-                    <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.img?.message}</Typography>
+                    {errors.img ? <WarningBoxText text={errors.img.message} /> : null}
                     <ImageInput styleInput={styleInput} />
 
                     <Button

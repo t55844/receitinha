@@ -1,0 +1,12 @@
+.formBox {
+    width: 70%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    .formBox {
+        width: 100%;
+    }
+
+}

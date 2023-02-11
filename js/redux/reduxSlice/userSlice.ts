@@ -8,7 +8,8 @@ export const user = createSlice({
         value: {
             name: 'Jon Silva',
             email: 'guto22@yahoo.com'
-        }
+        },
+        loginON: true
     },
     reducers: {
         setUserData: (state, action) => {
@@ -16,10 +17,13 @@ export const user = createSlice({
             state.value.name = name
             state.value.email = email
         },
+        setloginState: (state, action) => {
+            state.loginON = action.payload
+        },
 
     },
 })
 
-export const { setUserData } = user.actions
+export const { setUserData, setloginState } = user.actions
 const userReducer = user.reducer
 export default userReducer

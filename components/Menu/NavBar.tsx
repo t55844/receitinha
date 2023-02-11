@@ -8,6 +8,7 @@ import CakeSharpIcon from '@mui/icons-material/CakeSharp';
 import LocalPizzaSharpIcon from '@mui/icons-material/LocalPizzaSharp';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { colors } from '../MaterialUI/theme';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 
 export default function NavBar() {
     return (
@@ -62,6 +63,16 @@ export default function NavBar() {
                 >
                     <LocalDiningIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Pratos especiais
+                </Link>
+
+                <Link
+                    underline="hover"
+                    sx={{ display: 'flex', alignItems: 'center', fontSize: 'large', }}
+                    color="inherit"
+                    href="/generalPages/RegisterLogin"
+                >
+                    <MeetingRoomIcon />
+                    Entrar/Registar
                 </Link>
 
             </Breadcrumbs>

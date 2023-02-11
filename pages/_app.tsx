@@ -17,22 +17,23 @@ function MyApp({ Component, pageProps }) {
     Aos.init({ duration: 2000 })
   }, [])
   return (
-    <Provider store={store}>
-      <ThemeProvider
-        theme={theme}
-      >
-        <SnackbarProvider
-          autoHideDuration={10000}
-          preventDuplicate={true}
-          maxSnack={5}
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <Provider store={store}>
+        <ThemeProvider
+          theme={theme}
         >
-          <NavBar />
-          <Component {...pageProps} />
-          <Footer />
-        </SnackbarProvider>
-      </ThemeProvider>
-    </Provider>
-
+          <SnackbarProvider
+            autoHideDuration={10000}
+            preventDuplicate={true}
+            maxSnack={5}
+          >
+            <NavBar />
+            <Component {...pageProps} />
+            <Footer />
+          </SnackbarProvider>
+        </ThemeProvider>
+      </Provider>
+    </div>
   )
 }
 

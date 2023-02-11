@@ -3,7 +3,7 @@ import { InputAdornment, TextField } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useFormContext } from 'react-hook-form';
-import Typography from '@mui/material/Typography';
+import WarningBoxText from '../feedback/WarningBoxText';
 
 export default function IngredientInput(props) {
     const { formState: { errors } } = useFormContext()
@@ -11,7 +11,7 @@ export default function IngredientInput(props) {
     const { id, styleInput, deleteInput, defaultValue, refItem, index } = props
     return (
         <div id={id} style={styleInput}>
-            <Typography sx={{ color: 'red', fontSize: '16px' }} variant="body1">{errors.ingredients && errors.ingredients[index] != undefined ? errors.ingredients[index].ingredient.message : ''}</Typography>
+            {errors.ingredients && errors.ingredients[index] != undefined ? <WarningBoxText text={errors.ingredients[index].ingredient.message} /> : null}
 
             <TextField
                 {...refItem}
