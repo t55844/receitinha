@@ -6,8 +6,8 @@ export const user = createSlice({
     name: 'user',
     initialState: {
         value: {
-            name: 'Jon Silva',
-            email: 'guto22@yahoo.com'
+            name: '',
+            email: ''
         },
         loginON: true
     },

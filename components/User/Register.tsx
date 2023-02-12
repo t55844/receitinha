@@ -3,10 +3,13 @@ import { IUserRegister } from "../../js/interface_and_ultils/interface";
 import PasswordInput from "./PasswordInput";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { setCookie } from "nookies";
+import { requestModel, urlRegister } from "../../js/fetch/fecth";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../js/redux/reduxSlice/userSlice";
 
 import style from '../../styles/registerLogin.module.css'
-import { Input, TextField } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { TextField } from "@mui/material";
 import Button from "@mui/material/Button/Button";
 import SendIcon from '@mui/icons-material/Send';
 import WarningBoxText from "../feedback/WarningBoxText";
@@ -53,6 +56,7 @@ const schema = yup.object({
 
 
 const Register = () => {
+    const dispatch = useDispatch();
 
 
     const methods = useForm({
@@ -64,10 +68,23 @@ const Register = () => {
             email: ''
         }
     });
-    const { control, handleSubmit, formState: { errors }, getValues } = methods
+    const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
-    const onSubmit: SubmitHandler<IUserRegister> = data => {
+    const onSubmit: SubmitHandler<IUserRegister> = async data => {
         console.log(data)
+        delete data.confirmPassword
+        const result = await fetch(urlRegister, { method: 'POST', body: JSON.stringify(data) })
+            .then(res => res.json())
+        if (result && result.error === false) {
+            reset()
+            setCookie(undefined, 'receitinha-token', result.token, {
+                maxAge: 1000 * 60 * 60 * 24 * 1
+            })
+            dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+        }
+
+
+
     };
     return (
         <div className={style.formBox}>
