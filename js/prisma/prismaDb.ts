@@ -1,5 +1,5 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-import { IFormInput } from "../../../js/interface_and_ultils/interface";
+import { PrismaClient } from "@prisma/client";
+import { IFormInput } from "../interface_and_ultils/interface";
 
 const prisma = typeof window != "undefined" ? false : new PrismaClient()
 

@@ -1,9 +1,9 @@
+import { NextApiRequest, NextApiResponse } from "next"
 import { uploadImage } from "./cloudinary"
-import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe } from "./prisma/prismaDb"
+import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe } from "../../js/prisma/prismaDb"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
-
         const result: [] = await getAllRecipes()
         return res.status(200).json({ error: false, msg: 'success', data: result })
     }

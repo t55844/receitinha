@@ -1,10 +1,18 @@
 import { menssages } from "../interface_and_ultils/menssages"
+import { parseCookies } from 'nookies'
+
+
+const { 'receitinha-token': token } = parseCookies()
 
 export function requestModel(url: string, optons: { method: string, body?: any, headers?: { 'Content-Type': string } }): Promise<any> {
     const { method, headers, body } = optons
     return fetch(url, {
         method,
-        headers,
+        headers: {
+            ...headers,
+            'Authorization': 'Bearer ' + token
+
+        },
         body,
     })
         .then(res => res)
@@ -12,8 +20,10 @@ export function requestModel(url: string, optons: { method: string, body?: any, 
 
 }
 
-
-
-export const urlRecipes = `http://localhost:3000/api/recipes`;
-export const urlComments = `http://localhost:3000/api/comments`;
+const baseUrl = 'http://localhost:3000/'
+export const urlAuth = baseUrl + 'api/user/auth'
+export const urlLogin = baseUrl + 'api/user/login'
+export const urlRegister = baseUrl + 'api/user/register'
+export const urlRecipes = baseUrl + `api/recipes`;
+export const urlComments = baseUrl + `api/comments`;
 export const urlCloudinary = public_id => `https://res.cloudinary.com/${process.env.IMG_CLOUD_NAME}/image/fetch/${public_id}`

@@ -1,6 +1,10 @@
 import { useForm, Controller, SubmitHandler, FormProvider } from "react-hook-form";
-import { IUserRegister } from "../../js/interface_and_ultils/interface";
+import { IUserLogin } from "../../js/interface_and_ultils/interface";
 import PasswordInput from "./PasswordInput";
+import { requestModel, urlLogin } from "../../js/fetch/fecth";
+import { setCookie } from "nookies";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../js/redux/reduxSlice/userSlice";
 
 import style from '../../styles/registerLogin.module.css'
 import { Input, TextField } from "@mui/material";
@@ -23,19 +27,25 @@ const stylesInputs = {
 
 const Login = () => {
 
-
+    const dispatch = useDispatch()
     const methods = useForm({
         defaultValues: {
-            name: '',
             password: '',
-            confirmPassword: '',
             email: ''
         }
     });
-    const { control, handleSubmit, formState: { errors }, getValues } = methods
+    const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
-    const onSubmit: SubmitHandler<IUserRegister> = data => {
-        console.log(data)
+    const onSubmit: SubmitHandler<IUserLogin> = async data => {
+        const result = await fetch(urlLogin, { method: 'POST', body: JSON.stringify(data) })
+            .then(res => res.json())
+        if (result.error === false) {
+            reset()
+            setCookie(undefined, 'receitinha-token', result.payload.token, {
+                maxAge: 1000 * 60 * 60 * 24 * 1
+            })
+            dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+        }
     };
     return (
         <div className={style.formBox}>
