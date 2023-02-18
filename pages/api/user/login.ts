@@ -21,14 +21,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             const result = await bcrypt.compare(password, user.password)
             if (!result) {
-                return res.status(400).send({ error: true, message: "Informações erradas" })
+                return res.status(404).send({ error: true, message: "Informações erradas" })
             } else {
                 const token = createToken(user.email, user.name)
                 nookies.set({ res }, 'receitinha-token', token, {
-                    maxAge: 30,
+                    maxAge: 60 * 60 * 16,
                     path: '/',
                 })
-                return res.status(200).send({ error: false, message: "Sucesso", payload: { name: user.name, email: user.email, token } })
+                return res.status(200).send({ error: false, message: "Sucesso", payload: { name: user.name, email: user.email } })
 
             }
         }

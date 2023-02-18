@@ -47,7 +47,6 @@ const Login = () => {
             reset()
             dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
             router.reload()
-            menssages.emiteMensageSuccess('Você entrou com sucesso!')
 
         } else {
             menssages.emiteMensageError('Não foi possivel entrar email ou senha estão errados')

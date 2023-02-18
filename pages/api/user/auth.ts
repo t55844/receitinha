@@ -5,7 +5,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === "GET") {
         const token = req.headers.authorization
         const result = checkToken(token)
-        console.log(result)
         if (result === undefined) {
             return res.status(401).send({ error: true, message: "Token quebrado" })
         }
@@ -16,7 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === "POST") {
         const { token } = JSON.parse(req.body)
         const result = checkToken(token)
-        console.log(result)
         if (result === undefined) {
             return res.status(401).send({ error: true, message: "Token quebrado" })
         }
