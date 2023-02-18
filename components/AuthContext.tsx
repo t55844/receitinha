@@ -16,7 +16,6 @@ export function AuthProvider({ children }) {
         const { 'receitinha-token': token } = parseCookies()
 
 
-        console.log('Aqui', token)
         if (token) {
             setIsLoggedIn(true)
             const result = fetch(urlAuth, {

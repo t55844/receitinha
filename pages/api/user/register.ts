@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { createToken } from "../../../js/jwt/jwt";
+import nookies from 'nookies'
 
 const prisma = typeof window != "undefined" ? false : new PrismaClient()
 
@@ -15,8 +16,7 @@ function createUser(name: string, email: string, password: string, res: NextApiR
                 data: { name, email, password: hash },
                 select: { name: true, email: true }
             })
-            const token = createToken(resp.email, resp.name)
-            return res.status(201).send({ error: false, payload: { name: resp.name, email: resp.email, token } })
+            return resp
         });
     });
 
@@ -41,8 +41,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(400).json({ error: true, message: `Usuario ja existente` })
         } else {
 
-            createUser(name, email, password, res)
-
+            const user = createUser(name, email, password, res)
+            const token = createToken(user.email, user.name)
+            nookies.set({ res }, 'receitinha-token', token, {
+                maxAge: 60 * 60 * 16,
+                path: '/',
+            })
+            return res.status(201).send({ error: false, payload: { name: user.name, email: user.email } })
         }
     }
 }
