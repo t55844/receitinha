@@ -12,6 +12,8 @@ import Button from "@mui/material/Button/Button";
 import SendIcon from '@mui/icons-material/Send';
 import TitleOfSection from "../Menu/TitleOfSection";
 import { colors } from "../MaterialUI/theme";
+import { useRouter } from "next/router";
+import { menssages } from "../../js/interface_and_ultils/menssages";
 
 
 const stylesInputs = {
@@ -27,7 +29,9 @@ const stylesInputs = {
 
 const Login = () => {
 
+    const router = useRouter();
     const dispatch = useDispatch()
+
     const methods = useForm({
         defaultValues: {
             password: '',
@@ -41,10 +45,13 @@ const Login = () => {
             .then(res => res.json())
         if (result.error === false) {
             reset()
-            setCookie(undefined, 'receitinha-token', result.payload.token, {
-                maxAge: 1000 * 60 * 60 * 24 * 1
-            })
             dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+            router.reload()
+            menssages.emiteMensageSuccess('Você entrou com sucesso!')
+
+        } else {
+            menssages.emiteMensageError('Não foi possivel entrar email ou senha estão errados')
+
         }
     };
     return (

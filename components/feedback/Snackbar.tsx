@@ -14,7 +14,7 @@ export default function Snackbars() {
         enqueueSnackbar(feedback.menssage, { variant: feedback.type });
     };
     return (
-        <SnackbarProvider maxSnack={3}>
+        <SnackbarProvider >
             <div></div>
         </SnackbarProvider>
     );
