@@ -5,6 +5,8 @@ import ActionAreaCard from './ActionAreaCard';
 import TitleOfSection from './TitleOfSection';
 
 export default function Main(props) {
+
+
     return (
         <>
             <TitleOfSection text=' Um Pouco do que vera em nosso site' />

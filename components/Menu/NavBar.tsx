@@ -9,8 +9,12 @@ import LocalPizzaSharpIcon from '@mui/icons-material/LocalPizzaSharp';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { colors } from '../MaterialUI/theme';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import { AuthContext } from '../AuthContext';
 
 export default function NavBar() {
+    const authContext = React.useContext(AuthContext)
+
+
     return (
         <div role="presentation">
             <Breadcrumbs aria-label="breadcrumb"
@@ -25,16 +29,19 @@ export default function NavBar() {
                     Inicio
                 </Link>
 
-                <Link
-                    underline="hover"
-                    sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
-                    color="inherit"
-                    href="/generalPages/Form"
-                >
-                    <ReceiptLongSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Minhas Receitas
-                </Link>
+                {
+                    authContext.isLoggedIn ?
+                        <Link
+                            underline="hover"
+                            sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
+                            color="inherit"
+                            href="/generalPages/Form"
+                        >
+                            <ReceiptLongSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                            Minhas Receitas
+                        </Link> : null
 
+                }
                 <Link
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
@@ -59,10 +66,11 @@ export default function NavBar() {
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large', }}
                     color="inherit"
-                    href="/"
+                    href="/generalPages/Sarch"
+
                 >
                     <LocalDiningIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Pratos especiais
+                    Receitas
                 </Link>
 
                 <Link

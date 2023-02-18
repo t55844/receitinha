@@ -3,7 +3,6 @@ import { useForm, Controller, FormProvider } from "react-hook-form";
 import { toBase64 } from "../../js/interface_and_ultils/converters";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { useRouter } from "next/router";
 import { menssages } from "../../js/interface_and_ultils/menssages";
 import { useDispatch, useSelector } from "react-redux";
 import { requestModel, urlRecipes } from "../../js/fetch/fecth";
@@ -122,7 +121,7 @@ export default function Form(props) {
                             selectOption={setValue}
                             sx={styleInput}
                             options={[
-                                'Simples', 'Facil', "Dificil", "Muito Dificil"
+                                'Selecione', 'Simples', 'Facil', "Dificil", "Muito Dificil"
                             ]}
                             label='Dificuldade'
                         />}
@@ -140,7 +139,7 @@ export default function Form(props) {
                             selectOption={setValue}
                             sx={styleInput}
                             options={[
-                                '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
+                                'Selecione', '20 minutos', '30 minutos', "60 minutos", "Mais de 1:30 hora"
                             ]}
                             label='Duração'
                         />}

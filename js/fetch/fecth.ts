@@ -1,17 +1,14 @@
 import { menssages } from "../interface_and_ultils/menssages"
-import { parseCookies } from 'nookies'
 
 
-const { 'receitinha-token': token } = parseCookies()
 
 export function requestModel(url: string, optons: { method: string, body?: any, headers?: { 'Content-Type': string } }): Promise<any> {
+
     const { method, headers, body } = optons
     return fetch(url, {
         method,
         headers: {
-            ...headers,
-            'Authorization': 'Bearer ' + token
-
+            ...headers
         },
         body,
     })

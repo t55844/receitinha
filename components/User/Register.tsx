@@ -15,6 +15,7 @@ import SendIcon from '@mui/icons-material/Send';
 import WarningBoxText from "../feedback/WarningBoxText";
 import TitleOfSection from "../Menu/TitleOfSection";
 import { colors } from "../MaterialUI/theme";
+import { useRouter } from "next/router";
 
 
 const stylesInputs = {
@@ -57,6 +58,7 @@ const schema = yup.object({
 
 const Register = () => {
     const dispatch = useDispatch();
+    const router = useRouter();
 
 
     const methods = useForm({
@@ -77,10 +79,8 @@ const Register = () => {
             .then(res => res.json())
         if (result && result.error === false) {
             reset()
-            setCookie(undefined, 'receitinha-token', result.token, {
-                maxAge: 1000 * 60 * 60 * 24 * 1
-            })
             dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+            router.push('/')
         }
 
 

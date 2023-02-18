@@ -8,7 +8,18 @@ import RecipesList from '../components/SectionHome/RecipesList'
 import SideBar from '../components/SideBar/SideBar'
 import Snackbars from '../components/feedback/Snackbar'
 import TitleOfSection from '../components/Menu/TitleOfSection'
+import nookies from 'nookies'
+export async function getServerSideProps(ctx) {
+  // Parse
+  const cookies = nookies.get(ctx)
+  console.log(cookies)
 
+
+  // Destroy
+  // nookies.destroy(ctx, 'cookieName')
+
+  return { props: { cookies } }
+}
 
 export default function Home() {
   return (
