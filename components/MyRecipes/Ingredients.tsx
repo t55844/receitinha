@@ -1,7 +1,8 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
+import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 
-export default function Ingredients(props) {
+export default function Ingredients(props: { recipe: IRecipeDB }) {
     const recipe = props.recipe
     return (
         <div>

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { useRouter } from 'next/router';
-import { IRecipeFromDB } from '../../js/interface_and_ultils/interface';
+import { NextRouter, useRouter } from 'next/router';
+import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 import { useDispatch } from 'react-redux';
+import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
 
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -17,7 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Ingredients from './Ingredients';
 import Button from '@mui/material/Button';
 import { CldImage } from 'next-cloudinary';
-import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
+import { Dispatch } from 'redux';
 
 
 
@@ -36,12 +37,12 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
 }));
 
-export default function RecipeDetails(props) {
-    const recipe: IRecipeFromDB = props.recipe
-    const [expanded, setExpanded] = React.useState(false);
+export default function RecipeDetails(props: { recipe: IRecipeDB }) {
+    const recipe = props.recipe
+    const [expanded, setExpanded] = React.useState<boolean>(false);
 
-    const router = useRouter()
-    const dispatch = useDispatch()
+    const router: NextRouter = useRouter()
+    const dispatch: Dispatch = useDispatch()
 
     const handleExpandClick = (currentName: string) => {
         if (recipe.name === currentName) {

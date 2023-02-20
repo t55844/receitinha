@@ -1,9 +1,10 @@
-import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@mui/material'
 import React from 'react'
-import { IComment } from '../../js/interface_and_ultils/interface'
 
-function CommentsBox(props) {
-    const comment: IComment = props.comment
+import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@mui/material'
+import { ICommentDb } from '../../js/interface_and_ultils/interface'
+
+function CommentsBox(props: { comment: ICommentDb }) {
+    const comment = props.comment
     return (
         <ListItem button>
             <ListItemAvatar>

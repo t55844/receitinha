@@ -1,41 +1,50 @@
-import { createComment, deleteComment, getAllComment, updateComment } from "../../js/prisma/prismaDb"
+import { NextApiRequest, NextApiResponse } from "next"
+import { ICommentDb, ICommentForm } from "../../js/interface_and_ultils/interface"
+import { createComment, deleteComment, getComment, updateComment } from "../../js/prisma/prismaDb"
+import { IResponse } from "./recipes"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {
+        const id: string = req.query.id
 
-        const result: [] = await getAllComment(parseInt(req.query.id))
-        return res.status(200).json({ error: false, msg: 'success', data: result })
+        const result: ICommentDb[] = await getComment(id)
+        const response: IResponse = { error: false, msg: 'success', data: result }
+        return res.status(200).json(response)
     }
     else if (req.method === "POST") {
-        console.log(req.body)
 
-        const comment = req.body
+        const comment: ICommentForm = req.body
 
-        const response = await createComment(comment)
-        const result: [] = await getAllComment(comment.recipesId)
-        return res.status(200).json({
-            error: false, msg: 'success', response, data: result
-        })
+        const resp: ICommentDb = await createComment(comment)
+        const result: ICommentDb[] = await getComment(comment.email)
+        const response: IResponse = { error: false, msg: 'success', data: result }
+
+        return res.status(200).json(response)
     }
     else if (req.method === "PUT") {
         const comment = JSON.parse(req.body)
+        const resp: ICommentDb = await updateComment(comment.id, comment)
+        const result: ICommentDb[] = await getComment(comment.email)
+        const response: IResponse = { error: false, msg: 'success', data: result }
 
-        const response = await updateComment(comment.id, comment)
-        const result: [] = await getAllComment(comment.recipesId)
-
-        return res.status(200).json({ error: false, msg: 'success', response, data: result })
+        return res.status(200).json(response)
 
     }
     else if (req.method === "DELETE") {
-        const id = JSON.parse(req.body)
+        const id: number = JSON.parse(req.body)
         const result = await deleteComment(id)
         if (result) {
-            return res.status(200).json({ error: false, msg: 'success', data: result })
+            const response: IResponse = { error: false, msg: 'success', data: result }
+            return res.status(200).json(response)
+
         } else {
-            return res.status(400).json({ error: true, msg: 'error' })
+            const response: IResponse = { error: true, msg: 'error' }
+            return res.status(400).json(response)
         }
     }
     else {
-        return res.status(400).json({ error: true, msg: 'Bad Request' })
+        const response: IResponse = { error: true, msg: 'Bad Request' }
+
+        return res.status(400).json(response)
     }
 }

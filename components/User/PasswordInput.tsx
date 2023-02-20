@@ -1,16 +1,18 @@
+import React from "react";
+import { useFormContext } from "react-hook-form";
+
 import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material"
 import { Controller } from "react-hook-form"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import React from "react";
-import { useFormContext } from "react-hook-form";
+import { FieldValues } from "react-hook-form/dist/types";
 
-export default props => {
+export default (props: { name: string }) => {
     const { name } = props
 
-    const { control, register } = useFormContext()
+    const { control, register } = useFormContext<FieldValues>()
 
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 

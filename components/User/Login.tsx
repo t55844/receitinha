@@ -1,19 +1,21 @@
 import { useForm, Controller, SubmitHandler, FormProvider } from "react-hook-form";
 import { IUserLogin } from "../../js/interface_and_ultils/interface";
 import PasswordInput from "./PasswordInput";
-import { requestModel, urlLogin } from "../../js/fetch/fecth";
-import { setCookie } from "nookies";
+import { urlLogin } from "../../js/fetch/fecth";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../js/redux/reduxSlice/userSlice";
+import { NextRouter, useRouter } from "next/router";
 
 import style from '../../styles/registerLogin.module.css'
-import { Input, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import Button from "@mui/material/Button/Button";
 import SendIcon from '@mui/icons-material/Send';
 import TitleOfSection from "../Menu/TitleOfSection";
 import { colors } from "../MaterialUI/theme";
-import { useRouter } from "next/router";
 import { menssages } from "../../js/interface_and_ultils/menssages";
+import { Dispatch } from "redux";
+import { UseFormReturn } from "react-hook-form/dist/types";
+import { IResponse } from "../../pages/api/recipes";
 
 
 const stylesInputs = {
@@ -29,10 +31,13 @@ const stylesInputs = {
 
 const Login = () => {
 
-    const router = useRouter();
-    const dispatch = useDispatch()
+    const router: NextRouter = useRouter();
+    const dispatch: Dispatch = useDispatch()
 
-    const methods = useForm({
+    const methods: UseFormReturn<{
+        password: string;
+        email: string;
+    }, any> = useForm({
         defaultValues: {
             password: '',
             email: ''
@@ -41,11 +46,11 @@ const Login = () => {
     const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
     const onSubmit: SubmitHandler<IUserLogin> = async data => {
-        const result = await fetch(urlLogin, { method: 'POST', body: JSON.stringify(data) })
+        const result: IResponse = await fetch(urlLogin, { method: 'POST', body: JSON.stringify(data) })
             .then(res => res.json())
         if (result.error === false) {
             reset()
-            dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+            dispatch(setUserData({ name: result.data.name, email: result.data.email }))
             router.reload()
 
         } else {

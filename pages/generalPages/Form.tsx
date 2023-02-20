@@ -5,9 +5,7 @@ import Snackbars from "../../components/feedback/Snackbar";
 import PageMyRecipes from "../../components/MyRecipes/PageMyRecipes";
 import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 import { useDispatch } from "react-redux";
-import { requestModel, urlAuth, urlRecipes } from "../../js/fetch/fecth";
-import Router, { useRouter } from "next/router";
-import { AuthContext } from "../../components/AuthContext";
+import { requestModel, urlAuth, urlMyRecipes } from "../../js/fetch/fecth";
 import nookies from 'nookies'
 
 export async function getServerSideProps(ctx) {
@@ -19,10 +17,12 @@ export async function getServerSideProps(ctx) {
             .then(res => res.json())
 
         if (resToken.error === false) {
-            const data = await fetch(urlRecipes)
+            console.log(urlMyRecipes(resToken.payload.email))
+            const data = await fetch(urlMyRecipes(resToken.payload.email))
                 .then(res => res.json())
+            console.log(data)
 
-            return { props: { data } }
+            return { props: { data: data } }
 
         }
 

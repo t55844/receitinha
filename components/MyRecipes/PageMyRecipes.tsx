@@ -1,12 +1,14 @@
 import * as React from 'react';
+import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
+import { useDispatch } from 'react-redux';
+
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Form from './Form';
 import MyRecipesList from './MyRecipeList';
 import TitleOfSection from '../Menu/TitleOfSection';
-import { useDispatch } from 'react-redux';
-import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
+import { Dispatch } from 'redux';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -42,8 +44,8 @@ function a11yProps(index: number) {
 }
 
 export default function PageMyRecipes() {
-    const [value, setValue] = React.useState(0);
-    const dispatch = useDispatch()
+    const [value, setValue] = React.useState<number>(0);
+    const dispatch: Dispatch = useDispatch()
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         if (newValue === 1) {

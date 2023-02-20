@@ -1,6 +1,8 @@
 import React, { useEffect, useState, Component } from 'react'
 import { useSelector } from 'react-redux'
 import { requestModel, urlComments } from '../../js/fetch/fecth'
+import { ICommentDb, IRecipeDB } from '../../js/interface_and_ultils/interface'
+import { IResponse } from '../../pages/api/recipes'
 
 
 import TitleOfSection from '../Menu/TitleOfSection'
@@ -9,13 +11,13 @@ import CommentInput from './CommentInput'
 
 function RecipeComments(props) {
 
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState<ICommentDb[]>([])
 
-    const recipe = useSelector((state) => state.recipePage.value)
+    const recipe: IRecipeDB = useSelector((state) => state.recipePage.value)
 
 
     useEffect(() => async () => {
-        const resp = await requestModel(`${urlComments}/?id=${recipe.id}`, { method: 'GET' })
+        const resp: IResponse = await requestModel(`${urlComments}/?id=${recipe.email}`, { method: 'GET' })
             .then(res => res.json())
 
         setComments(resp.data)

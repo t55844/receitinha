@@ -15,31 +15,47 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import Typography from '@mui/material/Typography';
+import { OptionalObjectSchema, TypeOfShape } from 'yup/lib/object';
+import { RequiredStringSchema } from 'yup/lib/string';
+import { AnyObject } from 'yup/lib/types';
+import { FieldValues } from 'react-hook-form/dist/types';
+import { ICommentForm, IRecipeDB, IUserLogin } from '../../js/interface_and_ultils/interface';
+import { Dispatch } from 'redux';
+import { IResponse } from '../../pages/api/recipes';
 
-const schema = yup.object({
-    comment: yup.string().trim().required('Você deve escrever seu comentario')
-})
-export default function CommentInput(props) {
+
+const schema: OptionalObjectSchema<{
+    comment: RequiredStringSchema<string, AnyObject>;
+}, AnyObject, TypeOfShape<{
+    comment: RequiredStringSchema<string, AnyObject>;
+}>> =
+    yup.object({
+        comment: yup.string().trim().required('Você deve escrever seu comentario')
+    })
+
+export default function CommentInput(props: {
+    setNewComment: React.Dispatch<React.SetStateAction<any[]>>
+}) {
     const { setNewComment } = props
     const { control, handleSubmit, getValues, reset, formState: { errors }
-    } = useForm({
+    } = useForm<FieldValues, any>({
         resolver: yupResolver(schema)
     })
 
-    const recipe = useSelector((state) => state.recipePage.value)
-    const user = useSelector((state) => state.user.value)
-    const dispatch = useDispatch()
-    const router = useRouter()
+    const recipe: IRecipeDB = useSelector((state) => state.recipePage.value)
+    const user: { name: string, email: string } = useSelector((state) => state.user.value)
+    const dispatch: Dispatch = useDispatch()
 
-    async function onSubmit(data) {
 
-        const text = data.comment
+    async function onSubmit(data: { comment: ICommentForm }) {
+
+        const text: string = data.comment
         const comment = {
             name: user.name,
+            email: user.email,
             text,
-            recipesId: recipe.id
         }
-        const resp = await requestModel(urlComments, { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })
+        const resp: IResponse = await requestModel(urlComments, { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })
             .then(resp => resp.json())
 
         setNewComment(resp.data)

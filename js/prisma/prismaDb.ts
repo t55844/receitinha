@@ -1,49 +1,90 @@
 import { PrismaClient } from "@prisma/client";
-import { IFormInput } from "../interface_and_ultils/interface";
+import { ICommentDb, ICommentForm, IRecipeForm, IRecipeDB, IUserDb } from "../interface_and_ultils/interface";
 
-const prisma = typeof window != "undefined" ? false : new PrismaClient()
+export const prisma = typeof window != "undefined" ? false : new PrismaClient()
 
 
-const getAllPrisma = (model: string) => async () => {
-    const data = prisma ? await prisma[model].findMany() : ''
+export const getAllRecipes = async (): Promise<IRecipeDB[]> => {
+    const data: IRecipeDB[] = await prisma.recipes.findMany()
     return data
 
 }
 
-export const getAllRecipes = getAllPrisma('Recipes')
 
-export const getAllComment = async (id) => {
-    const data = await prisma.Comment.findMany({
+export async function getMyRecipes(email: string): Promise<IRecipeDB[]> {
+    const data: { recipes: IRecipeDB[] }[] = await prisma.users.findMany({
         where: {
-            recipesId: id
+            email
+        },
+        select: {
+            recipes: true
+
         }
     })
-    return data
+    return data[0].recipes
+}
+
+export const getComment = async (email: string): Promise<ICommentDb[]> => {
+    const data: [{ comments: ICommentDb[] }] = await prisma.recipes.findMany({
+        where: {
+            email: email
+        },
+        select: {
+            comments: true
+        }
+    })
+
+    console.log(data[0].comments)
+
+    return data[0].comments
 }
 
 
-const createPrisma = (model: string) => async (recipe: IFormInput) => {
-    const response = prisma ? await prisma[model].create({
-        data: {
-            ...recipe
+export const createComment = async (data: ICommentForm): Promise<ICommentDb> => {
+    const recipe: IRecipeDB = await prisma.recipes.findMany({
+        where: {
+            email: data.email
+
         }
-    }) : ''
+    })
+
+
+    const response: ICommentDb = await prisma.comment.create({
+        data: {
+            name: data.name,
+            text: data.text,
+            recipesId: recipe[0].id
+        }
+    })
     return response
 }
 
-export const createRecipe = createPrisma('Recipes')
-export const createComment = createPrisma('Comment')
+export const createRecipe = async (recipe: IRecipeForm): Promise<IRecipeDB> => {
+    const user: IUserDb = await prisma.users.findUnique({
+        where: {
+            email: recipe.email
+
+        }
+    })
+    const response: IRecipeDB = await prisma.recipes.create({
+        data: {
+            ...recipe,
+            usersId: user.id
+        },
+    })
+    return response
+}
 
 
-const updatePrisma = (model: string) => async (id: number, data: IFormInput) => {
+const updatePrisma = (model: string) => async (id: number, data: any): Promise<any> => {
     try {
 
-        const response = prisma ? await prisma[model].update({
+        const response = await prisma[model].update({
             where: {
                 id,
             },
             data,
-        }) : ''
+        })
         return response
     } catch (error) {
         if (error.meta.cause == 'Record to update not found.') {
@@ -58,9 +99,9 @@ export const updateComment = updatePrisma('Comment')
 
 
 const deletePrisma = (model: string) => async (id: number) => {
-    const response = prisma ? await prisma[model].delete({
+    const response = await prisma[model].delete({
         where: { id },
-    }) : ''
+    })
     return response
 
 }

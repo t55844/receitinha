@@ -1,11 +1,20 @@
 import * as React from 'react';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
 
-export default function ActionAreaCard(props) {
+interface IActionAreaCard {
+    alt: string
+    img: string
+    title: string
+    description: string
+    linkTo: string
+}
+
+export default function ActionAreaCard(props: IActionAreaCard) {
     return (
         <Card
             sx={{ width: '100%', margin: '0.5rem auto' }}>
