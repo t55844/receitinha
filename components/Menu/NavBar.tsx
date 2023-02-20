@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { AuthContext } from '../AuthContext';
+
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
-
 import HomeIcon from '@mui/icons-material/Home';
 import ReceiptLongSharpIcon from '@mui/icons-material/ReceiptLongSharp';
 import CakeSharpIcon from '@mui/icons-material/CakeSharp';
@@ -9,10 +10,9 @@ import LocalPizzaSharpIcon from '@mui/icons-material/LocalPizzaSharp';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { colors } from '../MaterialUI/theme';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import { AuthContext } from '../AuthContext';
 
 export default function NavBar() {
-    const authContext = React.useContext(AuthContext)
+    const authContext: { isLoggedIn?: boolean } = React.useContext(AuthContext)
 
 
     return (

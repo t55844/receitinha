@@ -9,52 +9,75 @@ import { requestModel, urlRecipes } from "../../js/fetch/fecth";
 import { recipesReq } from "../../js/redux/reduxSlice/fetchSlice";
 
 import formStyle from '../../styles/myRecipes.module.css'
-import { Button, Input, TextField, Typography } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import SelectForm from "./SelectForm";
-import { IRecipeFromDB } from "../../js/interface_and_ultils/interface";
 import ImageInput from "./ImageInput";
 import IngredientListInput from "./IngredientListInput";
 import WarningBoxText from "../feedback/WarningBoxText";
+import { IRecipeDB, IRecipeForm } from "../../js/interface_and_ultils/interface";
+import { AnyAction, Dispatch } from "redux";
+import { UseFormReturn } from "react-hook-form/dist/types";
+import { IResponse } from "../../pages/api/recipes";
+import { AssertsShape, Assign, ObjectShape, RequiredObjectSchema, TypeOfShape } from "yup/lib/object";
+import { RequiredStringSchema } from "yup/lib/string";
+import { AnyObject } from "yup/lib/types";
+import { MixedSchema } from "yup/lib/mixed";
 
-
+export interface ICssInputForm {
+    width: string
+    margin: string
+}
 const styleInput = {
     width: "80%",
     margin: '1.5rem auto'
 }
 
-const schema = yup.object({
-    name: yup.string().trim().required('Você precisa digitar o nome'),
-    ingredients: yup.array().of(yup.object().shape({ ingredient: yup.string().trim().required('Voce precisda digitar no campo do ingredient'), id: yup.number() })).min(1, 'Voce precisda adicionar um ingredient'),
-    preparation: yup.string().trim().required('Você precisa descrever a receita'),
-    duration: yup.string().trim().required('Você precisa selecionar uma duração'),
-    diffculty: yup.string().trim().required('Você precisa selecionar uma dificuldade'),
-    img: yup.mixed()
-        .required('precisa colocar uma foto aqui')
-        .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
-        .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
-}).required('precisa de uma foto ou imagem')
+
+const schema: RequiredObjectSchema<{
+    name: RequiredStringSchema<string, AnyObject>;
+    ingredients: yup.ArraySchema<yup.ObjectSchema<Assign<ObjectShape, {
+        ingredient: RequiredStringSchema<string, AnyObject>;
+        id: yup.NumberSchema<any>;
+    }>, AnyObject, TypeOfShape<any>, AssertsShape<any>>, AnyObject, TypeOfShape<any>[], AssertsShape<any>[]>;
+    preparation: RequiredStringSchema<any>;
+    duration: RequiredStringSchema<any>;
+    diffculty: RequiredStringSchema<any>;
+    img: MixedSchema<any>;
+}, AnyObject, TypeOfShape<any>> =
+    yup.object({
+        name: yup.string().trim().required('Você precisa digitar o nome'),
+        ingredients: yup.array().of(yup.object().shape({ ingredient: yup.string().trim().required('Voce precisda digitar no campo do ingredient'), id: yup.number() })).min(1, 'Voce precisda adicionar um ingredient'),
+        preparation: yup.string().trim().required('Você precisa descrever a receita'),
+        duration: yup.string().trim().required('Você precisa selecionar uma duração'),
+        diffculty: yup.string().trim().required('Você precisa selecionar uma dificuldade'),
+        img: yup.mixed()
+            .required('precisa colocar uma foto aqui')
+            .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
+            .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
+    }).required('precisa de uma foto ou imagem')
 
 
-export default function Form(props) {
+export default function Form(props: { recipe?: IRecipeDB }) {
 
-    const recipe: IRecipeFromDB = props.recipe
 
-    const dispatch = useDispatch()
-    const user = useSelector((state) => state.user.value)
-    const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
-    const methods = useForm({
+    const recipe = props.recipe
+
+    const dispatch: Dispatch<AnyAction> = useDispatch()
+    const user: { name: string, email: string } = useSelector((state) => state.user.value)
+    const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
+    const methods: UseFormReturn<IRecipeDB | any> = useForm({
         defaultValues: recipe,
         resolver: yupResolver(schema)
     });
 
     const { control, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
-    const onSubmit = async data => {
+    const onSubmit = async (data: IRecipeForm) => {
         const base64 = await toBase64(data.img[0])
         data.img = base64
 
-        let res
+        let res: IResponse
 
         if (submitMethod === 'create') res = await requestModel(urlRecipes, { method: 'POST', body: JSON.stringify({ ...data, email: user.email }) })
             .then(res => res.json())

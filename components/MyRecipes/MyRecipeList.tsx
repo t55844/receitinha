@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 
 import { requestModel, urlRecipes } from '../../js/fetch/fecth';
 import { menssages } from '../../js/interface_and_ultils/menssages';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
+import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
 
 import formStyle from '../../styles/myRecipes.module.css'
 import CircularProgress from '@mui/material/CircularProgress';
@@ -14,18 +15,20 @@ import Button from '@mui/material/Button';
 import BuildSharpIcon from '@mui/icons-material/BuildSharp';
 import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
 import QuestionModal from './QuestionModal';
-import { recipeToCurrentPage } from '../../js/redux/reduxSlice/recipePageSlice';
+import { Dispatch } from 'redux';
+import { IResponse } from '../../pages/api/recipes';
+import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 
 const MyRecipeList = (props) => {
-    const email = useSelector((state) => state.user.value.email)
-    const dispatch = useDispatch()
-    const router = useRouter()
+    const email: string = useSelector((state) => state.user.value.email)
+    const dispatch: Dispatch = useDispatch()
+    const router: NextRouter = useRouter()
 
-    const recipeReq = useSelector((state) => state.fetch.recipesReq)
+    const recipeReq: { loading: boolean, failed: boolean, data: IRecipeDB[] } = useSelector((state) => state.fetch.recipesReq)
 
-    const deleteRecipe = (id) => async () => {
+    const deleteRecipe: Function = (id: number) => async () => {
 
-        const res = await requestModel(urlRecipes, { method: 'DELETE', body: JSON.stringify(id) })
+        const res: IResponse = await requestModel(urlRecipes, { method: 'DELETE', body: JSON.stringify(id) })
             .then(res => res.json())
 
         if (res.error == false) {

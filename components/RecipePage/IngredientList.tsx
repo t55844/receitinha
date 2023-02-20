@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -8,8 +9,8 @@ import NumbersSharpIcon from '@mui/icons-material/NumbersSharp';
 import { Typography } from '@mui/material';
 
 
-export default function IngredientList(props) {
-    const ingredients: string[] = props.ingredient
+export default function IngredientList(props: { ingredient: { ingredient: string }[] }) {
+    const ingredients = props.ingredient
 
     return (
         <Box sx={{ width: '80%', bgcolor: 'background.paper', backgroundColor: 'none' }}>

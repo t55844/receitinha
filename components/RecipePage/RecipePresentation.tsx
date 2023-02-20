@@ -4,8 +4,9 @@ import TimerSharpIcon from '@mui/icons-material/TimerSharp';
 import IngredientList from './IngredientList';
 import { colors } from '../MaterialUI/theme';
 import { CldImage } from 'next-cloudinary';
+import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 
-function RecipePresentation(props) {
+function RecipePresentation(props: { recipe: IRecipeDB }) {
     const { recipe } = props
 
     return (

@@ -1,15 +1,17 @@
-import { createContext, useEffect, useState } from "react";
+import { Context, createContext, useEffect, useState } from "react";
 import { urlAuth } from "../js/fetch/fecth";
 import { parseCookies } from 'nookies'
 import { useDispatch } from "react-redux";
 import { setUserData } from "../js/redux/reduxSlice/userSlice";
+import { Dispatch } from "redux";
+import { IResponse } from "../pages/api/recipes";
 
-export const AuthContext = createContext({})
+export const AuthContext: Context<{}> = createContext({})
 
 export function AuthProvider({ children }) {
 
-    const dispatch = useDispatch()
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const dispatch: Dispatch = useDispatch()
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
 
     useEffect(() => async () => {
@@ -18,13 +20,13 @@ export function AuthProvider({ children }) {
 
         if (token) {
             setIsLoggedIn(true)
-            const result = fetch(urlAuth, {
+            const result: IResponse = fetch(urlAuth, {
                 method: 'POST',
                 body: JSON.stringify({ token }),
             })
                 .then(resp => resp.json())
                 .then(result => {
-                    dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+                    dispatch(setUserData({ name: result.data.name, email: result.data.email }))
                 })
 
         } else {

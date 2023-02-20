@@ -1,23 +1,26 @@
 import formStyle from '../../styles/myRecipes.module.css'
 import { useFormContext } from "react-hook-form";
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Typography from '@mui/material/Typography';
 import Image from 'next/future/image';
 import { colors } from '../MaterialUI/theme';
 import { CldImage } from 'next-cloudinary';
-import { useSelector } from 'react-redux';
+import { ICssInputForm } from './Form';
 
 interface ICurrentImage {
     alt: string,
     url: string | ArrayBuffer
 }
-
-export default props => {
+interface IImageInput {
+    styleInput: ICssInputForm
+}
+export default (props: IImageInput) => {
     const { styleInput } = props
     const { register, getValues } = useFormContext()
     const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: '' })
-    const submitMethod = useSelector((state) => state.recipeGeren.submitMethod)
+    const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
 
     return (
         <div style={{ ...styleInput, background: `${colors.primaryLigth}`, borderRadius: '8px', padding: '18px' }}>

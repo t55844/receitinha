@@ -3,10 +3,10 @@ import { IUserRegister } from "../../js/interface_and_ultils/interface";
 import PasswordInput from "./PasswordInput";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { setCookie } from "nookies";
-import { requestModel, urlRegister } from "../../js/fetch/fecth";
+import { urlRegister } from "../../js/fetch/fecth";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../js/redux/reduxSlice/userSlice";
+import { NextRouter, useRouter } from "next/router";
 
 import style from '../../styles/registerLogin.module.css'
 import { TextField } from "@mui/material";
@@ -15,7 +15,12 @@ import SendIcon from '@mui/icons-material/Send';
 import WarningBoxText from "../feedback/WarningBoxText";
 import TitleOfSection from "../Menu/TitleOfSection";
 import { colors } from "../MaterialUI/theme";
-import { useRouter } from "next/router";
+import { OptionalObjectSchema, TypeOfShape } from "yup/lib/object";
+import { AnyObject } from "yup/lib/types";
+import { RequiredStringSchema } from "yup/lib/string";
+import { Dispatch } from "redux";
+import { FieldValues } from "react-hook-form/dist/types";
+import { IResponse } from "../../pages/api/recipes";
 
 
 const stylesInputs = {
@@ -28,40 +33,46 @@ const stylesInputs = {
     borderRadius: '6px'
 }
 
-const schema = yup.object({
-    name: yup.string().trim().required('O campo nome é obrigatório'),
+const schema: OptionalObjectSchema<{
+    name: RequiredStringSchema<string, AnyObject>;
+    email: RequiredStringSchema<string, AnyObject>;
+    password: RequiredStringSchema<any>;
+    confirmPassword: RequiredStringSchema<any>;
+}, AnyObject, TypeOfShape<any>> =
+    yup.object({
+        name: yup.string().trim().required('O campo nome é obrigatório'),
 
-    email: yup.string().trim().required('O campo email é obrigatorio').email('Voce precisa de um email válido'),
+        email: yup.string().trim().required('O campo email é obrigatorio').email('Voce precisa de um email válido'),
 
-    password: yup.string().trim()
-        .matches(/\d+/, { message: { number: "Falta um numero" } })
-        .matches(/[a-z]+/, { message: { lowercase: "Falta uma letra minuscula (a,b,c)" } })
-        .matches(/[A-Z]+/, { message: { uppercase: "Falta uma letra maiuscula (A,B,C)" } })
-        .matches(/[!@#$%^&*()-+]+/, {
-            message: { special: "Falta um character especial (@,#,$)" }
-        })
-        .test(
-            "Password has spaces",
-            { spaces: "A senha nao pode ter espaços ou caracteres especiais" },
-            value => !/\s+/.test(value)
-        )
-        .min(8, { size: "A senha precisa ter 8 digitos no minimo" })
-        .required('O campo senha é obrigatório'),
-    confirmPassword: yup
-        .string()
-        .required('O campo confirmação de senha é obrigatório')
-        .oneOf([yup.ref("password"), null], "As senhas devem ser iguais")
+        password: yup.string().trim()
+            .matches(/\d+/, { message: { number: "Falta um numero" } })
+            .matches(/[a-z]+/, { message: { lowercase: "Falta uma letra minuscula (a,b,c)" } })
+            .matches(/[A-Z]+/, { message: { uppercase: "Falta uma letra maiuscula (A,B,C)" } })
+            .matches(/[!@#$%^&*()-+]+/, {
+                message: { special: "Falta um character especial (@,#,$)" }
+            })
+            .test(
+                "Password has spaces",
+                { spaces: "A senha nao pode ter espaços ou caracteres especiais" },
+                value => !/\s+/.test(value)
+            )
+            .min(8, { size: "A senha precisa ter 8 digitos no minimo" })
+            .required('O campo senha é obrigatório'),
+        confirmPassword: yup
+            .string()
+            .required('O campo confirmação de senha é obrigatório')
+            .oneOf([yup.ref("password"), null], "As senhas devem ser iguais")
 
 
-})
+    })
 
 
 const Register = () => {
-    const dispatch = useDispatch();
-    const router = useRouter();
+    const dispatch: Dispatch = useDispatch();
+    const router: NextRouter = useRouter();
 
 
-    const methods = useForm({
+    const methods = useForm<FieldValues>({
         resolver: yupResolver(schema),
         defaultValues: {
             name: '',
@@ -72,14 +83,13 @@ const Register = () => {
     });
     const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
-    const onSubmit: SubmitHandler<IUserRegister> = async data => {
-        console.log(data)
+    const onSubmit: SubmitHandler<IUserRegister> = async (data: { email: string, name: string, password: string, confirmPassword: string }) => {
         delete data.confirmPassword
-        const result = await fetch(urlRegister, { method: 'POST', body: JSON.stringify(data) })
+        const result: IResponse = await fetch(urlRegister, { method: 'POST', body: JSON.stringify(data) })
             .then(res => res.json())
         if (result && result.error === false) {
             reset()
-            dispatch(setUserData({ name: result.payload.name, email: result.payload.email }))
+            dispatch(setUserData({ name: result.data.name, email: result.data.email }))
             router.push('/')
         }
 
