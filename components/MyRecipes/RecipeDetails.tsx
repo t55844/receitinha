@@ -53,7 +53,7 @@ export default function RecipeDetails(props: { recipe: IRecipeDB }) {
 
     return (
         <div >
-            <Card sx={{ width: '100%' }}>
+            <Card sx={{ width: '100%', maxWidth: '300px' }}>
                 <CardHeader
                     action={
                         <Typography variant='body1' >

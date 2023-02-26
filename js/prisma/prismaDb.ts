@@ -31,7 +31,6 @@ export async function getMyRecipes(email: string): Promise<IRecipeDB[]> {
 
         }
     })
-    console.log(data)
 
 
     return data[0].Recipes
