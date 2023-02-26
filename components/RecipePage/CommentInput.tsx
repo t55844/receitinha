@@ -53,6 +53,7 @@ export default function CommentInput(props: {
         const comment = {
             name: user.name,
             email: user.email,
+            recipeId: recipe.id,
             text,
         }
         const resp: IResponse = await requestModel(urlComments, { method: 'POST', body: JSON.stringify(comment), headers: { "Content-Type": ' application/json' } })

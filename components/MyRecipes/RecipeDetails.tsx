@@ -19,6 +19,7 @@ import Ingredients from './Ingredients';
 import Button from '@mui/material/Button';
 import { CldImage } from 'next-cloudinary';
 import { Dispatch } from 'redux';
+import Image from 'next/image';
 
 
 
@@ -68,7 +69,10 @@ export default function RecipeDetails(props: { recipe: IRecipeDB }) {
                     }
                     title={recipe.name}
                 />
-                <CldImage src={recipe.img} width='500%' height='400%' />
+                {recipe.img.split('').slice(-4).join('') === '.jpg' ?
+                    <Image src={recipe.img} width='500%' height='400%' /> :
+                    <CldImage src={recipe.img} width='500%' height='400%' />
+                }
 
                 <CardContent>
                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '75%', margin: '0 auto' }}>

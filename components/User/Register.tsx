@@ -21,6 +21,8 @@ import { RequiredStringSchema } from "yup/lib/string";
 import { Dispatch } from "redux";
 import { FieldValues } from "react-hook-form/dist/types";
 import { IResponse } from "../../pages/api/recipes";
+import { SetStateAction } from "react";
+import { menssages } from "../../js/interface_and_ultils/menssages";
 
 
 const stylesInputs = {
@@ -67,7 +69,9 @@ const schema: OptionalObjectSchema<{
     })
 
 
-const Register = () => {
+const Register = (props: { outherOption: SetStateAction<Boolean> }) => {
+
+    const outherOption = props.outherOption
     const dispatch: Dispatch = useDispatch();
     const router: NextRouter = useRouter();
 
@@ -89,8 +93,10 @@ const Register = () => {
             .then(res => res.json())
         if (result && result.error === false) {
             reset()
-            dispatch(setUserData({ name: result.data.name, email: result.data.email }))
+            dispatch(setUserData(result.data))
             router.push('/')
+        } else {
+            menssages.emiteMensageError(result.msg)
         }
 
 
@@ -137,6 +143,8 @@ const Register = () => {
                         type='submit'
                     >Enviar</Button>
                 </form>
+                <Button size="small" onClick={() => outherOption()}>Entrar</Button>
+
             </FormProvider >
         </div>
     );

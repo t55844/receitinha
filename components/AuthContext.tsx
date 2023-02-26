@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
             })
                 .then(resp => resp.json())
                 .then(result => {
-                    dispatch(setUserData({ name: result.data.name, email: result.data.email }))
+                    dispatch(setUserData(result.data))
                 })
 
         } else {

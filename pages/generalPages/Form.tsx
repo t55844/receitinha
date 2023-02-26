@@ -17,10 +17,8 @@ export async function getServerSideProps(ctx) {
             .then(res => res.json())
 
         if (resToken.error === false) {
-            console.log(urlMyRecipes(resToken.payload.email))
             const data = await fetch(urlMyRecipes(resToken.payload.email))
                 .then(res => res.json())
-            console.log(data)
 
             return { props: { data: data } }
 

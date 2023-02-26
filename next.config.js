@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['cdn0.tudoreceitas.com'],
+  },
   reactStrictMode: true,
   swcMinify: true,
   future: {

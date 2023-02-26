@@ -10,20 +10,24 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
-function createUser(name: string, email: string, password: string, res: NextApiResponse): IUserDb {
+async function createHash(password: string): Promise<HashAlgorithmIdentifier> {
 
-    return bcrypt.genSalt(saltRounds, function (err, salt) {
-        return bcrypt.hash(password, salt, async function (err, hash) {
-
-            const resp: IUserDb = await prisma.Users.create({
-                data: { name, email, password: hash },
-                select: { name: true, email: true }
-            })
-            return resp
-        });
-    });
+    return await bcrypt.hash(password, saltRounds).then((hash) => hash);
 
 }
+
+async function createUser(name: string, email: string, password: string): Promise<IUserDb> {
+
+    const hash = await createHash(password)
+
+    const resp: IUserDb = await prisma.Users.create({
+        data: { name, email, password: hash },
+        select: { name: true, email: true, id: true }
+    })
+
+    return resp
+}
+
 
 async function checkUserEmail(email: string): Promise<IUserDb | null> {
     const check: IUserDb | null = await prisma.Users.findUnique({
@@ -45,15 +49,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(400).json(response)
         } else {
 
-            const userDb: IUserDb = createUser(user.name, user.email, user.password, res)
+            const userDb: IUserDb = await createUser(user.name, user.email, user.password)
+            const token: string = createToken(userDb.email, userDb.name, userDb.id)
 
-            const token: string = createToken(userDb.email, userDb.name)
             nookies.set({ res }, 'receitinha-token', token, {
                 maxAge: 60 * 60 * 16,
                 path: '/',
             })
             const response: IResponse = {
-                error: false, msg: 'Usuario criado com sucesso', data: { name: user.name, email: user.email }
+                error: false, msg: 'Usuario criado com sucesso', data: { userDb }
             }
 
             return res.status(201).send(response)

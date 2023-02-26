@@ -5,55 +5,62 @@ export const prisma = typeof window != "undefined" ? false : new PrismaClient()
 
 
 export const getAllRecipes = async (): Promise<IRecipeDB[]> => {
-    const data: IRecipeDB[] = await prisma.recipes.findMany()
+    const data: IRecipeDB[] = await prisma.recipes.findMany({
+        include: {
+            Likes: true
+        }
+    }
+    )
     return data
 
 }
 
 
 export async function getMyRecipes(email: string): Promise<IRecipeDB[]> {
+
     const data: { recipes: IRecipeDB[] }[] = await prisma.users.findMany({
         where: {
             email
         },
-        select: {
-            recipes: true
+        include: {
+            Recipes: {
+                include: {
+                    Likes: true
+                }
+            }
 
         }
     })
-    return data[0].recipes
+    console.log(data)
+
+
+    return data[0].Recipes
 }
 
-export const getComment = async (email: string): Promise<ICommentDb[]> => {
+export const getComment = async (id: string): Promise<ICommentDb[]> => {
     const data: [{ comments: ICommentDb[] }] = await prisma.recipes.findMany({
         where: {
-            email: email
+            id: id
         },
         select: {
             comments: true
         }
     })
 
-    console.log(data[0].comments)
 
     return data[0].comments
 }
 
 
 export const createComment = async (data: ICommentForm): Promise<ICommentDb> => {
-    const recipe: IRecipeDB = await prisma.recipes.findMany({
-        where: {
-            email: data.email
-
-        }
-    })
 
 
     const response: ICommentDb = await prisma.comment.create({
         data: {
             name: data.name,
             text: data.text,
-            recipesId: recipe[0].id
+            recipesId: data.recipeId
+
         }
     })
     return response
@@ -92,6 +99,51 @@ const updatePrisma = (model: string) => async (id: number, data: any): Promise<a
         }
     }
 
+}
+
+export async function createLike(body: { userId: number, recipeId: number }): Promise<IRecipeDB> {
+
+    const check: IRecipeDB[] = await prisma.Likes.findMany({
+        where: {
+            usersId: body.userId,
+            recipesId: body.recipeId
+
+        }
+    })
+    if (check.length > 0) {
+
+        return null
+    }
+    const like = await prisma.Likes.create({
+        data: {
+            usersId: body.userId,
+            recipesId: body.recipeId,
+        }
+    })
+    const user = await prisma.Users.update({
+        where: {
+            id: body.userId
+        },
+        data: {
+            likes: like.id,
+        }
+    })
+
+    const recipe = await prisma.Recipes.update({
+        where: {
+            id: body.recipeId
+
+        },
+        data: {
+            like: like.id
+
+        },
+        include: {
+            Likes: true
+        }
+    })
+
+    return recipe
 }
 
 export const updateRecipe = updatePrisma('Recipes')

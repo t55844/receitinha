@@ -7,15 +7,18 @@ export const user = createSlice({
     initialState: {
         value: {
             name: '',
-            email: ''
+            email: '',
+            id: ''
         },
         loginON: true
     },
     reducers: {
         setUserData: (state, action) => {
-            const { name, email } = action.payload
+            const { name, email, id } = action.payload
+
             state.value.name = name
             state.value.email = email
+            state.value.id = id
         },
         setloginState: (state, action) => {
             state.loginON = action.payload

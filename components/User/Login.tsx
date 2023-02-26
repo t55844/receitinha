@@ -16,6 +16,7 @@ import { menssages } from "../../js/interface_and_ultils/menssages";
 import { Dispatch } from "redux";
 import { UseFormReturn } from "react-hook-form/dist/types";
 import { IResponse } from "../../pages/api/recipes";
+import { SetStateAction } from "react";
 
 
 const stylesInputs = {
@@ -29,8 +30,9 @@ const stylesInputs = {
 }
 
 
-const Login = () => {
+const Login = (props: { outherOption: SetStateAction<Boolean> }) => {
 
+    const outherOption = props.outherOption
     const router: NextRouter = useRouter();
     const dispatch: Dispatch = useDispatch()
 
@@ -50,7 +52,7 @@ const Login = () => {
             .then(res => res.json())
         if (result.error === false) {
             reset()
-            dispatch(setUserData({ name: result.data.name, email: result.data.email }))
+            dispatch(setUserData(result.data))
             router.reload()
 
         } else {
@@ -81,6 +83,8 @@ const Login = () => {
                     >Enviar</Button>
                 </form>
             </FormProvider >
+            <Button size="small" onClick={() => outherOption()}>Registar</Button>
+
         </div>
     );
 };

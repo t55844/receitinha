@@ -17,6 +17,7 @@ export interface IRecipeDB {
     diffculty: string,
     duration: string,
     img: string
+    like: string
     userId: number
 
 }
@@ -31,6 +32,7 @@ export interface ICommentForm {
     text: string,
     email: string,
     name: string
+    recipeId: string
 }
 
 export interface IUserRegister {

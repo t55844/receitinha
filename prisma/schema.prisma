@@ -12,11 +12,25 @@ datasource db {
 }
 
 model Users {
-  id       Int       @id @unique @default(autoincrement())
-  name     String
-  email    String    @unique
-  password String
-  recipes  Recipes[]
+  id             Int    @id @unique @default(autoincrement())
+  name           String
+  email          String @unique
+  password       String
+  recipesILikeId Int?
+
+  Recipes Recipes[]
+  Likes   Likes[]
+}
+
+model Likes {
+  usersId   Int
+  recipesId Int
+
+  User   Users   @relation(fields: [usersId], references: [id])
+  Recipe Recipes @relation(fields: [recipesId], references: [id])
+
+  @@id([usersId, recipesId])
+  @@index([usersId], name: "Likes_index")
 }
 
 model Recipes {
@@ -24,13 +38,15 @@ model Recipes {
   email       String
   name        String
   ingredients Json
-  preparation String
+  preparation String    @db.LongText
   diffculty   String
   duration    String
   img         String
   comments    Comment[]
-  Users       Users?    @relation(fields: [usersId], references: [id])
-  usersId     Int?
+
+  usersId Int?
+  Users   Users?  @relation(fields: [usersId], references: [id])
+  Likes   Likes[]
 }
 
 model Comment {

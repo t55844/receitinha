@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const comment: ICommentForm = req.body
 
         const resp: ICommentDb = await createComment(comment)
-        const result: ICommentDb[] = await getComment(comment.email)
+        const result: ICommentDb[] = await getComment(comment.recipeId)
         const response: IResponse = { error: false, msg: 'success', data: result }
 
         return res.status(200).json(response)
