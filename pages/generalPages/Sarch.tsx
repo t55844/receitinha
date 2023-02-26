@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 import { requestModel, urlRecipes } from '../../js/fetch/fecth';
 import TitleOfSection from '../../components/Menu/TitleOfSection';
-import { IResponse } from '../api/recipes';
+import { IResponse } from '../api/recipes/recipes';
 import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 import RecipeDetails from '../../components/MyRecipes/RecipeDetails';
 
@@ -57,7 +57,7 @@ export default function Sarch(props: { recipes: IRecipeDB[], names: string[] }) 
             <div style={{ display: 'flex', flexWrap: 'wrap', padding: '10px', justifyContent: 'space-around' }}>
                 {
                     recipes.filter(recipe => currentRecipes.includes(recipe.name))
-                        .map(recipe => <RecipeDetails recipe={recipe} />)
+                        .map(recipe => <RecipeDetails key={recipe.id} recipe={recipe} />)
                 }
             </div>
         </>

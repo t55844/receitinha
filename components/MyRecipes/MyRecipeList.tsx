@@ -16,7 +16,7 @@ import BuildSharpIcon from '@mui/icons-material/BuildSharp';
 import { setSubmitMethod } from '../../js/redux/reduxSlice/recipeGeren';
 import QuestionModal from './QuestionModal';
 import { Dispatch } from 'redux';
-import { IResponse } from '../../pages/api/recipes';
+import { IResponse } from '../../pages/api/recipes/recipes';
 import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 
 const MyRecipeList = (props) => {

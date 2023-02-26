@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { IRecipeForm } from "../../js/interface_and_ultils/interface";
-import { IResponse } from "./recipes";
+import { IResponse } from "./recipes/recipes";
 
 const cloudinary = require('cloudinary').v2
 

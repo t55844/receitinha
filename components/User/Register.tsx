@@ -20,7 +20,7 @@ import { AnyObject } from "yup/lib/types";
 import { RequiredStringSchema } from "yup/lib/string";
 import { Dispatch } from "redux";
 import { FieldValues } from "react-hook-form/dist/types";
-import { IResponse } from "../../pages/api/recipes";
+import { IResponse } from "../../pages/api/recipes/recipes";
 import { SetStateAction } from "react";
 import { menssages } from "../../js/interface_and_ultils/menssages";
 

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { ICommentDb, ICommentForm } from "../../js/interface_and_ultils/interface"
-import { createComment, deleteComment, getComment, updateComment } from "../../js/prisma/prismaDb"
+import { ICommentDb, ICommentForm } from "../../../js/interface_and_ultils/interface"
+import { createComment, deleteComment, getComment, updateComment } from "../../../js/prisma/prismaDb"
 import { IResponse } from "./recipes"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

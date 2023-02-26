@@ -5,7 +5,7 @@ import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import { AuthContext } from '../AuthContext';
 import { requestModel, urlRecipes } from '../../js/fetch/fecth';
 import { useSelector } from 'react-redux';
-import { IResponse } from '../../pages/api/recipes';
+import { IResponse } from '../../pages/api/recipes/recipes';
 import { IRecipeDB, IUserDb } from '../../js/interface_and_ultils/interface';
 import { menssages } from '../../js/interface_and_ultils/menssages';
 

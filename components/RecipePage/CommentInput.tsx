@@ -21,7 +21,7 @@ import { AnyObject } from 'yup/lib/types';
 import { FieldValues } from 'react-hook-form/dist/types';
 import { ICommentForm, IRecipeDB, IUserLogin } from '../../js/interface_and_ultils/interface';
 import { Dispatch } from 'redux';
-import { IResponse } from '../../pages/api/recipes';
+import { IResponse } from '../../pages/api/recipes/recipes';
 
 
 const schema: OptionalObjectSchema<{

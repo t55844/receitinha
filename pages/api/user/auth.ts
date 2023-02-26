@@ -1,7 +1,7 @@
 import { JwtPayload } from "jsonwebtoken"
 import { NextApiRequest, NextApiResponse } from "next"
 import { checkToken } from "../../../js/jwt/jwt"
-import { IResponse } from "../recipes"
+import { IResponse } from "../recipes/recipes"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "GET") {

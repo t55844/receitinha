@@ -15,7 +15,7 @@ import { colors } from "../MaterialUI/theme";
 import { menssages } from "../../js/interface_and_ultils/menssages";
 import { Dispatch } from "redux";
 import { UseFormReturn } from "react-hook-form/dist/types";
-import { IResponse } from "../../pages/api/recipes";
+import { IResponse } from "../../pages/api/recipes/recipes";
 import { SetStateAction } from "react";
 
 

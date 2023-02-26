@@ -21,7 +21,7 @@ const baseUrl = 'http://localhost:3000/'
 export const urlAuth = baseUrl + 'api/user/auth'
 export const urlLogin = baseUrl + 'api/user/login'
 export const urlRegister = baseUrl + 'api/user/register'
-export const urlRecipes = baseUrl + `api/recipes`;
-export const urlMyRecipes = (id: string) => baseUrl + `api/recipes?id=${id}`;
-export const urlComments = baseUrl + `api/comments`;
+export const urlRecipes = baseUrl + `api/recipes/recipes`;
+export const urlMyRecipes = (id: string) => baseUrl + `api/recipes/recipes?id=${id}`;
+export const urlComments = baseUrl + `api/recipes/comments`;
 export const urlCloudinary = public_id => `https://res.cloudinary.com/${process.env.IMG_CLOUD_NAME}/image/fetch/${public_id}`

@@ -3,7 +3,7 @@ import { createToken } from "../../../js/jwt/jwt";
 import nookies from 'nookies'
 import { prisma } from "../../../js/prisma/prismaDb";
 import { IUserDb, IUserLogin } from "../../../js/interface_and_ultils/interface";
-import { IResponse } from "../recipes";
+import { IResponse } from "../recipes/recipes";
 
 const bcrypt = require('bcrypt');
 

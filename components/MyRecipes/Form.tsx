@@ -18,7 +18,7 @@ import WarningBoxText from "../feedback/WarningBoxText";
 import { IRecipeDB, IRecipeForm } from "../../js/interface_and_ultils/interface";
 import { AnyAction, Dispatch } from "redux";
 import { UseFormReturn } from "react-hook-form/dist/types";
-import { IResponse } from "../../pages/api/recipes";
+import { IResponse } from "../../pages/api/recipes/recipes";
 import { AssertsShape, Assign, ObjectShape, RequiredObjectSchema, TypeOfShape } from "yup/lib/object";
 import { RequiredStringSchema } from "yup/lib/string";
 import { AnyObject } from "yup/lib/types";

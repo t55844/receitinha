@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { uploadImage } from "./cloudinary"
-import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe, getMyRecipes, prisma, createLike } from "../../js/prisma/prismaDb"
-import { IRecipeDB, IRecipeForm } from "../../js/interface_and_ultils/interface"
+import { uploadImage } from "../cloudinary"
+import { deleteRecipe, createRecipe, getAllRecipes, updateRecipe, getMyRecipes, prisma, createLike } from "../../../js/prisma/prismaDb"
+import { IRecipeDB, IRecipeForm } from "../../../js/interface_and_ultils/interface"
 
 export interface IResponse {
     error: boolean
@@ -11,13 +11,7 @@ export interface IResponse {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === "GET" && !req.query.id) {
 
-        const result: IRecipeDB[] = await getAllRecipes()
-        const response: IResponse = { error: false, msg: 'success', data: result }
-
-        return res.status(200).json(response)
-    }
     if (req.method === "GET" && req.query.id) {
         const email: string = req.query.id
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, Component } from 'react'
 import { useSelector } from 'react-redux'
 import { requestModel, urlComments } from '../../js/fetch/fecth'
 import { ICommentDb, IRecipeDB } from '../../js/interface_and_ultils/interface'
-import { IResponse } from '../../pages/api/recipes'
+import { IResponse } from '../../pages/api/recipes/recipes'
 
 
 import TitleOfSection from '../Menu/TitleOfSection'

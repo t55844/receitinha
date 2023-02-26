@@ -12,7 +12,6 @@ import nookies from 'nookies'
 export async function getServerSideProps(ctx) {
   // Parse
   const cookies = nookies.get(ctx)
-  console.log(cookies)
 
 
   // Destroy
