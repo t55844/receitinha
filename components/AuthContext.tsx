@@ -8,10 +8,16 @@ import { IResponse } from "../pages/api/recipes";
 
 export const AuthContext: Context<{}> = createContext({})
 
+export interface IAuthProviderProps {
+    isLoggedIn: boolean
+    token: string
+}
+
 export function AuthProvider({ children }) {
 
     const dispatch: Dispatch = useDispatch()
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    const [token, setToken] = useState<string>(null)
 
 
     useEffect(() => async () => {
@@ -20,6 +26,7 @@ export function AuthProvider({ children }) {
 
         if (token) {
             setIsLoggedIn(true)
+            setToken(token)
             const result: IResponse = fetch(urlAuth, {
                 method: 'POST',
                 body: JSON.stringify({ token }),
@@ -36,7 +43,7 @@ export function AuthProvider({ children }) {
 
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn }}>
+        <AuthContext.Provider value={{ isLoggedIn, token }}>
             {children}
         </AuthContext.Provider>
     )

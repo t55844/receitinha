@@ -6,29 +6,50 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import mainStyle from '../../styles/home/main.module.css'
 
 import { colors } from '../MaterialUI/theme';
+import Image from 'next/future/image';
+import { CldImage } from 'next-cloudinary';
 
-export default function SideBar(props) {
+
+export interface IRecipesToSideBar {
+
+    name: string
+    img: string
+    comments: { text: string }[]
+    Users: { name: string, id: number }
+
+}
+
+
+export default function SideBar(props: { recipes: IRecipesToSideBar[] }) {
+    const [recipesToShow, setRecipesToShow] = React.useState<IRecipesToSideBar[]>([]);
+    const recipes = props.recipes
+
+
+    React.useEffect(() => {
+
+        setRecipesToShow(recipes)
+    }, [])
+
     return (
-        <div data-aos="fade-left" className={mainStyle.sidebar} style={{ borderColor: `${colors.primary}` }}>
+        <div data-aos="fade-left" className={mainStyle.sidebar} style={{ borderColor: `${colors.primary}`, width: "150rem" }}>
             <Typography
                 variant='h6'
             >
                 Receitas mais Vistas
             </Typography >
             <ImageList sx={{ display: "flex", flexDirection: 'column', height: '80rem' }}>
-                {itemData.map((item) => (
+                {recipesToShow.map((item) => (
                     <ImageListItem
                         sx={{ width: '100%' }}
                         key={item.img}>
-                        <img
-                            src={`${item.img}?w=248&fit=crop&auto=format`}
-                            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                            alt={item.title}
-                            loading="lazy"
-                        />
+                        {
+                            item.img.split('').slice(-4).join('') === '.jpg' ?
+                                < Image style={{ background: 'white', padding: '18px' }} alt={'imagem da receita'} src={item.img} width={175} height={125} /> :
+                                <CldImage src={item.img} width={175} height={125} />
+                        }
                         <ImageListItemBar
-                            title={item.title}
-                            subtitle={<span>by: {item.author}</span>}
+                            title={'Feito por: ' + item.Users.name}
+                            subtitle={<span>comentario: {item.comments[0] ? item.comments[0].text : ''}</span>}
                             position="below"
                         />
                     </ImageListItem>
@@ -38,65 +59,3 @@ export default function SideBar(props) {
     );
 }
 
-const itemData = [
-    {
-        img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-        title: 'Breakfast',
-        author: '@bkristastucchio',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-        title: 'Burger',
-        author: '@rollelflex_graphy726',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-        title: 'Camera',
-        author: '@helloimnik',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-        title: 'Coffee',
-        author: '@nolanissac',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-        title: 'Hats',
-        author: '@hjrc33',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-        title: 'Honey',
-        author: '@arwinneil',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-        title: 'Basketball',
-        author: '@tjdragotta',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-        title: 'Fern',
-        author: '@katie_wasserman',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-        title: 'Mushrooms',
-        author: '@silverdalex',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-        title: 'Tomato basil',
-        author: '@shelleypauls',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-        title: 'Sea star',
-        author: '@peterlaster',
-    },
-    {
-        img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-        title: 'Bike',
-        author: '@southside_customs',
-    },
-];

@@ -10,6 +10,7 @@ import LocalPizzaSharpIcon from '@mui/icons-material/LocalPizzaSharp';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { colors } from '../MaterialUI/theme';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import Image from 'next/future/image';
 
 export default function NavBar() {
     const authContext: { isLoggedIn?: boolean } = React.useContext(AuthContext)
@@ -19,6 +20,10 @@ export default function NavBar() {
         <div role="presentation">
             <Breadcrumbs aria-label="breadcrumb"
                 sx={{ background: colors.primaryLigth, display: 'flex', justifyContent: 'space-around', padding: '10px 15px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '0 12px' }}><Image style={{ margin: '0 12px', borderRadius: '8px' }} alt='logo do site' width={40} height={40} src='/logo.png' /> Receitinha</div>
+
+
+
                 <Link
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
@@ -42,25 +47,6 @@ export default function NavBar() {
                         </Link> : null
 
                 }
-                <Link
-                    underline="hover"
-                    sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
-                    color="inherit"
-                    href="/"
-                >
-                    <CakeSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Doces
-                </Link>
-
-                <Link
-                    underline="hover"
-                    sx={{ display: 'flex', alignItems: 'center', fontSize: 'large' }}
-                    color="inherit"
-                    href="/"
-                >
-                    <LocalPizzaSharpIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Pizzas
-                </Link>
 
                 <Link
                     underline="hover"

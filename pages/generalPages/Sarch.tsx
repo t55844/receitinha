@@ -3,17 +3,15 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 
-import { requestModel, urlRecipes } from '../../js/fetch/fecth';
 import TitleOfSection from '../../components/Menu/TitleOfSection';
-import { IResponse } from '../api/recipes/recipes';
 import { IRecipeDB } from '../../js/interface_and_ultils/interface';
 import RecipeDetails from '../../components/MyRecipes/RecipeDetails';
+import { prisma } from '../../js/prisma/prismaDb';
 
 
 export async function getServerSideProps() {
-    const res: IResponse = await requestModel(urlRecipes, { method: 'GET' })
-        .then(res => res.json())
-    const recipes: IRecipeDB[] = res.data
+
+    const recipes: IRecipeDB[] = await prisma.Recipes.findMany();
     const names: string[] = recipes.map(recipe => recipe.name)
 
 
