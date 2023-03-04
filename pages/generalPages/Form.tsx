@@ -39,7 +39,7 @@ export async function getServerSideProps(ctx) {
 
 }
 
-export default (props) => {
+const Form = (props) => {
     const data = props.data
 
 
@@ -56,3 +56,5 @@ export default (props) => {
         </>
     );
 };
+
+export default Form

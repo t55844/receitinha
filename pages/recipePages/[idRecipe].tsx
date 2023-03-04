@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import MoreDetailsRecipes from '../../components/RecipePage/MoreDetailsRecipes'
 
 
-export default (props) => {
+const idRecipe = (props) => {
     const recipeData = useSelector((state) => state.recipePage.value)
 
     const [recipe, setRecipe] = React.useState(null)
@@ -19,3 +19,6 @@ export default (props) => {
         )
     }
 }
+
+
+export default idRecipe

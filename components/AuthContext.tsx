@@ -4,7 +4,7 @@ import { parseCookies } from 'nookies'
 import { useDispatch } from "react-redux";
 import { setUserData } from "../js/redux/reduxSlice/userSlice";
 import { Dispatch } from "redux";
-import { IResponse } from "../pages/api/recipes";
+import { IResponse } from "../pages/api/recipes/recipes";
 
 export const AuthContext: Context<{}> = createContext({})
 
@@ -20,7 +20,9 @@ export function AuthProvider({ children }) {
     const [token, setToken] = useState<string>(null)
 
 
-    useEffect(() => async () => {
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
         const { 'receitinha-token': token } = parseCookies()
 
 
@@ -39,6 +41,8 @@ export function AuthProvider({ children }) {
         } else {
             setIsLoggedIn(false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [])
 
 

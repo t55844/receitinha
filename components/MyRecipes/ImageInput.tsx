@@ -16,7 +16,7 @@ interface ICurrentImage {
 interface IImageInput {
     styleInput: ICssInputForm
 }
-export default (props: IImageInput) => {
+const ImageInput = (props: IImageInput) => {
     const { styleInput } = props
     const { register, getValues } = useFormContext()
     const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: '' })
@@ -64,3 +64,6 @@ export default (props: IImageInput) => {
 
     )
 }
+
+
+export default ImageInput

@@ -70,7 +70,7 @@ export default function RecipeDetails(props: { recipe: IRecipeDB }) {
                     title={recipe.name}
                 />
                 {recipe.img.split('').slice(-4).join('') === '.jpg' ?
-                    <Image src={recipe.img} width='500%' height='400%' /> :
+                    <Image src={recipe.img} width='500%' height='400%' alt={recipe.name} /> :
                     <CldImage src={recipe.img} width='500%' height='400%' />
                 }
 

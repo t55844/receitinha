@@ -2,7 +2,7 @@ import { Typography } from "@mui/material"
 import WarningIcon from '@mui/icons-material/Warning';
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form/dist/types";
 
-export default (props: { text: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> }) => {
+const WarningBoxText = (props: { text: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> }) => {
     const { text } = props
     if (text) {
 
@@ -26,3 +26,5 @@ export default (props: { text: string | FieldError | Merge<FieldError, FieldErro
         )
     }
 }
+
+export default WarningBoxText

@@ -3,7 +3,7 @@ import Snackbars from "../../components/feedback/Snackbar"
 import Login from "../../components/User/Login"
 import Register from "../../components/User/Register"
 
-export default props => {
+const RegisterLogin = props => {
     const [isRegister, setIsRegister] = useState<Boolean>(false)
 
 
@@ -26,3 +26,5 @@ export default props => {
 
     )
 }
+
+export default RegisterLogin

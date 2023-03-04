@@ -17,7 +17,7 @@ export function requestModel(url: string, optons: { method: string, body?: any, 
 
 }
 
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = '/'////http://localhost:3000/
 export const urlAuth = baseUrl + 'api/user/auth'
 export const urlLogin = baseUrl + 'api/user/login'
 export const urlRegister = baseUrl + 'api/user/register'

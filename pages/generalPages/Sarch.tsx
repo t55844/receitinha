@@ -33,8 +33,10 @@ export default function Sarch(props: { recipes: IRecipeDB[], names: string[] }) 
 
 
     React.useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         setNameRecipes(names)
-        console.log(recipes)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [])
 
     return (
