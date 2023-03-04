@@ -43,16 +43,17 @@ export default function CommentInput(props: {
     })
 
     const recipe: IRecipeDB = useSelector((state) => state.recipePage.value)
-    const user: { name: string, email: string } = useSelector((state) => state.user.value)
+    const user: { name: string, email: string, id: number } = useSelector((state) => state.user.value)
     const dispatch: Dispatch = useDispatch()
 
 
     async function onSubmit(data: { comment: ICommentForm }) {
-
+        console.log(recipe.id)
         const text: string = data.comment
         const comment = {
             name: user.name,
             email: user.email,
+            user_id: user.id,
             recipeId: recipe.id,
             text,
         }

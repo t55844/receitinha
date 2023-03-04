@@ -7,14 +7,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === "GET") {
         const id: string = req.query.id
 
-        const result: ICommentDb[] = await getComment(id)
+        const result: ICommentDb[] = await getComment(parseInt(id))
         const response: IResponse = { error: false, msg: 'success', data: result }
         return res.status(200).json(response)
     }
     else if (req.method === "POST") {
 
         const comment: ICommentForm = req.body
-
+        console.log(comment)
         const resp: ICommentDb = await createComment(comment)
         const result: ICommentDb[] = await getComment(comment.recipeId)
         const response: IResponse = { error: false, msg: 'success', data: result }

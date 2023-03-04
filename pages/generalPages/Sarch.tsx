@@ -14,7 +14,7 @@ export async function getServerSideProps() {
     const recipes: IRecipeDB[] = await prisma.Recipes.findMany();
     const names: string[] = recipes.map(recipe => recipe.name)
 
-
+    prisma.$disconnect();
     return {
         props: {
             names,
@@ -34,7 +34,7 @@ export default function Sarch(props: { recipes: IRecipeDB[], names: string[] }) 
 
     React.useEffect(() => {
         setNameRecipes(names)
-
+        console.log(recipes)
     }, [])
 
     return (

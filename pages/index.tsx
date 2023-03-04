@@ -10,7 +10,7 @@ import Snackbars from '../components/feedback/Snackbar'
 import TitleOfSection from '../components/Menu/TitleOfSection'
 import nookies from 'nookies'
 import { prisma } from '../js/prisma/prismaDb'
-import { IRecipeDB } from '../js/interface_and_ultils/interface'
+
 export async function getServerSideProps(ctx) {
   // Parse
   const cookies = nookies.get(ctx)
@@ -41,7 +41,7 @@ export async function getServerSideProps(ctx) {
     }
   });
 
-
+  prisma.$disconnect();
   return { props: { cookies, recipes } }
 }
 
