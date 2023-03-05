@@ -19,7 +19,7 @@ interface IImageInput {
 const ImageInput = (props: IImageInput) => {
     const { styleInput } = props
     const { register, getValues } = useFormContext()
-    const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: '' })
+    const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: getValues('img') })
     const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
 
     return (
@@ -51,7 +51,7 @@ const ImageInput = (props: IImageInput) => {
             />
 
             {
-                submitMethod === 'update' && currentImage.url === '' && getValues('img') !== '' && getValues('img').split('').slice(-4).join('') === '.jpg' ?
+                submitMethod === 'update' && currentImage.url === '' && getValues('img') !== '' && getValues('img').split('').slice(-4).join('') !== '.jpg' ?
                     <CldImage src={getValues('img')} width={300} height={300} /> :
                     < Image style={{ background: 'white', padding: '18px' }} alt={currentImage.alt} src={currentImage.url} width={300} height={300} />
 
