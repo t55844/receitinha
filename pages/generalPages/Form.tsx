@@ -12,8 +12,8 @@ export async function getServerSideProps(ctx) {
     const token = nookies.get(ctx)['receitinha-token']
 
     if (token) {
-
-        const resToken = await requestModel(urlAuth, { method: 'GET', headers: { 'Authorization': token } })
+        const url = new URL(urlAuth, window.location.href)
+        const resToken = await requestModel(url, { method: 'GET', headers: { 'Authorization': token } })
             .then(res => res.json())
 
         if (resToken.error === false) {
