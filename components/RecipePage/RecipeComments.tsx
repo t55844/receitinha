@@ -16,11 +16,15 @@ function RecipeComments(props) {
     const recipe: IRecipeDB = useSelector((state) => state.recipePage.value)
 
 
-    useEffect(() => async () => {
-        const resp: IResponse = await requestModel('https://' + process.env.VERCEL_URL + `${urlComments}/?id=${recipe.id}`, { method: 'GET' })
+    console.log('ssssssssssssssssssssssssssssssssssssssssssss1')
+    useEffect(() => {
+        console.log('ssssssssssssssssssssssssssssssssssssssssssss2')
+        requestModel(`${urlComments}/?id=${recipe.id}`, { method: 'GET' })
             .then(res => res.json())
-
-        setComments(resp.data)
+            .then(resp => {
+                setComments(resp.data)
+            })
+            .catch(err => console.log(err))
     }, [])
 
 
