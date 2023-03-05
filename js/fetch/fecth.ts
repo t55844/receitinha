@@ -13,7 +13,7 @@ export function requestModel(url: string, optons: { method: string, body?: any, 
         body,
     })
         .then(res => res)
-        .catch(erro => menssages.emiteMensageError(`erro com o servidor tente novamente mais tarde`))
+        .catch(erro => menssages.emiteMensageError(`erro com o servidor tente novamente mais tarde: ${erro}`))
 
 }
 
