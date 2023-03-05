@@ -21,8 +21,9 @@ import { RequiredStringSchema } from "yup/lib/string";
 import { Dispatch } from "redux";
 import { FieldValues } from "react-hook-form/dist/types";
 import { IResponse } from "../../pages/api/recipes/recipes";
-import { SetStateAction } from "react";
+import { SetStateAction, useState } from "react";
 import { menssages } from "../../js/interface_and_ultils/menssages";
+import LinearProgress from "@mui/material/LinearProgress";
 
 
 const stylesInputs = {
@@ -70,7 +71,7 @@ const schema: OptionalObjectSchema<{
 
 
 const Register = (props: { outherOption: SetStateAction<Boolean> }) => {
-
+    const [loading, setLoading] = useState(false);
     const outherOption = props.outherOption
     const dispatch: Dispatch = useDispatch();
     const router: NextRouter = useRouter();
@@ -88,6 +89,7 @@ const Register = (props: { outherOption: SetStateAction<Boolean> }) => {
     const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
     const onSubmit: SubmitHandler<IUserRegister> = async (data: { email: string, name: string, password: string, confirmPassword: string }) => {
+        setLoading(true);
         delete data.confirmPassword
         const result: IResponse = await fetch(urlRegister, { method: 'POST', body: JSON.stringify(data) })
             .then(res => res.json())
@@ -95,8 +97,10 @@ const Register = (props: { outherOption: SetStateAction<Boolean> }) => {
             reset()
             dispatch(setUserData(result.data))
             router.push('/')
+            setLoading(false)
         } else {
             menssages.emiteMensageError(result.msg)
+            setLoading(false)
         }
 
 
@@ -134,6 +138,12 @@ const Register = (props: { outherOption: SetStateAction<Boolean> }) => {
                     {errors.confirmPassword ? <WarningBoxText text={errors.confirmPassword.message} /> : null}
 
                     <PasswordInput name='confirmPassword' />
+
+                    {
+                        loading === true ?
+                            <LinearProgress sx={{ width: '80%' }} color='primary' /> :
+                            null
+                    }
 
                     <Button
                         title="submit-button"

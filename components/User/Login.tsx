@@ -16,7 +16,8 @@ import { menssages } from "../../js/interface_and_ultils/menssages";
 import { Dispatch } from "redux";
 import { UseFormReturn } from "react-hook-form/dist/types";
 import { IResponse } from "../../pages/api/recipes/recipes";
-import { SetStateAction } from "react";
+import { SetStateAction, useState } from "react";
+import LinearProgress from "@mui/material/LinearProgress";
 
 
 const stylesInputs = {
@@ -31,6 +32,8 @@ const stylesInputs = {
 
 
 const Login = (props: { outherOption: SetStateAction<Boolean> }) => {
+
+    const [loading, setLoading] = useState(false);
 
     const outherOption = props.outherOption
     const router: NextRouter = useRouter();
@@ -48,18 +51,21 @@ const Login = (props: { outherOption: SetStateAction<Boolean> }) => {
     const { reset, control, handleSubmit, formState: { errors }, getValues } = methods
 
     const onSubmit: SubmitHandler<IUserLogin> = async data => {
+        setLoading(true)
         const result: IResponse = await fetch(urlLogin, { method: 'POST', body: JSON.stringify(data) })
             .then(res => res.json())
         if (result.error === false) {
             reset()
             dispatch(setUserData(result.data))
             router.reload()
-
+            setLoading(false)
         } else {
+            setLoading(false)
             menssages.emiteMensageError('Não foi possivel entrar email ou senha estão errados')
 
         }
     };
+
     return (
         <div className={style.formBox}>
             <FormProvider {...methods}>
@@ -74,6 +80,11 @@ const Login = (props: { outherOption: SetStateAction<Boolean> }) => {
                     />
                     <PasswordInput name='password' />
 
+                    {
+                        loading === true ?
+                            <LinearProgress sx={{ width: '80%' }} color='primary' /> :
+                            null
+                    }
                     <Button
                         title="submit-button"
                         sx={{ margin: "1.5rem auto" }}
