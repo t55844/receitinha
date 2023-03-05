@@ -17,7 +17,7 @@ function RecipeComments(props) {
 
 
     useEffect(() => async () => {
-        const resp: IResponse = await requestModel(`${urlComments}/?id=${recipe.id}`, { method: 'GET' })
+        const resp: IResponse = await requestModel('https://' + process.env.VERCEL_URL + `${urlComments}/?id=${recipe.id}`, { method: 'GET' })
             .then(res => res.json())
 
         setComments(resp.data)

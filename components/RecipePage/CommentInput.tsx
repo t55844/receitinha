@@ -48,7 +48,7 @@ export default function CommentInput(props: {
 
 
     async function onSubmit(data: { comment: ICommentForm }) {
-        console.log(recipe.id)
+
         const text: string = data.comment
         const comment = {
             name: user.name,
