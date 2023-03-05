@@ -16,9 +16,7 @@ function RecipeComments(props) {
     const recipe: IRecipeDB = useSelector((state) => state.recipePage.value)
 
 
-    console.log('ssssssssssssssssssssssssssssssssssssssssssss1')
     useEffect(() => {
-        console.log('ssssssssssssssssssssssssssssssssssssssssssss2')
         requestModel(`${urlComments}/?id=${recipe.id}`, { method: 'GET' })
             .then(res => res.json())
             .then(resp => {

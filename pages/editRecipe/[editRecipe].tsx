@@ -16,9 +16,9 @@ export default (props) => {
 
 
     return (
-        <>
+        <div style={{}}>
             <Form recipe={recipeData} />
             <Snackbars />
-        </>
+        </div>
     );
 };
