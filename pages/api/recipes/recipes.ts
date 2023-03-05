@@ -55,6 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     else if (req.method === "PUT" && !req.query.like) {
         const recipe: IRecipeForm = JSON.parse(req.body)
+        console.log('ssssssssssssssssssssssssssss', recipe)
         const upload: string = await uploadImage(recipe.img)
         if (typeof upload !== "string") {
             const response: IResponse = { error: true, msg: 'Falha ao tentar salvar a imagem' }
