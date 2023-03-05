@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import dynamic from "next/dynamic";
+import TitleOfSection from "../../components/Menu/TitleOfSection";
 const Form = dynamic(() => import("../../components/MyRecipes/Form"), {
     ssr: false,
 });
@@ -16,7 +17,8 @@ export default (props) => {
 
 
     return (
-        <div style={{}}>
+        <div>
+            <TitleOfSection text="Alterar Receita" />
             <Form recipe={recipeData} />
             <Snackbars />
         </div>

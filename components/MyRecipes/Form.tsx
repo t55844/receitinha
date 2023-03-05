@@ -97,7 +97,7 @@ export default function Form(props: { recipe?: IRecipeDB }) {
     return (
         < FormProvider {...methods} >
             <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
-                <div className={formStyle.formContainer}>
+                <div style={{ maxWidth: "800px" }} className={formStyle.formContainer}>
 
                     {errors.name ? <WarningBoxText text={errors.name.message} /> : null}
                     <Controller

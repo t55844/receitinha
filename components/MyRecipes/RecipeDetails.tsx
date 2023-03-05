@@ -53,7 +53,7 @@ export default function RecipeDetails(props: { recipe: IRecipeDB }) {
 
     return (
         <div >
-            <Card sx={{ width: '100%', maxWidth: '300px' }}>
+            <Card sx={{ width: '100%', maxWidth: '300px', marginBottom: '1.5rem' }}>
                 <CardHeader
                     action={
                         <Typography variant='body1' >
@@ -85,12 +85,6 @@ export default function RecipeDetails(props: { recipe: IRecipeDB }) {
                     </div>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <ShareIcon />
-                    </IconButton>
                     <ExpandMore
 
                         expand={expanded}
