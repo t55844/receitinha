@@ -12,12 +12,12 @@ export async function getServerSideProps(ctx) {
     const token = nookies.get(ctx)['receitinha-token']
 
     if (token) {
-        const url = new URL(urlAuth, window.location.href)
-        const resToken = await requestModel(url, { method: 'GET', headers: { 'Authorization': token } })
+
+        const resToken = await requestModel('https://' + process.env.VERCEL_URL + urlAuth, { method: 'GET', headers: { 'Authorization': token } })
             .then(res => res.json())
 
         if (resToken.error === false) {
-            const data = await fetch(urlMyRecipes(resToken.payload.email))
+            const data = await fetch('https://' + process.env.VERCEL_URL + urlMyRecipes(resToken.payload.email))
                 .then(res => res.json())
 
             return { props: { data: data } }
