@@ -11,7 +11,12 @@ import { prisma } from '../../js/prisma/prismaDb';
 
 export async function getServerSideProps() {
 
-    const recipes: IRecipeDB[] = await prisma.Recipes.findMany();
+    const recipes: IRecipeDB[] = await prisma.Recipes.findMany({
+        include: {
+            comments: true,
+            Likes: true
+        }
+    });
     const names: string[] = recipes.map(recipe => recipe.name)
 
     prisma.$disconnect();

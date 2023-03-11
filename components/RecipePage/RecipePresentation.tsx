@@ -12,7 +12,7 @@ import Chip from '@mui/material/Chip';
 
 function RecipePresentation(props: { recipe: IRecipeDB }) {
     const { recipe } = props
-    const [like, setLike] = React.useState<number>(recipe.Likes.length);
+    const [like, setLike] = React.useState<number>(recipe.Likes?.length | 0);
 
     return (
         <div style={{ width: '100%', margin: '2.5% auto', display: 'flex', flexDirection: 'column', alignItems: 'center', background: colors.opacity, borderBottom: `3px solid ${colors.primary}` }}>

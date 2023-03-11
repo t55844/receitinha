@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import Snackbars from '../../components/feedback/Snackbar'
 import MoreDetailsRecipes from '../../components/RecipePage/MoreDetailsRecipes'
 
 
@@ -15,6 +16,7 @@ const idRecipe = (props) => {
         return (
             <>
                 <MoreDetailsRecipes recipe={recipe} />
+                <Snackbars />
             </>
         )
     }
