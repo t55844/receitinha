@@ -56,6 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     else if (req.method === "PUT" && !req.query.like) {
         const recipe: IRecipeForm = JSON.parse(req.body)
         let upload: string = ''
+
         if (/data:image/.test(recipe.img)) {
             upload = await uploadImage(recipe.img)
         }
@@ -65,7 +66,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             return res.status(400).json(response)
         } else {
-            recipe.img = upload
+
+            if (upload.length > 0) { recipe.img = upload }
             const resp: string = await updateRecipe(recipe.id, recipe)
             if (resp === false) {
                 const response: IResponse = { error: true, msg: 'Nao foi possivel encontrar a receita' }

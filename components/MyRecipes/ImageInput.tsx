@@ -25,6 +25,7 @@ const ImageInput = (props: IImageInput) => {
     const [alt, setAlt] = useState<string>(getValues('imgAlt'))
     const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
 
+
     return (
         <div style={{ ...styleInput, background: `${colors.primaryLigth}`, borderRadius: '8px', padding: '18px' }}>
             <Typography

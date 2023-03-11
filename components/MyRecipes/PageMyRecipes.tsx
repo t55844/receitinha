@@ -5,10 +5,13 @@ import { useDispatch } from 'react-redux';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Form from './Form';
 import MyRecipesList from './MyRecipeList';
 import TitleOfSection from '../Menu/TitleOfSection';
 import { Dispatch } from 'redux';
+import dynamic from 'next/dynamic';
+const Form = dynamic(() => import("../../components/MyRecipes/Form"), {
+    ssr: false,
+});
 
 interface TabPanelProps {
     children?: React.ReactNode;
