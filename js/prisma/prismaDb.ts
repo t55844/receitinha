@@ -93,9 +93,7 @@ const updatePrisma = (model: string) => async (id: number, data: any): Promise<a
         })
         return response
     } catch (error) {
-        if (error.meta.cause == 'Record to update not found.') {
-            return false
-        }
+        return false
     }
 
 }
