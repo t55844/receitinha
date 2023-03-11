@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller, FormProvider } from "react-hook-form";
-import { toBase64 } from "../../js/interface_and_ultils/converters";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { menssages } from "../../js/interface_and_ultils/menssages";
@@ -62,6 +61,7 @@ export default function Form(props: { recipe?: IRecipeDB }) {
 
     let recipe = props.recipe
 
+    const [base64Img, setBase64Img] = useState<string>('');
     const dispatch: Dispatch<AnyAction> = useDispatch()
     const user: { name: string, email: string } = useSelector((state) => state.user.value)
     const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
@@ -73,8 +73,8 @@ export default function Form(props: { recipe?: IRecipeDB }) {
     const { control, handleSubmit, getValues, setValue, reset, formState: { errors } } = methods
 
     const onSubmit = async (data: IRecipeForm) => {
-        const base64 = await toBase64(data.img[0])
-        data.img = base64
+        if (base64Img.length !== 0) { data.img = base64Img; }
+
 
         let res: IResponse
 
@@ -96,7 +96,14 @@ export default function Form(props: { recipe?: IRecipeDB }) {
     return (
         < FormProvider {...methods} >
             <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
-                <div style={{ maxWidth: "800px", margin: '0 auto', display: "flex", justifyContent: "space-around", alignItems: 'center', flexDirection: 'column' }} className={formStyle.formContainer}>
+                <div style={{
+                    maxWidth: '800px',
+                    margin: '0px auto',
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    flexDirection: 'column'
+                }} className={formStyle.formContainer}>
 
                     {errors.name ? <WarningBoxText text={errors.name.message} /> : null}
                     <Controller
@@ -168,7 +175,7 @@ export default function Form(props: { recipe?: IRecipeDB }) {
                     />
 
                     {errors.img ? <WarningBoxText text={errors.img.message} /> : null}
-                    <ImageInput styleInput={styleInput} />
+                    <ImageInput styleInput={styleInput} setBase64img={setBase64Img} />
 
                     <Button
                         title="submit-button"

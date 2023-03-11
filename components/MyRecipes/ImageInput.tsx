@@ -8,6 +8,7 @@ import Image from 'next/future/image';
 import { colors } from '../MaterialUI/theme';
 import { CldImage } from 'next-cloudinary';
 import { ICssInputForm } from './Form';
+import { toBase64 } from '../../js/interface_and_ultils/converters';
 
 interface ICurrentImage {
     alt: string,
@@ -15,11 +16,13 @@ interface ICurrentImage {
 }
 interface IImageInput {
     styleInput: ICssInputForm
+    setBase64img(base64: string): void
 }
 const ImageInput = (props: IImageInput) => {
-    const { styleInput } = props
+    const { styleInput, setBase64img } = props
     const { register, getValues } = useFormContext()
-    const [currentImage, setCurrentImage] = useState<ICurrentImage>({ alt: '', url: getValues('img') })
+    const [url, setUrl] = useState<string>(getValues('img'))
+    const [alt, setAlt] = useState<string>(getValues('imgAlt'))
     const submitMethod: 'create' | 'update' = useSelector((state) => state.recipeGeren.submitMethod)
 
     return (
@@ -31,14 +34,14 @@ const ImageInput = (props: IImageInput) => {
             </Typography>
             <input
                 {...register('img')}
-                onInputCapture={e => {
+                onChange={e => {
 
                     const reader = new FileReader()
                     reader.readAsDataURL(e.target.files[0])
-                    reader.onload = event => {
-
-                        setCurrentImage({ alt: e.target.files[0].name, url: event.target.result })
-
+                    reader.onload = async event => {
+                        setUrl(event.target.result)
+                        const base64 = await toBase64(e.target.files[0])
+                        setBase64img(base64)
                     }
                 }}
 
@@ -51,9 +54,9 @@ const ImageInput = (props: IImageInput) => {
             />
 
             {
-                submitMethod === 'update' && currentImage.url === '' && getValues('img') !== '' && getValues('img').split('').slice(-4).join('') !== '.jpg' ?
-                    <CldImage src={getValues('img')} width={300} height={300} /> :
-                    < Image style={{ background: 'white', padding: '18px' }} alt={currentImage.alt} src={currentImage.url} width={300} height={300} />
+                submitMethod === 'update' && getValues('img') !== '' && !/\.jpg/.test(getValues('img')) ?
+                    <CldImage src={url} width={300} height={300} /> :
+                    < Image style={{ background: 'white', padding: '18px' }} alt={alt} src={url} width={300} height={300} />
 
             }
 
