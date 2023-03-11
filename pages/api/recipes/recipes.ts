@@ -69,7 +69,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const resp: string = await updateRecipe(recipe.id, recipe)
             if (resp === false) {
                 const response: IResponse = { error: true, msg: 'Nao foi possivel encontrar a receita' }
-
                 return res.status(400).json(response)
 
             }

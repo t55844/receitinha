@@ -89,7 +89,7 @@ export default function Form(props: { recipe?: IRecipeDB }) {
             menssages.emiteMensageSuccess('Receita envida e Salva com successo')
             dispatch(recipesReq(res));
         } else {
-            menssages.emiteMensageError('Ouve um erro e não foi possivel salvar a receita')
+            menssages.emiteMensageError(res.msg ? res.msg : 'Ouve um erro e não foi possivel salvar a receita')
         }
     };
 

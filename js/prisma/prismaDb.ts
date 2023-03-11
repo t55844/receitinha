@@ -83,6 +83,7 @@ export const createRecipe = async (recipe: IRecipeForm): Promise<IRecipeDB> => {
 
 
 const updatePrisma = (model: string) => async (id: number, data: any): Promise<any> => {
+    console.log(data)
     try {
 
         const response = await prisma[model].update({
@@ -93,6 +94,7 @@ const updatePrisma = (model: string) => async (id: number, data: any): Promise<a
         })
         return response
     } catch (error) {
+        console.log(error)
         return false
     }
 
