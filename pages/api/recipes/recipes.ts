@@ -57,7 +57,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const recipe: IRecipeForm = JSON.parse(req.body)
         let upload: string = ''
         if (/data:image/.test(recipe.img)) {
-
             upload = await uploadImage(recipe.img)
         }
 
