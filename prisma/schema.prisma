@@ -24,7 +24,7 @@ model Users {
 
 model Likes {
   usersId   Int
-  recipesId Int
+  recipesId Int @unique
 
   User   Users   @relation(fields: [usersId], references: [id])
   Recipe Recipes @relation(fields: [recipesId], references: [id])

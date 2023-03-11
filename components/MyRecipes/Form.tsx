@@ -54,14 +54,13 @@ const schema: RequiredObjectSchema<{
         img: yup.mixed()
             .required('precisa colocar uma foto aqui')
             .test('Existe Arquivo', 'Voce precisa adicionar um arquivo aqui', value => value.length > 0)
-            .test('tamanho', 'O arquivo e muito grande', value => value && value.length > 0 && value[0].size <= 2000000)
     }).required('precisa de uma foto ou imagem')
 
 
 export default function Form(props: { recipe?: IRecipeDB }) {
 
 
-    const recipe = props.recipe
+    let recipe = props.recipe
 
     const dispatch: Dispatch<AnyAction> = useDispatch()
     const user: { name: string, email: string } = useSelector((state) => state.user.value)
@@ -97,7 +96,7 @@ export default function Form(props: { recipe?: IRecipeDB }) {
     return (
         < FormProvider {...methods} >
             <form aria-label='formulario envio de receita' onSubmit={handleSubmit(onSubmit)}>
-                <div style={{ maxWidth: "800px", margin: '0 auto', display: "flex", justifyContent: "space-around", alignItems: 'center' }} className={formStyle.formContainer}>
+                <div style={{ maxWidth: "800px", margin: '0 auto', display: "flex", justifyContent: "space-around", alignItems: 'center', flexDirection: 'column' }} className={formStyle.formContainer}>
 
                     {errors.name ? <WarningBoxText text={errors.name.message} /> : null}
                     <Controller
