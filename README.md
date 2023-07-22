@@ -2,13 +2,13 @@
 
 As tecnologias usadas são:
 
- # *Nextjs (para o front e back end)
+  *Nextjs (para o front e back end)
   
- # *Prisma (como ORM para acessa o banco de dados)
+  *Prisma (como ORM para acessa o banco de dados)
   
- # *PlanetScale ( como banco de dadosSQL na nuvem)
+  *PlanetScale ( como banco de dadosSQL na nuvem)
 
- # *Cloudinary ( para guardar as imagens)
+  *Cloudinary ( para guardar as imagens)
   
 
 Suas funções são mostras salvar e compartilhar receitas das pessoas.
