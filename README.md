@@ -1,4 +1,6 @@
-# Esse e um projeto simples, baseado em sites de receitas.
+# Esse e um projeto simples, baseado em sites de receitas. 
+
+https://receitinha.vercel.app/
 
 As tecnologias usadas são:
 
