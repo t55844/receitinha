@@ -10,7 +10,6 @@ import Snackbars from '../components/feedback/Snackbar'
 import TitleOfSection from '../components/Menu/TitleOfSection'
 import nookies from 'nookies'
 import { prisma } from '../js/prisma/prismaDb'
-console.log(env("DATABASE_URL"))
 
 export async function getServerSideProps(ctx) {
   // Parse
